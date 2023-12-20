@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  background-image: url("/background.jpg");
+  background-position: center;
+  background-size: cover;
+  border-right: 15px solid;
+  border-left: 15px solid;
+  border-image: url("/pageBorder.png") 30 fill;
+  box-shadow: inset black 6px 2px 25px;
+  padding: 15px;
+}
