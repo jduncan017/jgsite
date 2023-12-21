@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-around;
   background-color: #f2eee2;
-  margin: 20px;
+  margin: 10px 0 20px;
   color: black;
   height: fit-content;
-  box-shadow: 5px 5px 3px black;
+  box-shadow: 5px 5px 10px black;
 }
 
 .text-box__section {
