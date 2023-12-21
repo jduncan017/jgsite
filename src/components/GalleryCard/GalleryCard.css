@@ -18,7 +18,7 @@
 .gallery-card__image-container:hover {
   cursor: pointer;
   opacity: 0.9;
-  filter: brightness(2) contrast(0.5) sepia(0.3);
+  filter: brightness(1.75) contrast(0.5) sepia(0.3);
 }
 
 .gallery-card__image-container::after {
