@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  padding: 25px 25px 20px;
+  background-image: url("/footerBackground.png");
+  color: white;
+  font-size: 10px;
+  line-height: 1.2rem;
+}
+
+.footer__info {
+  padding-left: 10px;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer__logo {
+  height: auto;
+  width: 220px;
+}
+
+.footer__text {
+  margin: 0;
+  line-height: 1.4rem;
+  font-weight: 400;
+}
+
+.footer__left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-between;
+}

@@ -1,0 +1,103 @@
+.contact-page__main {
+  display: flex;
+}
+
+.contact-page__contact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-image: url("/contact-background.png");
+  background-position: center;
+  background-size: cover;
+  padding: 40px;
+}
+
+.contact-page__title {
+  align-self: center;
+  font-size: 48px;
+  color: #efe4d3;
+  letter-spacing: 3px;
+  margin: 0;
+  padding: 10px;
+  width: 710px;
+  background-color: #191919;
+  text-align: center;
+  box-sizing: border-box;
+  border-top: solid #4f4f4f 4px;
+  border-left: solid #4f4f4f 4px;
+  border-right: solid #4f4f4f 4px;
+  border-radius: 8px 8px 0 0;
+}
+
+.form__wrapper {
+  position: relative;
+  padding: 20px 50px;
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  background-color: #f2eee2;
+  text-align: center;
+  border-left: solid #4f4f4f 4px;
+  border-right: solid #4f4f4f 4px;
+  border-bottom: solid #4f4f4f 4px;
+  align-self: center;
+  border-radius: 0 0 8px 8px;
+}
+
+.form__title {
+  font-size: 32px;
+  margin: 5px 0 2px;
+}
+
+.form__description {
+  line-height: 1.2rem;
+  font-weight: 400;
+  max-width: 400px;
+  margin: 0;
+  align-self: center;
+}
+
+.form__description::after {
+  content: "";
+  display: block;
+  height: 0.5px;
+  width: 400px;
+  margin: 7px 0;
+  align-self: center;
+  border-bottom: black dotted 1.5px;
+}
+
+.form__accent {
+  position: absolute;
+}
+
+.accent__top-left {
+  top: 22px;
+  left: 22px;
+}
+
+.accent__top-right {
+  top: 22px;
+  right: 22px;
+  transform: rotate(90deg);
+}
+
+.accent__bottom-left {
+  bottom: 22px;
+  left: 22px;
+  transform: rotate(270deg);
+}
+
+.accent__bottom-right {
+  bottom: 22px;
+  right: 22px;
+  transform: rotate(180deg);
+}
+
+.form__accent-pen {
+  position: absolute;
+  bottom: -90px;
+  right: -40px;
+}

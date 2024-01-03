@@ -1,0 +1,45 @@
+.text-box {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f2eee2;
+  margin: 10px 0 20px;
+  color: black;
+  height: fit-content;
+}
+
+.text-box__section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 20%;
+  align-items: center;
+}
+
+.text-box__divider {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100px;
+  background-color: #000;
+  align-self: center;
+}
+
+.text-box__section_title {
+  font-size: 23px;
+  margin: 10px 0 7px;
+  font-weight: 400;
+}
+
+.text-box__section_title::after {
+  content: "";
+  display: block;
+  border: solid 0.5px black;
+  margin-top: 7px;
+  align-self: center;
+}
+
+.text-box__section_description {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0 5px 10px;
+}

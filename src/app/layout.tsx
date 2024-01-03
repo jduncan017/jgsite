@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { enriqueta } from "@/app/fonts";
 import "./globals.css";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/app/ui/Header/Header";
+import Footer from "@/app/ui/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "John Gerard Woodworking",
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} layout`}>
+      <body className={`${enriqueta.className} layout`}>
         <Header></Header>
         {children}
         <Footer></Footer>

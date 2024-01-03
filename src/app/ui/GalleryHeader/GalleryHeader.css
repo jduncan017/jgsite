@@ -1,0 +1,48 @@
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  height: fit-content;
+  margin-bottom: 15px;
+}
+
+.gallery-header__about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("/gallery-header-about-background.png");
+  height: 380px;
+  width: 100%;
+  color: #efe4d3;
+  padding: 0 22px;
+  text-align: center;
+}
+
+.gallery-header__title {
+  margin: 25px 0 0;
+  font-size: 32px;
+}
+
+.gallery-header__description {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4rem;
+  font-weight: 400;
+  padding: 10px 10px;
+  width: 600px;
+}
+
+.gallery-header__image {
+  height: 380px;
+  width: auto;
+}
+
+.gallery-header__button {
+  margin: 15px 0 27.5px;
+  width: 175px;
+  height: 35px;
+  color: white;
+  font-size: 16px;
+}
