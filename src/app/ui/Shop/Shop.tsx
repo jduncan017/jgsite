@@ -5,18 +5,21 @@ import imageCards from "@/app/lib/constants";
 import Link from "next/link";
 
 type ShopProps = {
-  displayButtons: boolean;
+  isHomePage: boolean;
   limit?: number;
 };
 
-const Shop: React.FC<ShopProps> = ({ displayButtons, limit }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
   const basePath = "/ImageGallery";
   const cardsToDisplay = limit ? imageCards.slice(0, limit) : imageCards;
 
   return (
     <div className="shop">
-      <div className="shop__title-banner">WOODSHOP GALLERY</div>
-      <div className="shop__gallery">
+      <div
+        className={
+          isHomePage ? "shop__gallery shop__gallery-homepage" : "shop__gallery"
+        }
+      >
         {cardsToDisplay.map((card, index) => (
           <GalleryCard
             key={index}
@@ -26,9 +29,7 @@ const Shop: React.FC<ShopProps> = ({ displayButtons, limit }) => {
           />
         ))}
       </div>
-      <div
-        className={displayButtons ? "shop__buttons" : "shop__buttons_hidden"}
-      >
+      <div className={isHomePage ? "shop__buttons" : "shop__buttons_hidden"}>
         <Link href="/woodshop" className="hidden__button-container">
           <button
             className={`shop__button global__button global__box-shadow ${enriqueta.className}`}

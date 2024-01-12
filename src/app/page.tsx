@@ -3,6 +3,7 @@ import TextBox from "@/app/ui/TextBox/TextBox";
 import Shop from "@/app/ui/Shop/Shop";
 import "./page.css";
 import CallToActionSection from "@/app/ui/CallToActionSection/CallToActionSection";
+import TitleBanner from "./ui/TitleBanner/titleBanner";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
         <div className="home__call-to-action-section">
           <CallToActionSection></CallToActionSection>
         </div>
-        <Shop displayButtons={true} limit={8}></Shop>
+        <TitleBanner />
+        <Shop isHomePage={true} limit={8}></Shop>
       </main>
     </>
   );

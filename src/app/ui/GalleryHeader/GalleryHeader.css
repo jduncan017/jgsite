@@ -1,48 +1,158 @@
 .gallery-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 25px;
-  height: fit-content;
+  gap: 20px;
+  height: 40vw;
+  max-height: 450px;
   margin-bottom: 15px;
 }
 
 .gallery-header__about {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background-image: url("/gallery-header-about-background.png");
-  height: 380px;
   width: 100%;
   color: #efe4d3;
-  padding: 0 22px;
+  padding: 0 30px;
   text-align: center;
 }
 
 .gallery-header__title {
   margin: 25px 0 0;
-  font-size: 32px;
+  font-size: 30px;
+  font-weight: 400;
 }
 
 .gallery-header__description {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.4rem;
+  font-size: 16px;
+  line-height: 1.6rem;
   font-weight: 400;
-  padding: 10px 10px;
-  width: 600px;
+  padding-top: 10px;
+  max-width: 450px;
 }
 
 .gallery-header__image {
-  height: 380px;
+  height: 100%;
   width: auto;
 }
 
 .gallery-header__button {
-  margin: 15px 0 27.5px;
-  width: 175px;
-  height: 35px;
+  margin: 10px 0 25px;
   color: white;
   font-size: 16px;
+  padding: 7px 40px;
+}
+
+@media (min-width: 320px) and (max-width: 1130px) {
+  .gallery-header {
+    max-height: none;
+    min-height: 40vw;
+  }
+
+  .gallery-header__title {
+    margin: 20px 0 0;
+    font-size: 2.6vw;
+  }
+
+  .gallery-header__description {
+    font-size: 1.4vw;
+    line-height: 1.4rem;
+  }
+
+  .gallery-header__button {
+    font-size: 1.5vw;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 910px) {
+  .gallery-header {
+    gap: 14px;
+    margin-bottom: 5px;
+  }
+
+  .gallery-header__about {
+    padding: 0 20px;
+  }
+
+  .gallery-header__title {
+    margin: 15px 0 0;
+    font-size: 2.6vw;
+  }
+
+  .gallery-header__description {
+    font-size: 1.5vw;
+    line-height: 1.1rem;
+  }
+
+  .gallery-header__button {
+    font-size: 1.6vw;
+    margin: 10px 0 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  .gallery-header {
+    margin-bottom: 5px;
+    height: 425px;
+    height: fit-content;
+  }
+
+  .gallery-header__title {
+    margin: 15px 0 0;
+  }
+
+  .gallery-header__image {
+    display: none;
+  }
+
+  .gallery-header__description {
+    padding-top: 5px;
+    font-size: 15px;
+    line-height: 1.4rem;
+    margin-top: 15px;
+  }
+
+  .gallery-header__button {
+    margin: 20px 0;
+  }
+}
+
+@media (min-width: 440px) and (max-width: 720px) {
+  .gallery-header__about {
+    padding: 0 20px;
+  }
+
+  .gallery-header__title {
+    font-size: 26px;
+  }
+
+  .gallery-header__description {
+    font-size: 15px;
+    line-height: 1.4rem;
+  }
+
+  .gallery-header__button {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 440px) {
+  .gallery-header__about {
+    padding: 0 14px;
+  }
+
+  .gallery-header__title {
+    font-size: 5.8vw;
+  }
+
+  .gallery-header__description {
+    font-size: 4vw;
+    line-height: 1.2rem;
+  }
+
+  .gallery-header__button {
+    font-size: 14px;
+  }
 }

@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import "./ContactForm.css";
 import Image from "next/image";
 import referenceImage from "@/../public/guitar.jpg";
+import { cardo } from "@/app/fonts";
 
 interface FormDataInterface {
   subject: string;
@@ -61,7 +62,10 @@ const ContactForm = () => {
           </select>
 
           {/* Name Input */}
-          <label className="contact-form__label" htmlFor="name">
+          <label
+            className={`contact-form__label ${cardo.className}`}
+            htmlFor="name"
+          >
             Name:
           </label>
           <input
@@ -71,7 +75,7 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="contact-form__input"
+            className={`contact-form__input ${cardo.className}`}
             placeholder="Paul Bunyan"
           />
 
@@ -86,7 +90,7 @@ const ContactForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="contact-form__input"
+            className={`contact-form__input ${cardo.className}`}
             placeholder="(123) 456-7890"
           />
 
@@ -101,7 +105,7 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="contact-form__input"
+            className={`contact-form__input ${cardo.className}`}
             placeholder="paulbunyan@lumberco.com"
           />
         </div>
@@ -117,18 +121,20 @@ const ContactForm = () => {
         </div>
       </div>
 
-      <label className="contact-form__label" htmlFor="message">
-        Message:
-      </label>
-      <textarea
-        id="message"
-        name="message"
-        rows={6}
-        value={formData.message}
-        onChange={handleChange}
-        required
-        className="contact-form__message"
-      ></textarea>
+      <div className="contact-form__message-container">
+        <label className="contact-form__label" htmlFor="message">
+          Message:
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows={6}
+          value={formData.message}
+          onChange={handleChange}
+          required
+          className={`contact-form__message ${cardo.className}`}
+        ></textarea>
+      </div>
 
       {/* Submit Button */}
       <button type="submit" className="contact-form__submit global__button">

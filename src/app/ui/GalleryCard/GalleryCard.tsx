@@ -15,7 +15,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   imagePath,
 }) => {
   return (
-    <div className="gallery-card">
+    <div className="gallery-card global__box_shadow">
       <div className="gallery-card__image-container">
         <Image
           className="gallery-card__image"

@@ -7,3 +7,15 @@
   box-shadow: inset black 5px 5px 10px;
   padding: 40px;
 }
+
+@media (min-width: 480px) and (max-width: 910px) {
+  .woodshop__main {
+    padding: 30px 15px 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .woodshop__main {
+    padding: 20px 0 0;
+  }
+}

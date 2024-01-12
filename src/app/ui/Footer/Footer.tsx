@@ -6,20 +6,18 @@ import logo from "@/../public/logo-white 1.png";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer__left-column">
-        <Image
-          src={logo}
-          alt="John Gerard Logo"
-          className="footer__logo"
-        ></Image>
-        <div className="footer__info">
-          <h2 className="footer__text">© 2021 John Gerrard WoodWork.</h2>
-          <h2 className="footer__text">Rochester, NY</h2>
-        </div>
-      </div>
+      <p className="footer__text">
+        © 2021 John Gerrard WoodWork.
+        <br />
+        Rochester, NY
+      </p>
+      <Image src={logo} alt="John Gerard Logo" className="footer__logo"></Image>
       <div className="footer__social">
-        <h2 className="footer__text">Follow us:</h2>
-        <h2 className="footer__text">Instagram</h2>
+        <p className="footer__text">
+          Follow us:
+          <br />
+          Instagram
+        </p>
       </div>
     </div>
   );

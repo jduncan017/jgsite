@@ -2,7 +2,7 @@ import React from "react";
 import "./page.css";
 import Image from "next/image";
 import contactBorder from "@/../public/contact-border.png";
-import contactAccent from "@/../public/contact-form-accent.svg";
+import formAccent from "@/../public/form-accent.png";
 import accentPen from "@/../public/contact-accent-pen.png";
 import { cardo } from "../fonts";
 import ContactForm from "../ui/ContactForm/ContactForm";
@@ -29,28 +29,28 @@ const contactPage = () => {
           </p>
           <ContactForm />
           <Image
-            src={contactAccent}
+            src={formAccent}
             alt="accent for contact form"
             height={90}
             width={90}
             className="form__accent accent__top-left"
           ></Image>
           <Image
-            src={contactAccent}
+            src={formAccent}
             alt="accent for contact form"
             height={90}
             width={90}
             className="form__accent accent__top-right"
           ></Image>
           <Image
-            src={contactAccent}
+            src={formAccent}
             alt="accent for contact form"
             height={90}
             width={90}
             className="form__accent accent__bottom-left"
           ></Image>
           <Image
-            src={contactAccent}
+            src={formAccent}
             alt="accent for contact form"
             height={90}
             width={90}

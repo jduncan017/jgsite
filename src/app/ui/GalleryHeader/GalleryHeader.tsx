@@ -1,6 +1,7 @@
 import "./GalleryHeader.css";
 import Image from "next/image";
 import headerImage from "@/../public/headerImage.png";
+import TitleBanner from "../TitleBanner/titleBanner";
 import { inter, enriqueta } from "@/app/fonts";
 import Link from "next/link";
 

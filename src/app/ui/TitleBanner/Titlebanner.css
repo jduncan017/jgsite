@@ -1,0 +1,29 @@
+.title-banner {
+  background-image: url("/shop-banner.png");
+  background-size: cover;
+  margin: 10px 0 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 43px;
+  color: #efe4d3;
+  letter-spacing: 3px;
+}
+
+@media (min-width: 320px) and (max-width: 910px) {
+  .title-banner {
+    font-size: 32px;
+    margin: 0 0 15px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .title-banner {
+    text-align: center;
+    margin: 0 0 15px;
+    padding: 20px 10px;
+    letter-spacing: 2px;
+  }
+}
