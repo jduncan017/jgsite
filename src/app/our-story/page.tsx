@@ -1,9 +1,9 @@
 import React from "react";
 import "./page.css";
-import fags from "@/../public/fags.jpg";
+import fags from "@/public/fags.jpg";
 import Image from "next/image";
-import woodAccent from "@/../public/headerAccent.jpg";
-import aboutImage from "@/../public/aboutHeaderImage.jpeg";
+import woodAccent from "@/public/headerAccent.jpg";
+import aboutImage from "@/public/aboutHeaderImage.jpeg";
 
 /* --------------------------------------- */
 /*             Our Story Route             */

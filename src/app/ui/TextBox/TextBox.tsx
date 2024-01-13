@@ -1,6 +1,6 @@
 import React from "react";
 import "./TextBox.css";
-import { inter } from "@/app/fonts";
+import { inter } from "@/src/app/fonts";
 
 const TextBox = () => {
   return (

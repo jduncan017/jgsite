@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import "./ImageBanner.css";
-import bannerImage from "@/../public/main-banner.jpg";
-import fullLogoWhite from "@/../public/logo-white 1.png";
-import woodAccent from "@/../public/headerAccent.jpg";
-import { inter } from "@/app/fonts";
+import bannerImage from "@/public/main-banner.jpg";
+import fullLogoWhite from "@/public/logo-white 1.png";
+import woodAccent from "@/public/headerAccent.jpg";
+import { inter } from "@/src/app/fonts";
 import Link from "next/link";
 
 const HomePageBanner = () => {

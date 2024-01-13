@@ -59,7 +59,7 @@
 }
 
 /* shide 7th and 8th child */
-@media (min-width: 711px) and (max-width: 1200px) {
+@media (min-width: 711px) and (max-width: 1190px) {
   .shop__gallery-homepage > :nth-child(7),
   .shop__gallery-homepage > :nth-child(8) {
     display: none;

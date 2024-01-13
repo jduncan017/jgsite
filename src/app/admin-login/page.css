@@ -15,12 +15,12 @@
 
 .login-page__login-form {
   width: 60vw;
-  max-width: 600px;
+  max-width: 750px;
   align-self: center;
 }
 
 .login-page__title {
-  font-size: 34px;
+  font-size: 40px;
   color: #efe4d3;
   letter-spacing: 3px;
   margin: 0;
@@ -73,7 +73,17 @@
   transform: rotate(180deg);
 }
 
-@media (min-width: 320px) and (max-width: 800px) {
+@media (max-width: 1290px) {
+  .login-page__login-form {
+    max-width: 600px;
+  }
+
+  .login-page__title {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 800px) {
   .login-page__login {
     justify-content: flex-start;
   }
@@ -120,7 +130,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 520px) {
+@media (max-width: 520px) {
   .login-page__login-form {
     width: 80vw;
   }

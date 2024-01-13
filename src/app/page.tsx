@@ -1,9 +1,9 @@
-import HomePageBanner from "@/app/ui/ImageBanner/ImageBanner";
-import TextBox from "@/app/ui/TextBox/TextBox";
-import Shop from "@/app/ui/Shop/Shop";
+import HomePageBanner from "@/src/app/ui/ImageBanner/ImageBanner";
+import TextBox from "@/src/app/ui/TextBox/TextBox";
+import Shop from "@/src/app/ui/Shop/Shop";
 import "./page.css";
-import CallToActionSection from "@/app/ui/CallToActionSection/CallToActionSection";
-import TitleBanner from "./ui/TitleBanner/titleBanner";
+import CallToActionSection from "@/src/app/ui/CallToActionSection/CallToActionSection";
+import TitleBanner from "./ui/TitleBanner/TitleBanner";
 
 export default function Home() {
   return (

@@ -2,16 +2,17 @@
   display: flex;
   justify-content: space-around;
   background-color: #f2eee2;
-  margin: 10px 0;
+  margin: 15px 0;
   color: black;
   height: fit-content;
+  padding: 12px 0 18px;
 }
 
 .text-box__section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 20%;
+  width: 22%;
   align-items: center;
 }
 
@@ -25,7 +26,7 @@
 }
 
 .text-box__section_title {
-  font-size: 23px;
+  font-size: 28px;
   margin: 10px 0 0;
   font-weight: 400;
 }
@@ -37,24 +38,45 @@
   height: 1px;
   background-color: #000;
   align-self: center;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 .text-box__section_description {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 400;
   margin: 0 5px 10px;
 }
 
-@media (min-width: 781px) and (max-width: 999px) {
+@media (max-width: 1290px) {
+  .text-box {
+    margin-top: 10px;
+  }
+
+  .text-box__section {
+    width: 20%;
+  }
+
+  .text-box__section_title {
+    font-size: 23px;
+  }
+
+  .title__divider {
+    margin-top: 5px;
+  }
+
+  .text-box__section_description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 999px) {
   .text-box__section {
     width: 22%;
   }
 
   .text-box__section_title {
     font-size: 18px;
-    margin: 5px 0 0;
-    font-weight: 400;
+    margin-top: 5px;
   }
 
   .text-box__section_description {
@@ -63,12 +85,10 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 780px) {
+@media (max-width: 780px) {
   .text-box {
     flex-direction: column;
-    justify-content: space-around;
     margin-bottom: 20px;
-    height: fit-content;
     margin: 0 0 10px;
     background-color: transparent;
     gap: 10px;
@@ -94,10 +114,7 @@
   .text-box__section_title {
     text-align: left;
     width: 120px;
-    box-sizing: border-box;
-    font-size: 18px;
     margin: 0 0 5px;
-    padding: 0;
     width: 100%;
     text-decoration: underline;
   }

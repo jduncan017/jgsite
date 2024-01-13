@@ -1,7 +1,7 @@
 import React from "react";
 import "./page.css";
-import GalleryHeader from "@/app/ui/GalleryHeader/GalleryHeader";
-import Shop from "@/app/ui/Shop/Shop";
+import GalleryHeader from "@/src/app/ui/GalleryHeader/GalleryHeader";
+import Shop from "@/src/app/ui/Shop/Shop";
 import TitleBanner from "../ui/TitleBanner/titleBanner";
 
 /* --------------------------------------- */

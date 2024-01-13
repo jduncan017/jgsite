@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { enriqueta } from "@/app/fonts";
+import { cardo } from "@/src/app/fonts";
 import "./globals.css";
-import Header from "@/app/ui/Header/Header";
-import Footer from "@/app/ui/Footer/Footer";
+import Header from "@/src/app/ui/Header/Header";
+import Footer from "@/src/app/ui/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "John Gerard Woodworking",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${enriqueta.className} layout`}>
+      <body className={`${cardo.className} layout`}>
         <Header></Header>
         {children}
         <Footer></Footer>

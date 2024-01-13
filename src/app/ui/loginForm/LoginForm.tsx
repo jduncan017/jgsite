@@ -1,6 +1,7 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
 import "./LoginForm.css";
+import { cardo } from "../../fonts";
 
 interface FormDataInterface {
   username: string;
@@ -36,7 +37,7 @@ const ContactForm = () => {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       {/* Name Input */}
-      <label className="login-form__label" htmlFor="name">
+      <label className={`login-form__label ${cardo.className}`} htmlFor="name">
         Username:
       </label>
       <input
@@ -50,7 +51,7 @@ const ContactForm = () => {
       />
 
       {/* Password Input */}
-      <label className="login-form__label" htmlFor="phone">
+      <label className={`login-form__label ${cardo.className}`} htmlFor="phone">
         Password:
       </label>
       <input

@@ -1,7 +1,7 @@
 import React from "react";
 import "./GalleryCard.css";
 import Image from "next/image";
-import { enriqueta, cardo } from "@/app/fonts";
+import { enriqueta, cardo } from "@/src/app/fonts";
 
 interface GalleryCardProps {
   title: string;

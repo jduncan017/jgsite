@@ -4,7 +4,7 @@
   margin: 10px 0;
 }
 
-@media (min-width: 320px) and (max-width: 780px) {
+@media (max-width: 780px) {
   .section {
     display: none;
   }

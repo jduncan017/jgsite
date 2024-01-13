@@ -1,7 +1,7 @@
 import "./Shop.css";
 import GalleryCard from "../GalleryCard/GalleryCard";
-import { enriqueta } from "@/app/fonts";
-import imageCards from "@/app/lib/constants";
+import { enriqueta } from "@/src/app/fonts";
+import imageCards from "@/src/app/lib/constants";
 import Link from "next/link";
 
 type ShopProps = {

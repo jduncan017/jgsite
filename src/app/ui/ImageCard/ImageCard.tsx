@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageCard.css";
 import Image from "next/image";
-import imageFiller from "@/../public/guitar.jpg";
+import imageFiller from "@/public/guitar.jpg";
 import Link from "next/link";
 
 const ImageCard = () => {

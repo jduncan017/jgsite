@@ -1,6 +1,6 @@
 import React from "react";
 import "./TitleBanner.css";
-import { cardo } from "@/app/fonts";
+import { cardo } from "@/src/app/fonts";
 
 const TitleBanner = () => {
   return (

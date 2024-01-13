@@ -1,5 +1,6 @@
 .contact-page__main {
   display: flex;
+  min-height: 86vh;
 }
 
 .contact-page__contact {
@@ -14,17 +15,18 @@
 
 .contact__border-image {
   object-fit: cover;
+  height: auto;
 }
 
 .contact-page__title {
   align-self: center;
-  font-size: 46px;
+  font-size: 50px;
   color: #efe4d3;
   letter-spacing: 3px;
   margin: 0;
   padding: 10px;
   width: 100%;
-  max-width: 710px;
+  max-width: 850px;
   background-color: #191919;
   text-align: center;
   box-sizing: border-box;
@@ -39,7 +41,7 @@
   box-sizing: border-box;
   padding: 20px 60px;
   width: 100%;
-  max-width: 710px;
+  max-width: 850px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -54,24 +56,25 @@
 }
 
 .form__title {
-  font-size: 28px;
+  font-size: 32px;
+  line-height: 1.6rem;
   margin: 5px 0 2px;
 }
 
 .form__description {
-  line-height: 1.2rem;
+  line-height: 1.6rem;
   font-weight: 400;
-  max-width: 400px;
+  max-width: 500px;
   margin: 0;
   align-self: center;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .form__description::after {
   content: "";
   display: block;
   height: 0.5px;
-  width: 400px;
+  width: 500px;
   margin: 7px 0;
   align-self: center;
   border-bottom: black dotted 1.5px;
@@ -109,11 +112,44 @@
 
 .form__accent-pen {
   position: absolute;
-  bottom: -5vw;
-  right: -5vw;
-  max-width: 333px;
-  width: 25vw;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
   height: auto;
+}
+
+@media (min-width: 320px) and (max-width: 1290px) {
+  .contact-page__title {
+    font-size: 46px;
+    max-width: 710px;
+  }
+
+  .form__wrapper {
+    max-width: 710px;
+  }
+
+  .form__title {
+    font-size: 28px;
+  }
+
+  .form__description {
+    line-height: 1.2rem;
+    max-width: 400px;
+    font-size: 16px;
+  }
+
+  .form__description::after {
+    width: 400px;
+  }
+
+  .form__accent-pen {
+    position: absolute;
+    bottom: -5vw;
+    right: -5vw;
+    max-width: 333px;
+    width: 25vw;
+    height: auto;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 1070px) {

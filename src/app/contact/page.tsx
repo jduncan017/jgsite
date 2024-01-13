@@ -1,9 +1,9 @@
 import React from "react";
 import "./page.css";
 import Image from "next/image";
-import contactBorder from "@/../public/contact-border.png";
-import formAccent from "@/../public/form-accent.png";
-import accentPen from "@/../public/contact-accent-pen.png";
+import contactBorder from "@/public/contact-border.png";
+import formAccent from "@/public/form-accent.png";
+import accentPen from "@/public/contact-accent-pen.png";
 import { cardo } from "../fonts";
 import ContactForm from "../ui/ContactForm/ContactForm";
 

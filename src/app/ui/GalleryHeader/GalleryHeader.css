@@ -2,7 +2,7 @@
   display: flex;
   gap: 20px;
   height: 40vw;
-  max-height: 450px;
+  max-height: 550px;
   margin-bottom: 15px;
 }
 
@@ -20,17 +20,17 @@
 
 .gallery-header__title {
   margin: 25px 0 0;
-  font-size: 30px;
+  font-size: 42px;
   font-weight: 400;
 }
 
 .gallery-header__description {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.6rem;
+  font-size: 20px;
+  line-height: 2rem;
   font-weight: 400;
   padding-top: 10px;
-  max-width: 450px;
+  max-width: 650px;
 }
 
 .gallery-header__image {
@@ -41,8 +41,29 @@
 .gallery-header__button {
   margin: 10px 0 25px;
   color: white;
-  font-size: 16px;
-  padding: 7px 40px;
+  font-size: 20px;
+  padding: 10px 45px;
+}
+
+@media (min-width: 1130px) and (max-width: 1290px) {
+  .gallery-header {
+    gap: 20px;
+    max-height: 450px;
+  }
+
+  .gallery-header__title {
+    font-size: 30px;
+  }
+
+  .gallery-header__description {
+    font-size: 16px;
+    line-height: 1.6rem;
+    max-width: 450px;
+  }
+
+  .gallery-header__button {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 1130px) {

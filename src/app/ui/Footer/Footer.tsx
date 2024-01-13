@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import Image from "next/image";
-import logo from "@/../public/logo-white 1.png";
+import logo from "@/public/logo-white 1.png";
 
 const Footer = () => {
   return (

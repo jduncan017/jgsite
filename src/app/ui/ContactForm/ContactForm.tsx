@@ -2,8 +2,8 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import "./ContactForm.css";
 import Image from "next/image";
-import referenceImage from "@/../public/guitar.jpg";
-import { cardo } from "@/app/fonts";
+import referenceImage from "@/public/guitar.jpg";
+import { cardo } from "@/src/app/fonts";
 
 interface FormDataInterface {
   subject: string;
@@ -46,7 +46,10 @@ const ContactForm = () => {
     <form className="contact-form" onSubmit={handleSubmit}>
       <div className="contact-form__top-section-wrapper">
         <div className="contact-form__inputs-wrapper">
-          <label className="contact-form__label" htmlFor="subject">
+          <label
+            className={`contact-form__label ${cardo.className}`}
+            htmlFor="subject"
+          >
             Subject:
           </label>
           <select
@@ -80,7 +83,10 @@ const ContactForm = () => {
           />
 
           {/* Phone Input */}
-          <label className="contact-form__label" htmlFor="phone">
+          <label
+            className={`contact-form__label ${cardo.className}`}
+            htmlFor="phone"
+          >
             Phone:
           </label>
           <input
@@ -95,7 +101,10 @@ const ContactForm = () => {
           />
 
           {/* Email Input */}
-          <label className="contact-form__label" htmlFor="email">
+          <label
+            className={`contact-form__label ${cardo.className}`}
+            htmlFor="email"
+          >
             Email:
           </label>
           <input
@@ -110,7 +119,7 @@ const ContactForm = () => {
           />
         </div>
         <div className="contact-form__image-container">
-          <h3 className="contact-form__label">Item:</h3>
+          <h3 className={`contact-form__label ${cardo.className}`}>Item:</h3>
           <Image
             className="contact-form__reference-image"
             src={referenceImage}
@@ -122,7 +131,10 @@ const ContactForm = () => {
       </div>
 
       <div className="contact-form__message-container">
-        <label className="contact-form__label" htmlFor="message">
+        <label
+          className={`contact-form__label ${cardo.className}`}
+          htmlFor="message"
+        >
           Message:
         </label>
         <textarea
