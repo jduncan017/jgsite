@@ -3,6 +3,7 @@ import { cardo } from "@/src/app/fonts";
 import "./globals.css";
 import Header from "@/src/app/ui/Header/Header";
 import Footer from "@/src/app/ui/Footer/Footer";
+import { SelectedItemProvider } from "../contexts/selectedItemContext";
 
 export const metadata: Metadata = {
   title: "John Gerard Woodworking",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cardo.className} layout`}>
-        <Header></Header>
-        {children}
-        <Footer></Footer>
+        <SelectedItemProvider>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </SelectedItemProvider>
       </body>
     </html>
   );

@@ -1,3 +1,8 @@
+.test__background {
+  background-color: #a6a390;
+  z-index: -100;
+}
+
 a {
   text-decoration: none;
 }
@@ -20,14 +25,47 @@ body {
   min-height: 100dvh;
 }
 
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 .layout {
   background-color: black;
   max-width: 1700px;
   margin: auto;
+  position: relative;
+  z-index: -1000;
+}
+
+.global__page-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1000;
+  top: 0;
+  left: 0;
+  z-index: -200;
+}
+
+.global__component-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .global__button {
-  background-color: #2e4a4a;
+  background-color: #006363;
   border: none;
   border-radius: 3px;
   color: white;

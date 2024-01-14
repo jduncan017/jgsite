@@ -1,0 +1,115 @@
+.loading__main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-height: 88vh;
+}
+
+.loading__wrapper {
+  position: relative;
+  width: 60vw;
+  height: 35vw;
+  max-width: 1000px;
+  max-height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  background-color: #f2eee2;
+  border: solid #3c6161 4px;
+  align-self: center;
+  justify-content: space-between;
+  padding: 60px 0;
+  box-sizing: border-box;
+  z-index: -2;
+}
+
+.loading__title {
+  font-weight: 400;
+  font-size: 50px;
+  font-style: italic;
+  color: rgb(97, 97, 97);
+  text-align: center;
+  margin: 0;
+}
+
+.loading__container {
+  position: relative;
+}
+
+.loading__bar {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  transform: translatex(-50%);
+  width: 28vw;
+  height: 7vw;
+}
+
+.loading__percent {
+  font-size: 36px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translatex(-50%);
+  z-index: 2;
+  color: #f2eee2;
+}
+
+.loading__buzzsaw {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 8vw;
+  height: 8vw;
+}
+
+.loading__wood-plank_front {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  z-index: 1;
+  transform: translatex(-200px);
+}
+
+.loading__wood-plank_back {
+  position: absolute;
+  top: -16px;
+  left: 5px;
+  width: 387px;
+  z-index: -3;
+  transform: translatex(-200px);
+}
+
+.loading__logo {
+  align-self: center;
+}
+
+.loading__accent {
+  position: absolute;
+}
+
+.accent__top-left {
+  top: 18px;
+  left: 18px;
+}
+
+.accent__top-right {
+  top: 18px;
+  right: 18px;
+  transform: rotate(90deg);
+}
+
+.accent__bottom-left {
+  bottom: 18px;
+  left: 18px;
+  transform: rotate(270deg);
+}
+
+.accent__bottom-right {
+  bottom: 18px;
+  right: 18px;
+  transform: rotate(180deg);
+}

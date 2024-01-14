@@ -1,0 +1,40 @@
+.gallery-header_skeleton {
+  display: flex;
+  gap: 20px;
+  height: 40vw;
+  max-height: 550px;
+  margin-bottom: 15px;
+}
+
+.gallery-header__image_skeleton {
+  background-color: #150c01;
+  height: 100%;
+  width: 400px;
+}
+
+.gallery-header__about_skeleton {
+  background-color: #150c01;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  color: #efe4d3;
+  padding: 0 30px;
+  text-align: center;
+}
+
+.gallery-header__title {
+  margin: 25px 0 0;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.gallery-header__description {
+  margin: 0;
+  font-size: 20px;
+  line-height: 2rem;
+  font-weight: 400;
+  padding-top: 10px;
+  max-width: 650px;
+}

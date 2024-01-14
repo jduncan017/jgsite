@@ -6,6 +6,7 @@ import formAccent from "@/public/form-accent.png";
 import accentPen from "@/public/contact-accent-pen.png";
 import { cardo } from "../fonts";
 import ContactForm from "../ui/ContactForm/ContactForm";
+import backgroundImage from "@/public/contact-background.png";
 
 const contactPage = () => {
   return (
@@ -65,7 +66,13 @@ const contactPage = () => {
           />
         </div>
       </div>
-
+      <Image
+        src={backgroundImage}
+        alt="Background image for the page"
+        className="global__page-background"
+        fill={true}
+        placeholder="blur"
+      />
       <Image
         src={contactBorder}
         alt="border for contact page"

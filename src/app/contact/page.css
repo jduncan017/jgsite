@@ -1,15 +1,13 @@
 .contact-page__main {
   display: flex;
   min-height: 86vh;
+  position: relative;
 }
 
 .contact-page__contact {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-image: url("/contact-background.png");
-  background-position: center;
-  background-size: cover;
   padding: 40px;
 }
 

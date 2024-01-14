@@ -3,6 +3,7 @@ import Image from "next/image";
 import headerImage from "@/public/headerImage.png";
 import { inter, enriqueta } from "@/src/app/fonts";
 import Link from "next/link";
+import galleryAboutBackground from "@/public/gallery-header-about-background.png";
 
 const GalleryHeader = () => {
   return (
@@ -11,6 +12,7 @@ const GalleryHeader = () => {
         src={headerImage}
         className="gallery-header__image global__box-shadow"
         alt="wood tools decoration"
+        placeholder="blur"
       />
       <div className="gallery-header__about global__box-shadow">
         <h2 className="gallery-header__title">ABOUT OUR GALLERY</h2>
@@ -36,11 +38,19 @@ const GalleryHeader = () => {
             Custom Orders
           </button>
         </Link>
+        <Image
+          src={galleryAboutBackground}
+          alt="Background image for gallery about section"
+          className="global__component-background"
+          fill={true}
+          placeholder="blur"
+        />
       </div>
       <Image
         src={headerImage}
         className="gallery-header__image global__box-shadow"
         alt="wood tools decoration"
+        placeholder="blur"
       />
     </div>
   );

@@ -7,12 +7,14 @@ interface GalleryCardProps {
   title: string;
   price: number;
   imagePath: string;
+  onClick: () => void;
 }
 
 const GalleryCard: React.FC<GalleryCardProps> = ({
   title,
   price,
   imagePath,
+  onClick,
 }) => {
   return (
     <div className="gallery-card global__box_shadow">
@@ -23,17 +25,18 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
           alt={title}
           width={250}
           height={250}
-          // objectFit="cover"
+          onClick={onClick}
         ></Image>
-        <h3 className="gallery-card__image-title">{title}</h3>
+        <h3 className="gallery-card__image-title ${cardo.className}">
+          {title}
+        </h3>
       </div>
       <div className="gallery-card__info-container">
-        <h3 className={`gallery-card__price ${cardo.className}`}>
-          ${price.toFixed(2)}
-        </h3>
+        <h3 className="gallery-card__price">${price.toFixed(2)}</h3>
         <button
-          className={`gallery-card__button global__button ${enriqueta.className}`}
+          className={`gallery-card__button global__button ${cardo.className}`}
           type="button"
+          onClick={onClick}
         >
           View
         </button>

@@ -1,15 +1,22 @@
+"use client";
 import "./Shop.css";
 import GalleryCard from "../GalleryCard/GalleryCard";
 import { enriqueta } from "@/src/app/fonts";
-import imageCards from "@/src/app/lib/constants";
+import { imageCards } from "@/src/lib/constants";
 import Link from "next/link";
+import { useContext } from "react";
+import {
+  SelectedItem,
+  SelectedItemContext,
+} from "@/src/contexts/selectedItemContext";
 
 type ShopProps = {
   isHomePage: boolean;
+  onClick: (item: SelectedItem) => void;
   limit?: number;
 };
 
-const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, onClick, limit }) => {
   const basePath = "/ImageGallery";
   const cardsToDisplay = limit ? imageCards.slice(0, limit) : imageCards;
 
@@ -26,6 +33,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
             title={card.title}
             price={card.price}
             imagePath={`${basePath}${card.imagePaths[0]}`}
+            onClick={() => onClick(card)}
           />
         ))}
       </div>

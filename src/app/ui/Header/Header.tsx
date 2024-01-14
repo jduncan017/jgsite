@@ -20,7 +20,7 @@ const Header = ({}) => {
       <Link href="/">
         <Image src={logoPath} alt="JohnGerard Logo" className="header__logo" />
       </Link>
-      <ul className="header__navigation">
+      <ul className="header__navigation test__background">
         <li className="header__navigation_text">
           <Link href="/">Home</Link>
         </li>

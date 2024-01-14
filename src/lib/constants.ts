@@ -132,4 +132,28 @@ const imageCards: ImageCard[] = [
   },
 ];
 
-export default imageCards;
+interface CallToActionCards {
+  title: string;
+  imagePath: string;
+  link: string;
+}
+
+const callToActionCards: CallToActionCards[] = [
+  {
+    title: "Furniture",
+    imagePath: "/furniture.jpeg",
+    link: "/woodshop",
+  },
+  {
+    title: "Guitars",
+    imagePath: "/guitar.JPG",
+    link: "/woodshop",
+  },
+  {
+    title: "Housewares",
+    imagePath: "/housewares.jpeg",
+    link: "/woodshop",
+  },
+];
+
+export { imageCards, callToActionCards };

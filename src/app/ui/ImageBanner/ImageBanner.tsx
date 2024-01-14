@@ -10,13 +10,19 @@ import Link from "next/link";
 const HomePageBanner = () => {
   return (
     <div className="banner">
-      <Image className="banner__image" src={bannerImage} alt="banner image" />
+      <Image
+        className="banner__image"
+        src={bannerImage}
+        alt="banner image"
+        placeholder="blur"
+      />
       <Image
         src={woodAccent}
         alt="header accent"
         className="global__wood-accent global__wood-accent_reversed"
         width={960}
         height={20}
+        placeholder="blur"
       />
       <div className="banner__textbox global__box-shadow">
         <Image className="banner__logo" src={fullLogoWhite} alt="JG logo" />

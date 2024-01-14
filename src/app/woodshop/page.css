@@ -1,11 +1,9 @@
 .woodshop__main {
   display: flex;
   flex-direction: column;
-  background-image: url("/background.jpg");
-  background-position: center;
-  background-size: cover;
   box-shadow: inset black 5px 5px 10px;
   padding: 40px;
+  position: relative;
 }
 
 @media (max-width: 910px) {

@@ -1,12 +1,10 @@
 .about__main {
-  background-image: url("/background.jpg");
-  background-position: center;
-  background-size: cover;
   border-right: 15px solid;
   border-left: 15px solid;
   border-image: url("/pageBorder.png") 30 fill;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .about {

@@ -62,7 +62,7 @@
 .contact-form__submit {
   width: 170px;
   height: 35px;
-  background-color: #4f4f4f;
+  background-color: #2e4a4a;
   align-self: center;
   margin: 15px 0;
   font-size: 16px;
@@ -70,7 +70,7 @@
 }
 
 .contact-form__submit:hover {
-  background-color: #2e4a4a;
+  background-color: #006363;
   color: white;
 }
 

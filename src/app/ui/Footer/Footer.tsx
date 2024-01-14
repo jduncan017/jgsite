@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 import Image from "next/image";
 import logo from "@/public/logo-white 1.png";
+import backgroundImage from "@/public/footerBackground.png";
 
 const Footer = () => {
   return (
@@ -19,6 +20,13 @@ const Footer = () => {
           Instagram
         </p>
       </div>
+      <Image
+        src={backgroundImage}
+        alt="Background image for the footer"
+        className="global__component-background"
+        fill={true}
+        placeholder="blur"
+      />
     </div>
   );
 };
