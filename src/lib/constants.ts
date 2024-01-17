@@ -1,4 +1,4 @@
-interface ImageCard {
+export interface ImageCard {
   title: string;
   price: number;
   imagePaths: string[];
@@ -11,7 +11,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Coasters",
     price: 19.0,
-    imagePaths: ["/coasters.jpg"],
+    imagePaths: ["/coasters.webp"],
     description:
       "Elegant wooden coasters, perfect for protecting surfaces from beverage stains.",
     quantity: 1,
@@ -20,7 +20,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Coat Rack",
     price: 49.0,
-    imagePaths: ["/coat-rack.JPG"],
+    imagePaths: ["/coat-rack.webp"],
     description:
       "Stylish and sturdy coat rack, ideal for organizing your outerwear with ease.",
     quantity: 1,
@@ -29,7 +29,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Cutting Board",
     price: 99.0,
-    imagePaths: ["/cutting-board-1.jpg"],
+    imagePaths: ["/cutting-board-1.webp"],
     description:
       "Durable and finely crafted cutting board, perfect for all your kitchen prep needs.",
     quantity: 1,
@@ -38,7 +38,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Light Cutting Board",
     price: 89.0,
-    imagePaths: ["/light-cutting-board.JPG"],
+    imagePaths: ["/light-cutting-board.webp"],
     description:
       "Lightweight and easy-to-handle cutting board, combining functionality with aesthetic appeal.",
     quantity: 2,
@@ -48,10 +48,10 @@ const imageCards: ImageCard[] = [
     title: "Fender Style Guitar",
     price: 1299.0,
     imagePaths: [
-      "/nick-guitar-1.jpg",
-      "/nick-guitar-2.jpg",
-      "/nick-guitar-3.jpg",
-      "/nick-guitar-4.jpg",
+      "/nick-guitar-1.webp",
+      "/nick-guitar-2.webp",
+      "/nick-guitar-3.webp",
+      "/nick-guitar-4.webp",
     ],
     description:
       "Exquisite Fender-style guitar, offering both a classic design and superior sound quality.",
@@ -62,9 +62,9 @@ const imageCards: ImageCard[] = [
     title: "Resin Tv Board",
     price: 129.0,
     imagePaths: [
-      "/resin-board.JPG",
-      "/resin-board-2.JPG",
-      "/resin-board-3.JPG",
+      "/resin-board.webp",
+      "/resin-board-2.webp",
+      "/resin-board-3.webp",
     ],
     description:
       "Contemporary resin TV board, featuring a unique design to enhance your living space.",
@@ -74,7 +74,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Ring Box",
     price: 59.0,
-    imagePaths: ["/ring-box.jpg"],
+    imagePaths: ["/ring-box.webp"],
     description:
       "Elegantly crafted ring box, perfect for safely storing and showcasing your precious jewelry.",
     quantity: 1,
@@ -84,10 +84,10 @@ const imageCards: ImageCard[] = [
     title: "Cutting Board Guitar",
     price: 1299.0,
     imagePaths: [
-      "/ryan-guitar-1.jpg",
-      "/ryan-guitar-2.jpg",
-      "/ryan-guitar-3.jpg",
-      "/ryan-guitar-4.jpg",
+      "/ryan-guitar-1.webp",
+      "/ryan-guitar-2.webp",
+      "/ryan-guitar-3.webp",
+      "/ryan-guitar-4.webp",
     ],
     description:
       "Innovative cutting board shaped like a guitar, merging culinary art with musical passion.",
@@ -97,7 +97,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Side Table",
     price: 299.0,
-    imagePaths: ["/side-table.jpeg"],
+    imagePaths: ["/side-table.webp"],
     description:
       "Chic and functional side table, perfect for adding a touch of elegance to any room.",
     quantity: 1,
@@ -106,7 +106,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Wooden Spoon",
     price: 29.0,
-    imagePaths: ["/spoon.JPG"],
+    imagePaths: ["/spoon.webp"],
     description:
       "Handcrafted wooden spoon, an essential tool for any kitchen aficionado.",
     quantity: 1,
@@ -115,7 +115,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Dining Table",
     price: 7799.0,
-    imagePaths: ["/table-1.JPG", "/table-2.JPG", "/table-3.jpeg"],
+    imagePaths: ["/table-1.webp", "/table-2.webp", "/table-3.webp"],
     description:
       "Luxurious dining table, designed to be the centerpiece of memorable family gatherings.",
     quantity: 1,
@@ -124,7 +124,7 @@ const imageCards: ImageCard[] = [
   {
     title: "Tv Tray",
     price: 139.0,
-    imagePaths: ["/tv-tray.jpg", "/tv-tray-2.jpg"],
+    imagePaths: ["/tv-tray.webp", "/tv-tray-2.webp"],
     description:
       "Versatile TV tray, ideal for enjoying meals or working comfortably from your couch.",
     quantity: 1,
@@ -141,17 +141,17 @@ interface CallToActionCards {
 const callToActionCards: CallToActionCards[] = [
   {
     title: "Furniture",
-    imagePath: "/furniture.jpeg",
+    imagePath: "/furniture.webp",
     link: "/woodshop",
   },
   {
     title: "Guitars",
-    imagePath: "/guitar.JPG",
+    imagePath: "/guitar.webp",
     link: "/woodshop",
   },
   {
     title: "Housewares",
-    imagePath: "/housewares.jpeg",
+    imagePath: "/housewares.webp",
     link: "/woodshop",
   },
 ];

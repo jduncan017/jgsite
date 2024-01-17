@@ -1,10 +1,6 @@
-.test__background {
-  background-color: #a6a390;
-  z-index: -100;
-}
-
 a {
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 a:visited {
@@ -46,13 +42,17 @@ p {
 }
 
 .global__page-background {
+  background-color: #4e4d44;
+}
+
+.global__image-background {
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: -1000;
   top: 0;
   left: 0;
-  z-index: -200;
+  z-index: -100;
 }
 
 .global__component-background {
@@ -61,16 +61,20 @@ p {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: -1;
+}
+
+.global__z-index-adjust {
+  z-index: 1;
 }
 
 .global__button {
-  background-color: #006363;
+  background-color: #4b6049;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   color: white;
   text-align: center;
   justify-items: center;
+  transition: background-color 0.2s;
 }
 
 .global__button:hover {
@@ -86,7 +90,7 @@ p {
 .global__page-borders {
   border-right: 15px solid;
   border-left: 15px solid;
-  border-image: url("/pageBorder.png") 30 fill;
+  border-image: url("/shared/pageBorder.png") 30 fill;
 }
 
 .global__wood-accent {

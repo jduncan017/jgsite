@@ -1,12 +1,14 @@
 .contact-page__main {
   display: flex;
   min-height: 86vh;
+  height: fit-content;
   position: relative;
 }
 
 .contact-page__contact {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   padding: 40px;
 }
@@ -14,6 +16,7 @@
 .contact__border-image {
   object-fit: cover;
   height: auto;
+  width: 140px;
 }
 
 .contact-page__title {
@@ -28,9 +31,9 @@
   background-color: #191919;
   text-align: center;
   box-sizing: border-box;
-  border-top: solid #4f4f4f 4px;
-  border-left: solid #4f4f4f 4px;
-  border-right: solid #4f4f4f 4px;
+  border-top: black solid 2px;
+  border-left: black solid 2px;
+  border-right: black solid 2px;
   border-radius: 8px 8px 0 0;
 }
 
@@ -46,11 +49,12 @@
   align-content: center;
   background-color: #f2eee2;
   text-align: center;
-  border-left: solid #4f4f4f 4px;
-  border-right: solid #4f4f4f 4px;
-  border-bottom: solid #4f4f4f 4px;
+  border-left: black solid 2px;
+  border-right: black solid 2px;
+  border-bottom: black solid 2px;
   align-self: center;
   border-radius: 0 0 8px 8px;
+  margin-bottom: 50px;
 }
 
 .form__title {
@@ -116,7 +120,12 @@
   height: auto;
 }
 
-@media (min-width: 320px) and (max-width: 1290px) {
+@media (max-width: 1290px) {
+  .contact-page__contact {
+    justify-content: flex-start;
+    transform: translateY(0);
+  }
+
   .contact-page__title {
     font-size: 46px;
     max-width: 710px;

@@ -1,10 +1,9 @@
 import React from "react";
 import "./page.css";
-import fags from "@/public/fags.jpg";
+import fags from "@/public/our-story/fags.webp";
 import Image from "next/image";
-import woodAccent from "@/public/headerAccent.jpg";
-import aboutImage from "@/public/aboutHeaderImage.jpeg";
-import backgroundImage from "@/public/background.jpg";
+import woodAccent from "@/public/shared/woodAccent.webp";
+import aboutImage from "@/public/our-story/aboutNick+Ryan.jpeg";
 
 /* --------------------------------------- */
 /*             Our Story Route             */
@@ -12,13 +11,15 @@ import backgroundImage from "@/public/background.jpg";
 
 const OurStory = () => {
   return (
-    <div className="about__main">
+    <div className="about__main global__page-background">
       <Image
         src={aboutImage}
         alt="picture of the owners"
         className="about__header-image global__box-shadow"
         width={1740}
         height={1074}
+        placeholder="blur"
+        priority
       />
       <Image
         src={woodAccent}
@@ -55,17 +56,12 @@ const OurStory = () => {
         <Image
           src={fags}
           alt="picture of the owners"
-          objectFit="cover"
           className="about__image global__box-shadow"
+          width={603}
+          height={804}
+          placeholder="blur"
         ></Image>
       </div>
-      <Image
-        src={backgroundImage}
-        alt="Background image for the page"
-        className="global__page-background"
-        fill={true}
-        placeholder="blur"
-      />
     </div>
   );
 };

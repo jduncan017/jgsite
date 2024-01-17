@@ -1,9 +1,9 @@
 import React from "react";
 import "./page.css";
 import Image from "next/image";
-import formAccent from "@/public/form-accent.png";
-import { cardo } from "../fonts";
-import LoginForm from "../ui/loginForm/LoginForm";
+import formAccent from "@/public/shared/form-accent.png";
+import { cardo } from "../ui/fonts";
+import LoginForm from "./loginForm/LoginForm";
 
 const loginPage = () => {
   return (

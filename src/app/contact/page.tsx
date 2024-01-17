@@ -1,16 +1,15 @@
 import React from "react";
 import "./page.css";
 import Image from "next/image";
-import contactBorder from "@/public/contact-border.png";
-import formAccent from "@/public/form-accent.png";
-import accentPen from "@/public/contact-accent-pen.png";
-import { cardo } from "../fonts";
-import ContactForm from "../ui/ContactForm/ContactForm";
-import backgroundImage from "@/public/contact-background.png";
+import contactBorder from "@/public/contact/contact-border.png";
+import formAccent from "@/public/shared/form-accent.png";
+import accentPen from "@/public/contact/contact-accent-pen.png";
+import { cardo } from "../ui/fonts";
+import ContactForm from "./ContactForm/ContactForm";
 
 const contactPage = () => {
   return (
-    <div className="contact-page__main global__page-borders">
+    <div className="contact-page__main global__page-background global__page-borders">
       <Image
         src={contactBorder}
         alt="border for contact page"
@@ -66,13 +65,6 @@ const contactPage = () => {
           />
         </div>
       </div>
-      <Image
-        src={backgroundImage}
-        alt="Background image for the page"
-        className="global__page-background"
-        fill={true}
-        placeholder="blur"
-      />
       <Image
         src={contactBorder}
         alt="border for contact page"

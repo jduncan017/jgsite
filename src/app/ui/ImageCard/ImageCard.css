@@ -8,6 +8,14 @@
   align-items: center;
   color: #efe4d3;
   margin-bottom: 10px;
+  transition: filter 0.2s;
+  background-color: #171717;
+}
+
+.image-card:hover {
+  cursor: pointer;
+  filter: brightness(1.2) contrast(0.7) sepia(0.4);
+  color: black;
 }
 
 .image-card__image {
@@ -16,19 +24,13 @@
   object-fit: cover;
 }
 
-.image-card:hover {
-  cursor: pointer;
-  filter: brightness(1.75) contrast(0.5) sepia(0.3);
-  color: black;
-}
-
 .image-card__title {
   color: white;
   margin: 0;
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   height: 40px;
   width: 100%;
   text-align: center;

@@ -35,7 +35,8 @@
   border: 10px solid #151515;
   margin: 0px;
   align-items: center;
-  padding: 22px 30px;
+  padding: 45px 30px;
+  height: fit-content;
 }
 
 .about__description-title {
@@ -61,9 +62,10 @@
 }
 
 .about__image {
-  max-width: 50%;
-  height: 100%;
+  max-width: 40%;
+  height: auto;
   border: 10px solid #151515;
+  object-fit: cover;
 }
 
 @media (max-width: 1400px) {

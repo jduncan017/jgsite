@@ -1,24 +1,49 @@
 "use client";
 import "./Shop.css";
-import GalleryCard from "../GalleryCard/GalleryCard";
-import { enriqueta } from "@/src/app/fonts";
-import { imageCards } from "@/src/lib/constants";
+import { enriqueta } from "@/src/app/ui/fonts";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { imageCards } from "@/src/lib/constants";
+import { ImageCard } from "@/src/lib/constants";
+import GalleryCard from "./GalleryCard/GalleryCard";
 import {
   SelectedItem,
   SelectedItemContext,
+  setNoSelectedItem,
 } from "@/src/contexts/selectedItemContext";
+import ItemModal from "./ItemModal/ItemModal";
 
 type ShopProps = {
   isHomePage: boolean;
-  onClick: (item: SelectedItem) => void;
   limit?: number;
 };
 
-const Shop: React.FC<ShopProps> = ({ isHomePage, onClick, limit }) => {
-  const basePath = "/ImageGallery";
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
+  // --------------------------------------- //
+  //             - Declarations              //
+  // --------------------------------------- //
+  const basePath = "/database-images/ImageGallery";
   const cardsToDisplay = limit ? imageCards.slice(0, limit) : imageCards;
+  const [modalOpened, setModalOpened] = useState(false);
+  const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
+
+  // --------------------------------------- //
+  //         - Function Declarations -       //
+  // --------------------------------------- //
+
+  function toggleModal(card?: ImageCard) {
+    if (modalOpened) {
+      setModalOpened(false);
+      setSelectedItem(setNoSelectedItem());
+    } else if (card) {
+      const updatedItem: SelectedItem = {
+        ...card,
+        displayImagePath: card.imagePaths[0] || "/",
+      };
+      setSelectedItem(updatedItem);
+      setModalOpened(true);
+    }
+  }
 
   return (
     <div className="shop">
@@ -33,7 +58,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, onClick, limit }) => {
             title={card.title}
             price={card.price}
             imagePath={`${basePath}${card.imagePaths[0]}`}
-            onClick={() => onClick(card)}
+            onClick={() => toggleModal(card)}
           />
         ))}
       </div>
@@ -53,6 +78,9 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, onClick, limit }) => {
           </button>
         </Link>
       </div>
+      {modalOpened === true && (
+        <ItemModal onClose={toggleModal} selectedItem={selectedItem} />
+      )}
     </div>
   );
 };

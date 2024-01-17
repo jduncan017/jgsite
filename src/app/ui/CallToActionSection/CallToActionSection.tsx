@@ -4,7 +4,7 @@ import ImageCard from "../ImageCard/ImageCard";
 import { callToActionCards } from "@/src/lib/constants";
 
 const CallToActionSection = () => {
-  const basePath = "/CallToActionCards";
+  const basePath = "/database-images/CallToActionCards";
 
   return (
     <div className="section">

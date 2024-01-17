@@ -75,7 +75,8 @@
   }
 
   .text-box__section_title {
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 20px;
     margin-top: 5px;
   }
 
@@ -100,11 +101,13 @@
   .text-box__section {
     box-sizing: border-box;
     width: 100%;
-    padding: 10px 15px 18px;
+    padding: 10px 15px 12px;
     align-items: flex-start;
-    background-color: #f2eee2;
+    background-color: #262626;
     border: black solid 2px;
-    border-radius: 7px;
+    border-radius: 4px;
+    box-shadow: inset black 2px 3px 9px;
+    color: #cdcab4;
   }
 
   .text-box__divider {
@@ -116,7 +119,6 @@
     width: 120px;
     margin: 0 0 5px;
     width: 100%;
-    text-decoration: underline;
   }
 
   .title__divider {
@@ -127,6 +129,6 @@
     margin: 0;
     text-align: left;
     width: 100%;
-    font-size: 14px;
+    font-size: 15px;
   }
 }

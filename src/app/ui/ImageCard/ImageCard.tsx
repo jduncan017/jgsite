@@ -1,8 +1,7 @@
 import React from "react";
 import "./ImageCard.css";
-import Image from "next/image";
-import imageFiller from "@/public/guitar.jpg";
 import Link from "next/link";
+import LoadingImage from "../PreLoader/LoadingImage";
 
 type ImageCardProps = {
   title: string;
@@ -13,13 +12,13 @@ type ImageCardProps = {
 const ImageCard: React.FC<ImageCardProps> = ({ title, imagePath, link }) => {
   return (
     <Link href={link} className="image-card global__box-shadow">
-      <Image
+      <LoadingImage
         className="image-card__image"
         src={imagePath}
         alt={title}
-        width={550}
-        height={350}
-      ></Image>
+        width={488}
+        height={323}
+      />
       <h2 className="image-card__title">{title}</h2>
     </Link>
   );

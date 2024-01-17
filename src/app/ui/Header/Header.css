@@ -8,7 +8,7 @@
 
 .header__navigation {
   display: flex;
-  background-color: #141414;
+  background-color: #171717;
   justify-content: flex-end;
   align-items: center;
   box-shadow: 0px 4px 2px -2px rgba(255, 255, 255, 0.5);
@@ -17,9 +17,14 @@
   height: 65px;
   font-size: 26px;
   gap: 20px;
+  border-image-repeat: repeat;
 }
 
-.header__navigation_text:hover {
+.header__navigation-text {
+  transition: color 0.2s;
+}
+
+.header__navigation-text:hover {
   cursor: pointer;
   color: darkgray;
 }
@@ -31,13 +36,17 @@
   position: absolute;
   top: 20px;
   left: 2%;
-  z-index: 1000;
   max-width: 130px;
+  z-index: 2;
 }
 
 .header__mobile-menu {
   display: none;
   border: none;
+}
+
+.mobile-menu__navigation {
+  display: none;
 }
 
 @media (min-width: 800px) and (max-width: 1290px) {
@@ -67,23 +76,54 @@
 
 @media (min-width: 320px) and (max-width: 600px) {
   .header {
-    height: 60px;
+    height: 65px;
   }
 
   .header__navigation {
     display: none;
   }
 
-  .header__mobile-menu {
+  .mobile-menu__navigation {
     display: block;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background-color: #4e4d44;
+    position: absolute;
+    font-size: 26px;
+    z-index: 2;
+  }
+
+  .mobile-menu__navigation_opened {
+    opacity: 1;
+    gap: 15px;
+    top: 3px;
+    right: 3px;
+    width: 42vw;
+    height: auto;
+    transition: width 0.1s, height 0.3s;
+    padding: 20px 35px 30px 20px;
+    background-color: #4e4d44;
+    border: #0f0f0f 2px solid;
+  }
+
+  .header__mobile-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     z-index: 2;
-    top: 5px;
-    right: 5px;
-    height: 44px;
-    width: 44px;
-    padding: 0;
-    background: transparent;
+    top: 7px;
+    right: 7px;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    background: #4e4d44;
+    border-radius: 4px;
+    box-sizing: content-box;
   }
 
   .header__mobile-menu-image {
@@ -92,7 +132,12 @@
     left: 0;
     width: 100%;
     height: auto;
-    background-color: white;
+  }
+
+  .mobile-menu__close-icon {
+    width: 80%;
+    height: 80%;
+    transform: translateX(4%);
   }
 
   .header__mobile-menu-image:hover {
