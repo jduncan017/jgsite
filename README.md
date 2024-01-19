@@ -21,5 +21,6 @@ This is a fully functional site for the John-Gerard Woodworking company. It focu
   - Middleware
   - Admin Login
   - Api integration
+- Research and impliment SEO techniques
 
 **Project Preview**

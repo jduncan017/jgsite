@@ -6,7 +6,7 @@ import Image from "next/image";
 import logoPath from "@/public/header/logo.png";
 import headerAccentImage from "@/public/shared/woodAccent.webp";
 import openMenuIcon from "@/public/header/Hamburger_icon.svg";
-import closeMenuIcon from "@/public/header/mobile-close-button.svg";
+import closeMenuIcon from "@/public/shared/close-button.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

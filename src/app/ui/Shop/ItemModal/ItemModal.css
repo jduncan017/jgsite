@@ -27,7 +27,7 @@
   width: 20px;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url("/close-button-black.svg");
+  background-image: url("/shared/close-button.svg");
   border: none;
   cursor: pointer;
   padding: 0;
@@ -374,7 +374,6 @@
     width: 18px;
     top: 15px;
     right: 15px;
-    background-image: url("/close-button-black.svg");
   }
 }
 
