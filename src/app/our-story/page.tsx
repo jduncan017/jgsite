@@ -34,8 +34,8 @@ const OurStory = () => {
           <h2 className="about__description-text">
             Founded by two best friends and passionate woodworkers, Nick
             Pasquarella and Ryan Fly; John Gerard is more than just a
-            woodworking company. It's a celebration of creativity, friendship,
-            and a shared passion for craftsmanship.
+            woodworking company. It&apos;s a celebration of creativity,
+            friendship, and a shared passion for craftsmanship.
             <br />
             <br />
             As a proud gay-owned business, we bring our unique perspectives to
@@ -46,7 +46,7 @@ const OurStory = () => {
             <br />
             <br />
             Specializing in handcrafted, bespoke wooden items, we believe in
-            turning simple wood into functional art. Whether it's custom
+            turning simple wood into functional art. Whether it&apos;s custom
             furniture or intricate decor, our pieces are a testament to our
             dedication to the art of woodworking. Join us in our journey of
             creating sustainable, unique wooden masterpieces that celebrate the
