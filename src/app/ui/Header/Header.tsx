@@ -1,6 +1,6 @@
 "use client";
 
-import "./header.css";
+import "./Header.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import logoPath from "@/public/header/logo.png";
