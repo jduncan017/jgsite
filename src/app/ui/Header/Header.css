@@ -1,3 +1,11 @@
+a {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
 .header {
   position: relative;
   display: flex;
