@@ -119,15 +119,20 @@
   }
 
   .contact-form__inputs-wrapper {
-    width: 55vw;
+    width: 90%;
     max-width: 400px;
   }
 
+  .contact-form__image-container {
+    width: 90%;
+  }
+
   .contact-form__reference-image {
-    height: 44vw;
-    width: 55vw;
+    height: auto;
+    width: 100%;
     max-width: 400px;
     max-height: 400px;
+    box-sizing: border-box;
   }
 
   .contact-form__input {
@@ -135,12 +140,12 @@
   }
 
   .contact-form__message-container {
-    width: 55vw;
+    width: 90%;
     max-width: 400px;
   }
 
   .contact-form__message {
-    width: 55vw;
+    width: 100%;
     max-width: 400px;
   }
 }

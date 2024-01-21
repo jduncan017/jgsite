@@ -115,6 +115,7 @@
   .gallery-card__button {
     width: 65px;
     height: 25px;
+    padding: 1px;
   }
 }
 
