@@ -8,6 +8,7 @@ import {
   SelectedItemContext,
   SelectedItem,
 } from "@/src/contexts/selectedItemContext";
+import useSwipe from "@/src/hooks/useSwipe";
 
 type ItemModal = {
   onClose: () => void;
@@ -18,17 +19,34 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
   const basePath = "/database-images/ImageGallery";
   const { setSelectedItem } = useContext(SelectedItemContext);
   const [inStock, setInStock] = useState(false);
+  const {
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+    currentImageIndex,
+    updateIndex,
+  } = useSwipe(selectedItem.imagePaths);
+
+  // close modal on 'esc'
   useEscape(onClose);
 
   // for onMouseEnter on image thumbnails
-  function updateDisplayImage(imagePath: string) {
+  function updateDisplayImage(imagePath: string, index: number) {
+    updateIndex(index);
     setSelectedItem((currentItem) => ({
       ...currentItem,
       displayImagePath: imagePath,
     }));
   }
 
-  // sets state for if item is in stock or not
+  useEffect(() => {
+    updateDisplayImage(
+      selectedItem.imagePaths[currentImageIndex],
+      currentImageIndex
+    );
+  }, [currentImageIndex, selectedItem.imagePaths]);
+
+  // sets state to reflect item stock
   useEffect(() => {
     function updateInStock(itemQuantity: number) {
       setInStock(itemQuantity > 0);
@@ -41,9 +59,14 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
       <div className="modal__overlay" onClick={onClose}></div>
       <div className="item-modal__container">
         {/* images section */}
-        <div className="item-modal__image-container">
+        <div
+          className="item-modal__image-container"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <LoadingImage
-            key={selectedItem.displayImagePath} //setting imagePath as the key forces re-render when imagePath changes on Hover
+            key={selectedItem.displayImagePath} //setting imagePath as key forces re-render when imagePath changes on Hover
             className="item-modal__image"
             alt={selectedItem.title}
             src={`${basePath}${selectedItem.displayImagePath}`}
@@ -51,6 +74,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
             sizes="(max-width: 1400px) 36vw, (max-width: 1200px) 44vw, (max-width: 920px) 41vw, (max-width: 750px) 70vw, (max-width: 550px) 90vw, 36vw"
           />
         </div>
+
         {/* info section */}
         <div className="item-modal__info-container">
           <div className="item-modal__info-container-info">
@@ -82,7 +106,8 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
               </p>
             )}
           </div>
-          {/* thumbnails */}
+
+          {/* image thumbnails */}
           <div className="item-modal__thumbnail-images">
             {selectedItem.imagePaths.map((imagePath, index) => (
               <div key={index} className="item-modal__thumbnail-container">
@@ -97,12 +122,13 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
                   height={171.5}
                   quality={80}
                   alt={`Image #${index}`}
-                  onMouseEnter={() => updateDisplayImage(imagePath)}
+                  onMouseEnter={() => updateDisplayImage(imagePath, index)}
                 />
               </div>
             ))}
           </div>
         </div>
+
         {/* close button */}
         <button
           className="modal__close-button"
