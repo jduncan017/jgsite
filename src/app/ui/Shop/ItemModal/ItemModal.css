@@ -154,8 +154,12 @@
   padding: 0 0 5px;
 }
 
-.item-modal__button {
+.item-modal__button-wrapper {
   width: 45%;
+}
+
+.item-modal__button {
+  width: 100%;
   height: 45px;
   background-color: #414141;
   font-size: 20px;
@@ -457,8 +461,11 @@
     align-items: center;
   }
 
-  .item-modal__button {
+  .item-modal__button-wrapper {
     width: 35%;
+  }
+
+  .item-modal__button {
     height: 35px;
   }
 
@@ -531,8 +538,11 @@
     padding: 0 0 8px 1px;
   }
 
-  .item-modal__button {
+  .item-modal__button-wrapper {
     width: 40%;
+  }
+
+  .item-modal__button {
     height: 40px;
   }
 

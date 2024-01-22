@@ -1,9 +1,9 @@
 "use client";
 import "./ContactForm.css";
 import { cardo } from "@/src/app/ui/fonts";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, useContext, ChangeEvent, FormEvent, useEffect } from "react";
 import Image from "next/image";
-import referenceImage from "@/public/database-images/CallToActionCards/housewares.webp";
+import { SelectedItemContext } from "@/src/contexts/selectedItemContext";
 
 interface FormDataInterface {
   subject: string;
@@ -14,6 +14,11 @@ interface FormDataInterface {
 }
 
 const ContactForm = () => {
+  const basePath = "/database-images/ImageGallery";
+  const { selectedItem } = useContext(SelectedItemContext);
+  useEffect(() => {
+    console.log(selectedItem);
+  }, []);
   const [formData, setFormData] = useState<FormDataInterface>({
     subject: "",
     name: "",
@@ -45,90 +50,104 @@ const ContactForm = () => {
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
       <div className="contact-form__top-section-wrapper">
-        <div className="contact-form__inputs-wrapper">
-          <label
-            className={`contact-form__label ${cardo.className}`}
-            htmlFor="subject"
-          >
-            Subject:
-          </label>
-          <select
-            name="subject"
-            id="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="contact-form__input"
-          >
-            <option value="inquiry">General Inquiry</option>
-            <option value="purchase">Purchase</option>
-            <option value="custom_order">Custom / Bulk Order</option>
-          </select>
+        <div
+          className={
+            selectedItem.imagePaths[0]
+              ? "contact-form__inputs-wrapper"
+              : "contact-form__inputs-wrapper contact-form__inputs-wrapper_full-width"
+          }
+        >
+          <div className="first__column">
+            <label
+              className={`contact-form__label ${cardo.className}`}
+              htmlFor="subject"
+            >
+              Subject:
+            </label>
+            <select
+              name="subject"
+              id="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="contact-form__input"
+            >
+              <option value="inquiry">General Inquiry</option>
+              <option value="purchase">Purchase</option>
+              <option value="custom_order">Custom / Bulk Order</option>
+            </select>
 
-          {/* Name Input */}
-          <label
-            className={`contact-form__label ${cardo.className}`}
-            htmlFor="name"
-          >
-            Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className={`contact-form__input ${cardo.className}`}
-            placeholder="Paul Bunyan"
-          />
+            {/* Name Input */}
+            <label
+              className={`contact-form__label ${cardo.className}`}
+              htmlFor="name"
+            >
+              Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className={`contact-form__input ${cardo.className}`}
+              placeholder="Paul Bunyan"
+            />
+          </div>
 
-          {/* Phone Input */}
-          <label
-            className={`contact-form__label ${cardo.className}`}
-            htmlFor="phone"
-          >
-            Phone:
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            className={`contact-form__input ${cardo.className}`}
-            placeholder="(123) 456-7890"
-          />
+          <div className={selectedItem.imagePaths[0] ? "" : "second__column"}>
+            {/* Phone Input */}
+            <label
+              className={`contact-form__label ${cardo.className}`}
+              htmlFor="phone"
+            >
+              Phone:
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className={`contact-form__input ${cardo.className}`}
+              placeholder="(123) 456-7890"
+            />
 
-          {/* Email Input */}
-          <label
-            className={`contact-form__label ${cardo.className}`}
-            htmlFor="email"
-          >
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className={`contact-form__input ${cardo.className}`}
-            placeholder="paulbunyan@lumberco.com"
-          />
+            {/* Email Input */}
+            <label
+              className={`contact-form__label ${cardo.className}`}
+              htmlFor="email"
+            >
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={`contact-form__input ${cardo.className}`}
+              placeholder="paulbunyan@lumberco.com"
+            />
+          </div>
         </div>
-        <div className="contact-form__image-container">
-          <h3 className={`contact-form__label ${cardo.className}`}>Item:</h3>
-          <Image
-            className="contact-form__reference-image"
-            src={referenceImage}
-            alt="image of the item you're inquiring about"
-            width={500}
-            height={500}
-            quality={100}
-          />
-        </div>
+        {selectedItem.imagePaths[0] && (
+          <div className="contact-form__image-container">
+            <h3
+              className={`contact-form__label ${cardo.className}`}
+            >{`Item: ${selectedItem.title}`}</h3>
+            <Image
+              className="contact-form__reference-image"
+              src={`${basePath}${selectedItem.imagePaths[0]}`}
+              alt="image of the item you're inquiring about"
+              width={500}
+              height={500}
+              quality={100}
+            />
+          </div>
+        )}
       </div>
 
       <div className={`contact-form__message-container ${cardo.className}`}>

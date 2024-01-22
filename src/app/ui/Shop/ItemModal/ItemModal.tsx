@@ -5,15 +5,17 @@ import { useState, useEffect, useRef } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
+import Link from "next/link";
 import { SelectedItem } from "@/src/contexts/selectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
 
 type ItemModal = {
   onClose: () => void;
   selectedItem: SelectedItem;
+  onClick: () => void;
 };
 
-const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
+const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
   const basePath = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
 
@@ -93,9 +95,14 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
               {selectedItem.description}
             </p>
             <div className="item-modal__purchase-section">
-              <button className="item-modal__button global__button">
-                {inStock ? `Purchase` : `Inquire`}
-              </button>
+              <Link href={"/contact"} className="item-modal__button-wrapper">
+                <button
+                  className="item-modal__button global__button"
+                  onClick={onClick}
+                >
+                  {inStock ? `Purchase` : `Inquire`}
+                </button>
+              </Link>
               {inStock ? (
                 <p className="item-modal__stock">
                   In Stock: {selectedItem.quantity}

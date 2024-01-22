@@ -88,7 +88,11 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
         </Link>
       </div>
       {modalOpened === true && (
-        <ItemModal onClose={toggleModal} selectedItem={selectedItem} />
+        <ItemModal
+          onClose={toggleModal}
+          selectedItem={selectedItem}
+          onClick={() => setModalOpened(false)}
+        />
       )}
     </div>
   );

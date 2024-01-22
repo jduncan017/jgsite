@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./page.css";
 import Image from "next/image";
 import contactBorder from "@/public/contact/contact-border.png";
