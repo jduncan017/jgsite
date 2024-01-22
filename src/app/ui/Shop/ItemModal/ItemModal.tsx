@@ -23,6 +23,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
     handleTouchMove,
     handleTouchEnd,
     currentImageIndex,
+    setCurrentImageIndex,
     currentOffset,
     setCurrentOffset,
   } = useSwipe(selectedItem.imagePaths, imageContainerRef);
@@ -33,6 +34,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
   const handleThumbnailInteraction = (index: number) => {
     const containerWidth = imageContainerRef.current?.offsetWidth || 0;
     const newOffset = containerWidth * index;
+    setCurrentImageIndex(index);
     setCurrentOffset(newOffset);
   };
 

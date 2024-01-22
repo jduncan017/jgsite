@@ -1,4 +1,4 @@
-import { useState, useCallback, RefObject } from "react";
+import { useState, useCallback, useEffect, RefObject } from "react";
 
 const useSwipe = (
   imagePaths: string[],
@@ -7,23 +7,28 @@ const useSwipe = (
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStartPosition, setTouchStartPosition] = useState(0);
   const [currentOffset, setCurrentOffset] = useState(0);
+  const [offsetAtTouch, setOffsetAtTouch] = useState(0);
+  const containerWidth = containerRef.current?.offsetWidth || 0;
 
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    setTouchStartPosition(e.targetTouches[0].clientX);
-  }, []);
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent) => {
+      setOffsetAtTouch(containerWidth * currentImageIndex);
+      setTouchStartPosition(e.targetTouches[0].clientX);
+    },
+    [currentImageIndex, containerWidth]
+  );
 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent) => {
       const touchCurrentPosition = e.targetTouches[0].clientX;
-      const offset = touchStartPosition - touchCurrentPosition + currentOffset;
+      const offset = offsetAtTouch + touchStartPosition - touchCurrentPosition;
+      console.log(`offsetAtTouch: ${offsetAtTouch}`);
       setCurrentOffset(offset);
     },
-    [touchStartPosition, currentOffset]
+    [touchStartPosition, offsetAtTouch]
   );
 
   const handleTouchEnd = useCallback(() => {
-    const containerWidth = containerRef.current?.offsetWidth || 0;
-
     // Calculate the relative swipe distance from the start position
     const swipeDistance =
       (currentImageIndex * containerWidth - currentOffset) / containerWidth;
@@ -66,13 +71,20 @@ const useSwipe = (
 
     setCurrentImageIndex(newIndex);
     setCurrentOffset(newIndex * containerWidth); // Update offset to the new index
-  }, [currentImageIndex, currentOffset, imagePaths.length, containerRef]);
+  }, [
+    currentImageIndex,
+    containerWidth,
+    currentOffset,
+    imagePaths.length,
+    containerRef,
+  ]);
 
   return {
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
     currentImageIndex,
+    setCurrentImageIndex,
     currentOffset,
     setCurrentOffset,
   };
