@@ -2,7 +2,7 @@
 import "./Shop.css";
 import { enriqueta } from "@/src/app/ui/fonts";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { imageCards } from "@/src/lib/constants";
 import { ImageCard } from "@/src/lib/constants";
 import GalleryCard from "./GalleryCard/GalleryCard";
@@ -44,6 +44,15 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
       setModalOpened(true);
     }
   }
+
+  // stops bodyscroll when modal is open
+  useEffect(() => {
+    if (modalOpened) {
+      document.body.classList.add("global__no-scroll");
+    } else {
+      document.body.classList.remove("global__no-scroll");
+    }
+  }, [modalOpened]);
 
   return (
     <div className="shop">

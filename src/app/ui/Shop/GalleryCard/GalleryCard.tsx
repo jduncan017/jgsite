@@ -2,7 +2,8 @@ import React from "react";
 import "./GalleryCard.css";
 import { cardo } from "@/src/app/ui/fonts";
 import formatCurrency from "@/src/utils/numberFormat";
-import LoadingImage from "../../PreLoader/LoadingImage";
+import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
+import Image from "next/image";
 
 interface GalleryCardProps {
   title: string;
@@ -20,14 +21,15 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   return (
     <div className="gallery-card global__box_shadow">
       <div className="gallery-card__image-container">
-        <LoadingImage
-          className="gallery-card__image"
-          src={imagePath}
-          alt={title}
-          width={500}
-          height={500}
-          onClick={onClick}
-        ></LoadingImage>
+        <ImageLoadingWrapper onClick={onClick}>
+          <Image
+            className="gallery-card__image"
+            src={imagePath}
+            alt={title}
+            width={500}
+            height={500}
+          ></Image>
+        </ImageLoadingWrapper>
         <h3 className={`gallery-card__image-title ${cardo.className}`}>
           {title}
         </h3>

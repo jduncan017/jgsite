@@ -1,9 +1,10 @@
 "use client";
 import useEscape from "@/src/hooks/useEscape";
 import "./ItemModal.css";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
-import LoadingImage from "../../PreLoader/LoadingImage";
+import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
+import Image from "next/image";
 import {
   SelectedItemContext,
   SelectedItem,
@@ -17,34 +18,44 @@ type ItemModal = {
 
 const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
   const basePath = "/database-images/ImageGallery";
+  const imageContainerRef = useRef<HTMLDivElement>(null);
   const { setSelectedItem } = useContext(SelectedItemContext);
+  const [isTouch, setIsTouch] = useState(false);
+
+  const isTouchDevice = (): boolean => {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  };
+
+  useEffect(() => {
+    setIsTouch(isTouchDevice());
+    console.log(isTouch);
+  }, []);
+
   const [inStock, setInStock] = useState(false);
   const {
     handleTouchStart,
     handleTouchMove,
     handleTouchEnd,
     currentImageIndex,
-    updateIndex,
-  } = useSwipe(selectedItem.imagePaths);
+    currentOffset,
+    setCurrentOffset,
+  } = useSwipe(selectedItem.imagePaths, imageContainerRef);
 
   // close modal on 'esc'
   useEscape(onClose);
 
-  // for onMouseEnter on image thumbnails
-  function updateDisplayImage(imagePath: string, index: number) {
-    updateIndex(index);
-    setSelectedItem((currentItem) => ({
-      ...currentItem,
-      displayImagePath: imagePath,
-    }));
-  }
+  const handleThumbnailInteraction = (index: number) => {
+    const containerWidth = imageContainerRef.current?.offsetWidth || 0;
+    const newOffset = containerWidth * index;
+    setCurrentOffset(newOffset);
+  };
 
   useEffect(() => {
-    updateDisplayImage(
-      selectedItem.imagePaths[currentImageIndex],
-      currentImageIndex
-    );
-  }, [currentImageIndex, selectedItem.imagePaths]);
+    if (imageContainerRef.current) {
+      const imageWidth = imageContainerRef.current.offsetWidth;
+      imageContainerRef.current.scrollLeft = imageWidth * currentImageIndex;
+    }
+  }, [currentImageIndex]);
 
   // sets state to reflect item stock
   useEffect(() => {
@@ -59,20 +70,27 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
       <div className="modal__overlay" onClick={onClose}></div>
       <div className="item-modal__container">
         {/* images section */}
-        <div
-          className="item-modal__image-container"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <LoadingImage
-            key={selectedItem.displayImagePath} //setting imagePath as key forces re-render when imagePath changes on Hover
-            className="item-modal__image"
-            alt={selectedItem.title}
-            src={`${basePath}${selectedItem.displayImagePath}`}
-            fill={true}
-            sizes="(max-width: 1400px) 36vw, (max-width: 1200px) 44vw, (max-width: 920px) 41vw, (max-width: 750px) 70vw, (max-width: 550px) 90vw, 36vw"
-          />
+        <div className="item-modal__image-container">
+          <div
+            className="item-modal__image-wrapper"
+            ref={imageContainerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ transform: `translateX(${-currentOffset}px)` }}
+          >
+            {selectedItem.imagePaths.map((imagePath, index) => (
+              <div className="image-container" key={index}>
+                <ImageLoadingWrapper>
+                  <img
+                    className="item-modal__image"
+                    alt={selectedItem.title}
+                    src={`${basePath}${imagePath}`}
+                  />
+                </ImageLoadingWrapper>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* info section */}
@@ -111,19 +129,23 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
           <div className="item-modal__thumbnail-images">
             {selectedItem.imagePaths.map((imagePath, index) => (
               <div key={index} className="item-modal__thumbnail-container">
-                <LoadingImage
-                  className={
-                    selectedItem.displayImagePath === imagePath
-                      ? "item-modal__thumbnail selected-thumbnail"
-                      : "item-modal__thumbnail"
-                  }
-                  src={`${basePath}${imagePath}`}
-                  width={171.5}
-                  height={171.5}
-                  quality={80}
-                  alt={`Image #${index}`}
-                  onMouseEnter={() => updateDisplayImage(imagePath, index)}
-                />
+                <ImageLoadingWrapper
+                  onMouseEnter={() => handleThumbnailInteraction(index)}
+                  onClick={() => handleThumbnailInteraction(index)}
+                >
+                  <Image
+                    className={
+                      selectedItem.displayImagePath === imagePath
+                        ? "item-modal__thumbnail selected-thumbnail"
+                        : "item-modal__thumbnail"
+                    }
+                    src={`${basePath}${imagePath}`}
+                    width={171.5}
+                    height={171.5}
+                    quality={80}
+                    alt={`Image #${index}`}
+                  />
+                </ImageLoadingWrapper>
               </div>
             ))}
           </div>

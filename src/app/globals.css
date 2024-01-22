@@ -41,6 +41,10 @@ p {
   z-index: -1000;
 }
 
+.global__no-scroll {
+  overflow: hidden;
+}
+
 .global__page-background {
   background-color: #4e4d44;
 }

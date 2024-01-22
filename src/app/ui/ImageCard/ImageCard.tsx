@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageCard.css";
 import Link from "next/link";
-import LoadingImage from "../PreLoader/LoadingImage";
+import LoadingImage from "../PreLoader/ImageLoadingWrapper";
 
 type ImageCardProps = {
   title: string;
