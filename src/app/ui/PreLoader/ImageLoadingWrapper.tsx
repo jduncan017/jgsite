@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
 import Loader from "./PreLoader";
 import errorImage from "@/public/pre-loader/image-error.png";
+import Image from "next/image";
 
 type LoadingImageProps = {
   children: ReactElement;
@@ -23,11 +24,26 @@ const ImageLoadingWrapper: React.FC<LoadingImageProps> = ({
     <>
       {isLoading && <Loader />}
       {isError && (
-        <img
-          src={errorImage.src}
-          alt="error image"
-          style={{ width: "100%", height: "auto" }}
-        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            width: "100%",
+            border: "#7C7C83 solid 4px",
+            boxSizing: "border-box",
+          }}
+        >
+          <Image
+            style={{ width: "45%", height: "auto" }}
+            src={errorImage}
+            alt="error image"
+            width={300}
+            height={300}
+            onLoad={handleImageLoad}
+          />
+        </div>
       )}
       {!isError &&
         children &&

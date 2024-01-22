@@ -18,7 +18,7 @@ const useSwipe = (
       const offset = touchStartPosition - touchCurrentPosition + currentOffset;
       setCurrentOffset(offset);
     },
-    [touchStartPosition]
+    [touchStartPosition, currentOffset]
   );
 
   const handleTouchEnd = useCallback(() => {

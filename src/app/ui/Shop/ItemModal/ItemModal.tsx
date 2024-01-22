@@ -1,14 +1,11 @@
 "use client";
 import useEscape from "@/src/hooks/useEscape";
 import "./ItemModal.css";
-import { useContext, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
-import {
-  SelectedItemContext,
-  SelectedItem,
-} from "@/src/contexts/selectedItemContext";
+import { SelectedItem } from "@/src/contexts/selectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
 
 type ItemModal = {
@@ -19,17 +16,6 @@ type ItemModal = {
 const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem }) => {
   const basePath = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const { setSelectedItem } = useContext(SelectedItemContext);
-  const [isTouch, setIsTouch] = useState(false);
-
-  const isTouchDevice = (): boolean => {
-    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  };
-
-  useEffect(() => {
-    setIsTouch(isTouchDevice());
-    console.log(isTouch);
-  }, []);
 
   const [inStock, setInStock] = useState(false);
   const {
