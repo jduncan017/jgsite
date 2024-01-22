@@ -22,7 +22,6 @@ const useSwipe = (
     (e: React.TouchEvent) => {
       const touchCurrentPosition = e.targetTouches[0].clientX;
       const offset = offsetAtTouch + touchStartPosition - touchCurrentPosition;
-      console.log(`offsetAtTouch: ${offsetAtTouch}`);
       setCurrentOffset(offset);
     },
     [touchStartPosition, offsetAtTouch]
@@ -33,7 +32,7 @@ const useSwipe = (
     const swipeDistance =
       (currentImageIndex * containerWidth - currentOffset) / containerWidth;
 
-    const threshold = 0.3; // Adjust this value as needed
+    const threshold = 0.1; // Adjust this value as needed
     let newIndex = currentImageIndex;
 
     if (Math.abs(swipeDistance) > threshold) {
