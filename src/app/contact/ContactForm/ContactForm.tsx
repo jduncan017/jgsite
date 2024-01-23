@@ -1,50 +1,40 @@
 "use client";
 import "./ContactForm.css";
 import { cardo } from "@/src/app/ui/fonts";
-import { useState, useContext, ChangeEvent, FormEvent, useEffect } from "react";
+import { useContext, FormEvent, useState } from "react";
 import Image from "next/image";
 import { SelectedItemContext } from "@/src/contexts/selectedItemContext";
-
-interface FormDataInterface {
-  subject: string;
-  name: string;
-  phone: string;
-  email: string;
-  message: string;
-}
+import useFormAndValidation from "@/src/hooks/useFormAndValidation";
 
 const ContactForm = () => {
   const basePath = "/database-images/ImageGallery";
-  const { selectedItem } = useContext(SelectedItemContext);
-  useEffect(() => {
-    console.log(selectedItem);
-  }, []);
-  const [formData, setFormData] = useState<FormDataInterface>({
-    subject: "",
-    name: "",
-    phone: "",
-    email: "",
-    message: "",
-  });
+  const [submitted, setSubmitted] = useState(false);
 
-  // Update event type to FormEvent for the form submit handler
+  const { selectedItem } = useContext(SelectedItemContext);
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation({
+      subject: "",
+      name: "",
+      phone: "",
+      email: "",
+      message: "",
+    });
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // POST request to your API route would go here
-  };
 
-  // Update event type to ChangeEvent for the input change handler
-  // This handler will now work for both the input and select elements
-  const handleChange = (
-    event: ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if (isValid) {
+      const formData = {
+        ...values,
+        selectedItem: selectedItem?.title,
+      };
+      console.log(formData);
+      setSubmitted(true);
+      resetForm();
+
+      return;
+    }
+    console.log("Form is not valid");
   };
 
   return (
@@ -62,18 +52,23 @@ const ContactForm = () => {
               className={`contact-form__label ${cardo.className}`}
               htmlFor="subject"
             >
-              Subject:
+              Subject:*
             </label>
             <select
               name="subject"
               id="subject"
-              value={formData.subject}
+              value={values.subject}
               onChange={handleChange}
               className="contact-form__input"
+              required
             >
+              <option value="" disabled>
+                Please Select
+              </option>
               <option value="inquiry">General Inquiry</option>
               <option value="purchase">Purchase</option>
               <option value="custom_order">Custom / Bulk Order</option>
+              <option value="other">Other</option>
             </select>
 
             {/* Name Input */}
@@ -81,18 +76,22 @@ const ContactForm = () => {
               className={`contact-form__label ${cardo.className}`}
               htmlFor="name"
             >
-              Name:
+              Name:*
             </label>
+
             <input
               type="text"
               id="name"
               name="name"
-              value={formData.name}
+              value={values.name}
               onChange={handleChange}
               required
               className={`contact-form__input ${cardo.className}`}
               placeholder="Paul Bunyan"
             />
+            <span className="contact-form__error" id="name-error">
+              {errors.name || ""}
+            </span>
           </div>
 
           <div className={selectedItem.imagePaths[0] ? "" : "second__column"}>
@@ -107,31 +106,39 @@ const ContactForm = () => {
               type="tel"
               id="phone"
               name="phone"
-              value={formData.phone}
+              value={values.phone}
               onChange={handleChange}
               required
               className={`contact-form__input ${cardo.className}`}
               placeholder="(123) 456-7890"
             />
+            <span className="contact-form__error" id="phone-error">
+              {errors.phone || ""}
+            </span>
 
             {/* Email Input */}
-            <label
-              className={`contact-form__label ${cardo.className}`}
-              htmlFor="email"
-            >
-              Email:
-            </label>
+            <div className="contact-form__error-label-container">
+              <label
+                className={`contact-form__label ${cardo.className}`}
+                htmlFor="email"
+              >
+                Email:*
+              </label>
+            </div>
             <input
               type="email"
               id="email"
               name="email"
-              value={formData.email}
+              value={values.email}
               onChange={handleChange}
               required
-              className={`contact-form__input ${cardo.className}`}
+              className={`contact-form__input contact-form__input_email ${cardo.className}`}
               placeholder="paulbunyan@lumberco.com"
             />
           </div>
+          <span className="contact-form__error" id="email-error">
+            {errors.email || ""}
+          </span>
         </div>
         {selectedItem.imagePaths[0] && (
           <div className="contact-form__image-container">
@@ -151,25 +158,44 @@ const ContactForm = () => {
       </div>
 
       <div className={`contact-form__message-container ${cardo.className}`}>
-        <label
-          className={`contact-form__label ${cardo.className}`}
-          htmlFor="message"
-        >
-          Message:
-        </label>
+        <div className="contact-form__error-label-container">
+          <label
+            className={`contact-form__label ${cardo.className}`}
+            htmlFor="message"
+          >
+            Message:*
+          </label>
+          <span className="contact-form__error" id="message-error">
+            {errors.message || ""}
+          </span>
+        </div>
         <textarea
           id="message"
           name="message"
           rows={6}
-          value={formData.message}
+          value={values.message}
           onChange={handleChange}
           required
           className={`contact-form__message ${cardo.className}`}
         ></textarea>
+        {submitted && (
+          <span className="contact-form__submit-message">
+            Thank you! We have received your email and should reply in the next
+            few days!
+          </span>
+        )}
       </div>
 
       {/* Submit Button */}
-      <button type="submit" className="contact-form__submit global__button">
+      <button
+        type="submit"
+        className={
+          isValid
+            ? "contact-form__submit global__button"
+            : "contact-form__submit contact-form__submit_disabled global__button"
+        }
+        // disabled={!isValid}
+      >
         Send
       </button>
     </form>
