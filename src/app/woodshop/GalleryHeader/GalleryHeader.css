@@ -105,7 +105,7 @@
 @media (max-width: 910px) {
   .gallery-header {
     gap: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
 
   .gallery-header__about {
@@ -130,7 +130,6 @@
 
 @media (max-width: 720px) {
   .gallery-header {
-    margin-bottom: 5px;
     height: 425px;
     height: fit-content;
   }

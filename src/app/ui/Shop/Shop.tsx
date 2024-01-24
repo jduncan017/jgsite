@@ -12,6 +12,7 @@ import {
   setNoSelectedItem,
 } from "@/src/contexts/selectedItemContext";
 import ItemModal from "./ItemModal/ItemModal";
+import SearchBar from "./SearchBar/SearchBar";
 
 type ShopProps = {
   isHomePage: boolean;
@@ -56,6 +57,9 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
 
   return (
     <div className="shop">
+      <div className={!isHomePage ? "" : "shop__buttons_hidden"}>
+        <SearchBar />
+      </div>
       <div
         className={
           isHomePage ? "shop__gallery shop__gallery-homepage" : "shop__gallery"

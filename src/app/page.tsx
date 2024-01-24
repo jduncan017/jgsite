@@ -4,7 +4,7 @@ import TextBox from "@/src/app/ui/TextBox/TextBox";
 import Shop from "@/src/app/ui/Shop/Shop";
 import "./page.css";
 import CallToActionSection from "@/src/app/ui/CallToActionSection/CallToActionSection";
-import TitleBanner from "./ui/ShopBanner/ShopBanner";
+import TitleBanner from "./ui/ShopBanner/TitleBanner";
 
 export default function Home() {
   return (

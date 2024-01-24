@@ -10,7 +10,6 @@ This is a fully functional site for the John-Gerard Woodworking company. It focu
 
 **Future Enhancements**
 
-- Use selectedItem state to update contact page with item of choice.
 - Integrate email API
 - Error handling across the site
 - Database integration

@@ -16,6 +16,7 @@ const contactPage = () => {
         width={138}
         height={868}
         className="contact__border-image"
+        priority
       />
       <div className="contact-page__contact global__page-borders">
         <h1 className={`contact-page__title ${cardo.className}`}>CONTACT</h1>
@@ -71,6 +72,7 @@ const contactPage = () => {
         width={138}
         height={868}
         className="contact__border-image"
+        priority
       />
     </div>
   );

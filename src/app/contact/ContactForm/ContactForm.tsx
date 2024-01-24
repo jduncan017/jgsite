@@ -1,44 +1,43 @@
 "use client";
 import "./ContactForm.css";
 import { cardo } from "@/src/app/ui/fonts";
-import { useContext, FormEvent, useState } from "react";
+import { useContext } from "react";
 import Image from "next/image";
 import { SelectedItemContext } from "@/src/contexts/selectedItemContext";
-import useFormAndValidation from "@/src/hooks/useFormAndValidation";
+import {
+  useFormAndValidation,
+  FormValues,
+} from "@/src/hooks/useFormAndValidation";
+
+const initialFields = {
+  subject: "",
+  name: "",
+  phone: "",
+  email: "",
+  message: "",
+};
 
 const ContactForm = () => {
   const basePath = "/database-images/ImageGallery";
-  const [submitted, setSubmitted] = useState(false);
 
-  const { selectedItem } = useContext(SelectedItemContext);
-  const { values, handleChange, errors, isValid, resetForm } =
-    useFormAndValidation({
-      subject: "",
-      name: "",
-      phone: "",
-      email: "",
-      message: "",
-    });
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (isValid) {
-      const formData = {
-        ...values,
-        selectedItem: selectedItem?.title,
-      };
-      console.log(formData);
-      setSubmitted(true);
-      resetForm();
-
-      return;
-    }
-    console.log("Form is not valid");
+  const submitCallback = (formData: FormValues) => {
+    console.log("Form data:", formData);
+    //! Replace with API logic
   };
 
+  const { selectedItem } = useContext(SelectedItemContext);
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    handleSubmit,
+    submitted,
+    showError,
+  } = useFormAndValidation(initialFields, submitCallback);
+
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__top-section-wrapper">
         <div
           className={
@@ -47,7 +46,7 @@ const ContactForm = () => {
               : "contact-form__inputs-wrapper contact-form__inputs-wrapper_full-width"
           }
         >
-          <div className="first__column">
+          <div className="inputs__column first__column">
             <label
               className={`contact-form__label ${cardo.className}`}
               htmlFor="subject"
@@ -61,6 +60,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className="contact-form__input"
               required
+              aria-describedby="subject-error"
             >
               <option value="" disabled>
                 Please Select
@@ -70,6 +70,9 @@ const ContactForm = () => {
               <option value="custom_order">Custom / Bulk Order</option>
               <option value="other">Other</option>
             </select>
+            <span className="contact-form__error" id="subject-error">
+              {showError ? errors.subject || "" : ""}
+            </span>
 
             {/* Name Input */}
             <label
@@ -88,13 +91,18 @@ const ContactForm = () => {
               required
               className={`contact-form__input ${cardo.className}`}
               placeholder="Paul Bunyan"
+              aria-describedby="name-error"
             />
             <span className="contact-form__error" id="name-error">
-              {errors.name || ""}
+              {showError ? errors.name || "" : ""}
             </span>
           </div>
 
-          <div className={selectedItem.imagePaths[0] ? "" : "second__column"}>
+          <div
+            className={
+              selectedItem.imagePaths[0] ? "" : "inputs__column second__column"
+            }
+          >
             {/* Phone Input */}
             <label
               className={`contact-form__label ${cardo.className}`}
@@ -111,9 +119,10 @@ const ContactForm = () => {
               required
               className={`contact-form__input ${cardo.className}`}
               placeholder="(123) 456-7890"
+              aria-describedby="phone-error"
             />
             <span className="contact-form__error" id="phone-error">
-              {errors.phone || ""}
+              {showError ? errors.phone || "" : ""}
             </span>
 
             {/* Email Input */}
@@ -134,11 +143,12 @@ const ContactForm = () => {
               required
               className={`contact-form__input contact-form__input_email ${cardo.className}`}
               placeholder="paulbunyan@lumberco.com"
+              aria-describedby="email-error"
             />
+            <span className="contact-form__error" id="email-error">
+              {showError ? errors.email || "" : ""}
+            </span>
           </div>
-          <span className="contact-form__error" id="email-error">
-            {errors.email || ""}
-          </span>
         </div>
         {selectedItem.imagePaths[0] && (
           <div className="contact-form__image-container">
@@ -165,9 +175,6 @@ const ContactForm = () => {
           >
             Message:*
           </label>
-          <span className="contact-form__error" id="message-error">
-            {errors.message || ""}
-          </span>
         </div>
         <textarea
           id="message"
@@ -177,7 +184,11 @@ const ContactForm = () => {
           onChange={handleChange}
           required
           className={`contact-form__message ${cardo.className}`}
+          aria-describedby="message-error"
         ></textarea>
+        <span className="contact-form__error" id="message-error">
+          {showError ? errors.message || "" : ""}
+        </span>
         {submitted && (
           <span className="contact-form__submit-message">
             Thank you! We have received your email and should reply in the next
@@ -190,11 +201,11 @@ const ContactForm = () => {
       <button
         type="submit"
         className={
-          isValid
+          isValid && !submitted
             ? "contact-form__submit global__button"
             : "contact-form__submit contact-form__submit_disabled global__button"
         }
-        // disabled={!isValid}
+        disabled={submitted}
       >
         Send
       </button>

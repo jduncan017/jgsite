@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShopBanner.css";
+import "./TitleBanner.css";
 import { cardo } from "@/src/app/ui/fonts";
 import Image from "next/image";
 import backgroundImage from "@/public/shared/shop-banner.webp";
