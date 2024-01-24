@@ -37,7 +37,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .shop__gallery {
     gap: 0;
     padding: 0;
@@ -58,7 +58,7 @@
   }
 }
 
-/* shide 7th and 8th child */
+/* hide 7th and 8th child */
 @media (min-width: 711px) and (max-width: 1190px) {
   .shop__gallery-homepage > :nth-child(7),
   .shop__gallery-homepage > :nth-child(8) {

@@ -17,14 +17,19 @@ import SearchBar from "./SearchBar/SearchBar";
 type ShopProps = {
   isHomePage: boolean;
   limit?: number;
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
 };
 
-const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit, searchParams }) => {
   // --------------------------------------- //
   //             - Declarations              //
   // --------------------------------------- //
   const basePath = "/database-images/ImageGallery";
-  const cardsToDisplay = limit ? imageCards.slice(0, limit) : imageCards;
+  const query = searchParams?.query?.toLowerCase() || "";
+  const currentPage = Number(searchParams?.page) || 1;
   const [modalOpened, setModalOpened] = useState(false);
   const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
 
@@ -54,6 +59,43 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
       document.body.classList.remove("global__no-scroll");
     }
   }, [modalOpened]);
+
+  const matchesSearchCriteria = (card: ImageCard) => {
+    // Ensure searchParams is defined and not empty
+    if (!searchParams || Object.keys(searchParams).length === 0) {
+      return true; // If no search parameters, all cards match
+    }
+
+    return Object.entries(searchParams).every(([key, value]) => {
+      if (!value) return true; // Skip if search value is empty
+      const lowerValue = value.toLowerCase();
+      const cardValue = card[key as keyof ImageCard];
+
+      // Handle string values
+      if (typeof cardValue === "string") {
+        return cardValue.toLowerCase().includes(lowerValue);
+      }
+
+      // Handle array values (e.g., woodTypes)
+      if (Array.isArray(cardValue)) {
+        return cardValue.some((item) =>
+          item.toLowerCase().includes(lowerValue)
+        );
+      }
+
+      // Handle numeric values (e.g., price, quantity)
+      if (typeof cardValue === "number") {
+        // Assuming numeric search is for exact match (can be adjusted as needed)
+        return cardValue === Number(lowerValue);
+      }
+
+      return false; // If the key doesn't match any known type, return false
+    });
+  };
+
+  // Filter the cards based on search parameters
+  const filteredCards = imageCards.filter(matchesSearchCriteria);
+  const cardsToDisplay = limit ? filteredCards.slice(0, limit) : filteredCards;
 
   return (
     <div className="shop">

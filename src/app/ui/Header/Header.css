@@ -1,5 +1,7 @@
 a {
   color: white;
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 a:visited {
@@ -24,17 +26,22 @@ a:visited {
   padding-right: 40px;
   height: 65px;
   font-size: 26px;
-  gap: 20px;
+  gap: 10px;
   border-image-repeat: repeat;
 }
 
 .header__navigation-text {
   transition: color 0.2s;
+  border-radius: 5px;
+  padding: 4px 10px;
+  transition: background 0.4s;
 }
 
 .header__navigation-text:hover {
   cursor: pointer;
   color: darkgray;
+  background: #4e4d44ba;
+  transition: background 0.4s;
 }
 
 .header__logo {
@@ -60,7 +67,7 @@ a:visited {
 @media (min-width: 800px) and (max-width: 1290px) {
   .header__navigation {
     padding-right: 30px;
-    height: 55px;
+    height: 50px;
     font-size: 22px;
     gap: 15px;
   }

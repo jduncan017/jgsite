@@ -25,8 +25,8 @@ const contactPage = () => {
             SEND US A MESSAGE:
           </h2>
           <p className="form__description">
-            Have a question? Looking to buy one of our pieces or need a custom /
-            bulk order? Reach out below!
+            Have a question or looking to buy one of our pieces? Reach out
+            below!
           </p>
           <ContactForm />
           <Image
