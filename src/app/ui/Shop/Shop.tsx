@@ -75,7 +75,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
     }
 
     return Object.entries(searchQuery).every(([key, value]) => {
-      const lowerValue = value.toLowerCase();
+      const lowerValue = (value as string).toLowerCase();
 
       switch (key) {
         case "minPrice": {

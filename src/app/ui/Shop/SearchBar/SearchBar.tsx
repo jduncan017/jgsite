@@ -170,9 +170,9 @@ const SearchBar = () => {
                 <option value="maple">Maple</option>
                 <option value="walnut">Walnut</option>
                 <option value="mahogany">Mahogany</option>
-                <option value="purple heart">Purple Heart</option>
-                <option value="other">Other</option>
-                <option value="mixed">Mixed</option>
+                <option value="padauk">Padauk</option>
+                <option value="pine">Pine</option>
+                <option value="zebra wood">Zebra Wood</option>
               </select>
             </div>
           )}
