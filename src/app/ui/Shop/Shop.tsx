@@ -87,7 +87,9 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
           return !isNaN(maxPriceValue) && card.price <= maxPriceValue;
         }
         case "inStock": {
-          return value.toLowerCase() === "true" && card.quantity > 0;
+          return (
+            (value as string).toLowerCase() === "true" && card.quantity > 0
+          );
         }
         case "query":
           return Object.entries(card).some(([cardKey, cardValue]) => {
@@ -95,7 +97,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
               return cardValue.toLowerCase().includes(lowerValue);
             } else if (Array.isArray(cardValue)) {
               return cardValue.some((arrayItem) =>
-                arrayItem.toLowerCase().includes(lowerValue)
+                (arrayItem as string).toLowerCase().includes(lowerValue)
               );
             }
             return false;
@@ -111,7 +113,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
           // Handle array values (e.g., woodTypes)
           if (Array.isArray(cardValue)) {
             return cardValue.some(
-              (arrayItem) => arrayItem.toLowerCase() === lowerValue
+              (arrayItem) => (arrayItem as string).toLowerCase() === lowerValue
             );
           }
 
