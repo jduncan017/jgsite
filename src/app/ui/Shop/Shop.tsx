@@ -3,6 +3,7 @@ import "./Shop.css";
 import { enriqueta } from "@/src/app/ui/fonts";
 import Link from "next/link";
 import { useContext, useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { imageCards } from "@/src/lib/constants";
 import { ImageCard } from "@/src/lib/constants";
 import GalleryCard from "./GalleryCard/GalleryCard";
@@ -17,20 +18,17 @@ import SearchBar from "./SearchBar/SearchBar";
 type ShopProps = {
   isHomePage: boolean;
   limit?: number;
-  searchParams?: {
-    query?: string;
-    page?: string;
-  };
 };
 
-const Shop: React.FC<ShopProps> = ({ isHomePage, limit, searchParams }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
   // --------------------------------------- //
   //             - Declarations              //
   // --------------------------------------- //
+  const searchParams = useSearchParams();
   const basePath = "/database-images/ImageGallery";
-  const query = searchParams?.query?.toLowerCase() || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  // const currentPage = Number(searchParams?.page) || 1;
   const [modalOpened, setModalOpened] = useState(false);
+  const [searchQuery, setSearchQuery] = useState({});
   const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
 
   // --------------------------------------- //
@@ -60,36 +58,72 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit, searchParams }) => {
     }
   }, [modalOpened]);
 
+  useEffect(() => {
+    let newSearchQuery: { [key: string]: string } = {};
+
+    const entriesArray = Array.from(searchParams.entries());
+    for (const [key, value] of entriesArray) {
+      newSearchQuery[key] = value;
+    }
+
+    setSearchQuery(newSearchQuery);
+  }, [searchParams]);
+
   const matchesSearchCriteria = (card: ImageCard) => {
-    // Ensure searchParams is defined and not empty
-    if (!searchParams || Object.keys(searchParams).length === 0) {
+    if (!searchQuery || Object.keys(searchQuery).length === 0) {
       return true; // If no search parameters, all cards match
     }
 
-    return Object.entries(searchParams).every(([key, value]) => {
-      if (!value) return true; // Skip if search value is empty
+    return Object.entries(searchQuery).every(([key, value]) => {
       const lowerValue = value.toLowerCase();
-      const cardValue = card[key as keyof ImageCard];
 
-      // Handle string values
-      if (typeof cardValue === "string") {
-        return cardValue.toLowerCase().includes(lowerValue);
+      switch (key) {
+        case "minPrice": {
+          const minPriceValue = Number(value);
+          return !isNaN(minPriceValue) && card.price >= minPriceValue;
+        }
+        case "maxPrice": {
+          const maxPriceValue = Number(value);
+          return !isNaN(maxPriceValue) && card.price <= maxPriceValue;
+        }
+        case "inStock": {
+          return value.toLowerCase() === "true" && card.quantity > 0;
+        }
+        case "query":
+          return Object.entries(card).some(([cardKey, cardValue]) => {
+            if (typeof cardValue === "string") {
+              return cardValue.toLowerCase().includes(lowerValue);
+            } else if (Array.isArray(cardValue)) {
+              return cardValue.some((arrayItem) =>
+                arrayItem.toLowerCase().includes(lowerValue)
+              );
+            }
+            return false;
+          });
+        default: {
+          const cardValue = card[key as keyof ImageCard];
+
+          // Handle string values
+          if (typeof cardValue === "string") {
+            return cardValue.toLowerCase().includes(lowerValue);
+          }
+
+          // Handle array values (e.g., woodTypes)
+          if (Array.isArray(cardValue)) {
+            return cardValue.some(
+              (arrayItem) => arrayItem.toLowerCase() === lowerValue
+            );
+          }
+
+          // Handle numeric values (e.g., price, quantity)
+          if (typeof cardValue === "number") {
+            const numValue = Number(lowerValue);
+            return !isNaN(numValue) && cardValue === numValue;
+          }
+
+          return false;
+        }
       }
-
-      // Handle array values (e.g., woodTypes)
-      if (Array.isArray(cardValue)) {
-        return cardValue.some((item) =>
-          item.toLowerCase().includes(lowerValue)
-        );
-      }
-
-      // Handle numeric values (e.g., price, quantity)
-      if (typeof cardValue === "number") {
-        // Assuming numeric search is for exact match (can be adjusted as needed)
-        return cardValue === Number(lowerValue);
-      }
-
-      return false; // If the key doesn't match any known type, return false
     });
   };
 
@@ -118,7 +152,10 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit, searchParams }) => {
         ))}
       </div>
       <div className={isHomePage ? "shop__buttons" : "shop__buttons_hidden"}>
-        <Link href="/woodshop" className="hidden__button-container">
+        <Link
+          href="/woodshop?inStock=true"
+          className="hidden__button-container"
+        >
           <button
             className={`shop__button global__button global__box-shadow ${enriqueta.className}`}
           >

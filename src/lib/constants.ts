@@ -5,7 +5,7 @@ export interface ImageCard {
   description: string;
   quantity: number;
   category: string;
-  woodTypes: string[];
+  woodType: string[];
 }
 
 const imageCards: ImageCard[] = [
@@ -17,7 +17,7 @@ const imageCards: ImageCard[] = [
       "Elegant wooden coasters, perfect for protecting surfaces from beverage stains.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["zebra wood", "padauk", "maple"],
+    woodType: ["zebra wood", "padauk", "maple"],
   },
   {
     title: "Coat Rack",
@@ -27,7 +27,7 @@ const imageCards: ImageCard[] = [
       "Stylish and sturdy coat rack, ideal for organizing your outerwear with ease.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["pine"],
+    woodType: ["pine"],
   },
   {
     title: "Cutting Board",
@@ -37,7 +37,7 @@ const imageCards: ImageCard[] = [
       "Durable and finely crafted cutting board, perfect for all your kitchen prep needs.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["walnut", "cherry", "maple", "padauk"],
+    woodType: ["walnut", "cherry", "maple", "padauk"],
   },
   {
     title: "Light Cutting Board",
@@ -47,7 +47,7 @@ const imageCards: ImageCard[] = [
       "Lightweight and easy-to-handle cutting board, combining functionality with aesthetic appeal.",
     quantity: 2,
     category: "housewares",
-    woodTypes: ["chechen", "cherry", "padauk", "maple"],
+    woodType: ["chechen", "cherry", "padauk", "maple"],
   },
   {
     title: "Fender Style Guitar",
@@ -61,8 +61,8 @@ const imageCards: ImageCard[] = [
     description:
       "Exquisite Fender-style guitar, offering both a classic design and superior sound quality.",
     quantity: 0,
-    category: "guitar",
-    woodTypes: ["swamp ash", "indian rose wood"],
+    category: "guitars",
+    woodType: ["swamp ash", "indian rose wood"],
   },
   {
     title: "Acrylic Tv Board",
@@ -76,7 +76,7 @@ const imageCards: ImageCard[] = [
       "Contemporary resin TV board, featuring a unique design to enhance your living space.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["walnut"],
+    woodType: ["walnut"],
   },
   {
     title: "Ring Box",
@@ -86,7 +86,7 @@ const imageCards: ImageCard[] = [
       "Elegantly crafted ring box, perfect for safely storing and showcasing your precious jewelry.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["padauk", "canary wood"],
+    woodType: ["padauk", "canary wood"],
   },
   {
     title: "Cutting Board Guitar",
@@ -100,8 +100,8 @@ const imageCards: ImageCard[] = [
     description:
       "Innovative cutting board shaped like a guitar, merging culinary art with musical passion.",
     quantity: 1,
-    category: "housewares",
-    woodTypes: ["padauk", "canary wood", "walnut", "maple"],
+    category: "guitars",
+    woodType: ["padauk", "canary wood", "walnut", "maple"],
   },
   {
     title: "Side Table",
@@ -111,7 +111,7 @@ const imageCards: ImageCard[] = [
       "Chic and functional side table, perfect for adding a touch of elegance to any room.",
     quantity: 1,
     category: "furniture",
-    woodTypes: ["oak", "maple", "padauk"],
+    woodType: ["oak", "maple", "padauk"],
   },
   {
     title: "Wooden Spoon",
@@ -121,7 +121,7 @@ const imageCards: ImageCard[] = [
       "Handcrafted wooden spoon, an essential tool for any kitchen aficionado.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["walnut", "maple", "cherry"],
+    woodType: ["walnut", "maple", "cherry"],
   },
   {
     title: "Dining Table",
@@ -131,7 +131,7 @@ const imageCards: ImageCard[] = [
       "Luxurious dining table, designed to be the centerpiece of memorable family gatherings.",
     quantity: 1,
     category: "furniture",
-    woodTypes: ["walnut"],
+    woodType: ["walnut"],
   },
   {
     title: "Tv Tray",
@@ -141,7 +141,7 @@ const imageCards: ImageCard[] = [
       "Versatile TV tray, ideal for enjoying meals or working comfortably from your couch.",
     quantity: 1,
     category: "housewares",
-    woodTypes: ["spalted maple", "walnut"],
+    woodType: ["spalted maple", "walnut"],
   },
 ];
 
@@ -155,17 +155,17 @@ const callToActionCards: CallToActionCards[] = [
   {
     title: "Furniture",
     imagePath: "/furniture.webp",
-    link: "/woodshop",
+    link: "/woodshop?category=furniture",
   },
   {
     title: "Guitars",
     imagePath: "/guitar.webp",
-    link: "/woodshop",
+    link: "/woodshop?category=guitars",
   },
   {
     title: "Housewares",
     imagePath: "/housewares.webp",
-    link: "/woodshop",
+    link: "/woodshop?category=housewares",
   },
 ];
 

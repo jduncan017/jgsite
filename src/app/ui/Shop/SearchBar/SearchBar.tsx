@@ -7,14 +7,13 @@ const SearchBar = () => {
   const [moreFiltersChecked, setMoreFiltersChecked] = useState(false);
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
-    const hasFilters = Array.from(searchParams.keys()).some(
-      (key) => key !== "query" && key !== "inStock"
-    );
+    const filterParams = ["category", "woodType", "minPrice", "maxPrice"];
+    const hasFilters = filterParams.some((param) => searchParams.has(param));
     setMoreFiltersChecked(hasFilters);
-  }, [searchParams]);
+  }, []);
 
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMoreFiltersChecked(e.target.checked);
@@ -27,12 +26,16 @@ const SearchBar = () => {
           newSearchParams.delete(param);
         }
       });
-      replace(`${pathname}?${newSearchParams.toString()}`);
+      router.push(`${pathname}?${newSearchParams.toString()}`, {
+        scroll: false,
+      });
     }
   };
 
   const updateUrlParams = useDebouncedCallback((searchParams) => {
-    replace(`${pathname}?${searchParams.toString()}`);
+    router.push(`${pathname}?${searchParams.toString()}`, {
+      scroll: false,
+    });
   }, 300);
 
   const handleSearchFilters = (
@@ -47,14 +50,18 @@ const SearchBar = () => {
       } else {
         newSearchParams.delete(target.name);
       }
-      replace(`${pathname}?${newSearchParams.toString()}`);
+      router.push(`${pathname}?${newSearchParams.toString()}`, {
+        scroll: false,
+      });
     } else {
       if (e.target.value) {
         newSearchParams.set(e.target.name, e.target.value);
       } else {
         newSearchParams.delete(e.target.name);
       }
-      updateUrlParams(newSearchParams);
+      router.push(`${pathname}?${newSearchParams.toString()}`, {
+        scroll: false,
+      });
     }
   };
 
@@ -111,7 +118,6 @@ const SearchBar = () => {
                 <input
                   type="checkbox"
                   name="inStock"
-                  value="true"
                   className="search-bar__checkbox"
                   onChange={(e) => handleSearchFilters(e)}
                   checked={searchParams.get("inStock") === "true"}
@@ -137,9 +143,7 @@ const SearchBar = () => {
                 onChange={(e) => handleSearchFilters(e)}
                 defaultValue={searchParams.get("category")?.toString()}
               >
-                <option value="" selected>
-                  None
-                </option>
+                <option value="">None</option>
                 <option value="furniture">Furniture</option>
                 <option value="housewares">Housewares</option>
                 <option value="guitars">Guitars</option>
@@ -161,14 +165,12 @@ const SearchBar = () => {
                 onChange={(e) => handleSearchFilters(e)}
                 defaultValue={searchParams.get("woodType")?.toString()}
               >
-                <option value="" selected>
-                  None
-                </option>
+                <option value="">None</option>
                 <option value="oak">Oak</option>
                 <option value="maple">Maple</option>
-                <option value="cherry">Walnut</option>
-                <option value="cherry">Mahogany</option>
-                <option value="cherry">Purple Heart</option>
+                <option value="walnut">Walnut</option>
+                <option value="mahogany">Mahogany</option>
+                <option value="purple heart">Purple Heart</option>
                 <option value="other">Other</option>
                 <option value="mixed">Mixed</option>
               </select>
@@ -189,9 +191,7 @@ const SearchBar = () => {
                   onChange={(e) => handleSearchFilters(e)}
                   defaultValue={searchParams.get("minPrice")?.toString()}
                 >
-                  <option value="" selected>
-                    No Min
-                  </option>
+                  <option value="">No Min</option>
                   <option value={50}>&gt; 50</option>
                   <option value={100}>&gt; 100</option>
                   <option value={250}>&gt; 250</option>
@@ -211,9 +211,7 @@ const SearchBar = () => {
                   onChange={(e) => handleSearchFilters(e)}
                   defaultValue={searchParams.get("maxPrice")?.toString()}
                 >
-                  <option value="" selected>
-                    No Max
-                  </option>
+                  <option value="">No Max</option>
                   <option value={1000}>&lt; 1000</option>
                   <option value={500}>&lt; 500</option>
                   <option value={250}>&lt; 250</option>
