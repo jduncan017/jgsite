@@ -1,7 +1,7 @@
 .gallery-card {
   background-color: #150c01;
   margin-bottom: 15px;
-  width: 24vw;
+  width: 22%;
   height: fit-content;
   max-width: 320px;
   max-height: 350px;
@@ -11,8 +11,8 @@
 
 .gallery-card__image-container {
   position: relative;
-  height: 21vw;
-  max-height: 300px;
+  height: 20vw;
+  max-height: 285px;
   width: 100%;
   background-color: #171717;
   transition: filter 0.2s;
@@ -45,7 +45,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   bottom: 0;
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 2.4rem;
   text-align: center;
   width: 100%;
@@ -68,44 +68,35 @@
 }
 
 .gallery-card__button {
-  width: 100px;
-  height: 30px;
+  width: 85px;
+  height: 27px;
   border: none;
   font-size: 18px;
 }
 
-@media (min-width: 820px) and (max-width: 1474px) {
-  .gallery-card {
-    max-width: 250px;
-    max-height: 270px;
-  }
-
-  .gallery-card__image-container {
-    max-height: 220px;
+@media (max-width: 1020px) {
+  .gallery-card__button {
+    width: 75px;
+    height: 25px;
+    font-size: 16px;
   }
 
   .gallery-card__image-title {
-    font-size: 20px;
-  }
-
-  .gallery-card__info-container {
-    font-size: 18px;
-  }
-
-  .gallery-card__price {
-    font-size: 18px;
-  }
-
-  .gallery-card__button {
-    width: 80px;
-    height: 25px;
     font-size: 18px;
   }
 }
 
-@media (min-width: 320px) and (max-width: 820px) {
+@media (max-width: 825px) {
+  .gallery-card {
+    width: 30%;
+  }
+
+  .gallery-card__image-container {
+    height: 25vw;
+  }
+
   .gallery-card__image-title {
-    font-size: 15px;
+    line-height: 2.2rem;
   }
 
   .gallery-card__price {
@@ -113,16 +104,16 @@
   }
 
   .gallery-card__button {
-    width: 65px;
+    width: 70px;
     height: 25px;
     padding: 1px;
   }
 }
 
-@media (min-width: 320px) and (max-width: 710px) {
+@media (max-width: 710px) {
   .gallery-card {
     margin-bottom: 10px;
-    width: 38vw;
+    width: 45%;
   }
 
   .gallery-card__image-title {
@@ -135,7 +126,7 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 400px) {
+@media (max-width: 400px) {
   .gallery-card {
     margin-bottom: 8px;
     width: 75vw;

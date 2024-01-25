@@ -9,7 +9,7 @@ import ContactForm from "./ContactForm/ContactForm";
 
 const contactPage = () => {
   return (
-    <div className="contact-page__main global__page-background global__page-borders">
+    <div className="contact-page__main global__page-background">
       <Image
         src={contactBorder}
         alt="border for contact page"

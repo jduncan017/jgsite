@@ -5,7 +5,7 @@
   margin: 15px 0;
   color: black;
   height: fit-content;
-  padding: 12px 0 18px;
+  padding: 8px 4px;
 }
 
 .text-box__section {
@@ -76,7 +76,7 @@
 
   .text-box__section_title {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 19px;
     margin-top: 5px;
   }
 

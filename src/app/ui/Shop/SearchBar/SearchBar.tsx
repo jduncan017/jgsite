@@ -1,43 +1,42 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
 import "./SearchBar.css";
 
 const SearchBar = () => {
   const [moreFiltersChecked, setMoreFiltersChecked] = useState(false);
+  const filterParams = ["category", "woodType", "minPrice", "maxPrice"];
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
+  const updateUrlParams = (searchParams: URLSearchParams) => {
+    router.push(`${pathname}?${searchParams.toString()}`, {
+      scroll: false,
+    });
+  };
+
+  // keeps more filters open if filters are active on page load
   useEffect(() => {
-    const filterParams = ["category", "woodType", "minPrice", "maxPrice"];
     const hasFilters = filterParams.some((param) => searchParams.has(param));
     setMoreFiltersChecked(hasFilters);
   }, []);
 
+  // manages moreFilters checkbox and ties it to extra filter states
   const handleCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMoreFiltersChecked(e.target.checked);
     if (!e.target.checked) {
       const newSearchParams = new URLSearchParams(searchParams);
-      const filterParams = ["category", "woodType", "minPrice", "maxPrice"];
 
       filterParams.forEach((param) => {
         if (newSearchParams.has(param)) {
           newSearchParams.delete(param);
         }
       });
-      router.push(`${pathname}?${newSearchParams.toString()}`, {
-        scroll: false,
-      });
+      updateUrlParams(newSearchParams);
     }
   };
 
-  const updateUrlParams = useDebouncedCallback((searchParams) => {
-    router.push(`${pathname}?${searchParams.toString()}`, {
-      scroll: false,
-    });
-  }, 300);
-
+  // handle filters and search queries
   const handleSearchFilters = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -50,19 +49,14 @@ const SearchBar = () => {
       } else {
         newSearchParams.delete(target.name);
       }
-      router.push(`${pathname}?${newSearchParams.toString()}`, {
-        scroll: false,
-      });
     } else {
       if (e.target.value) {
         newSearchParams.set(e.target.name, e.target.value);
       } else {
         newSearchParams.delete(e.target.name);
       }
-      router.push(`${pathname}?${newSearchParams.toString()}`, {
-        scroll: false,
-      });
     }
+    updateUrlParams(newSearchParams);
   };
 
   return (
@@ -192,11 +186,11 @@ const SearchBar = () => {
                   defaultValue={searchParams.get("minPrice")?.toString()}
                 >
                   <option value="">No Min</option>
-                  <option value={50}>&gt; 50</option>
-                  <option value={100}>&gt; 100</option>
-                  <option value={250}>&gt; 250</option>
-                  <option value={500}>&gt; 500</option>
-                  <option value={1000}>&gt; 1000</option>
+                  <option value={50}>&gt; $50</option>
+                  <option value={100}>&gt; $100</option>
+                  <option value={250}>&gt; $250</option>
+                  <option value={500}>&gt; $500</option>
+                  <option value={1000}>&gt; $1000</option>
                 </select>
               </div>
 
@@ -212,11 +206,11 @@ const SearchBar = () => {
                   defaultValue={searchParams.get("maxPrice")?.toString()}
                 >
                   <option value="">No Max</option>
-                  <option value={1000}>&lt; 1000</option>
-                  <option value={500}>&lt; 500</option>
-                  <option value={250}>&lt; 250</option>
-                  <option value={100}>&lt; 100</option>
-                  <option value={50}>&lt; 50</option>
+                  <option value={1000}>&lt; $1000</option>
+                  <option value={500}>&lt; $500</option>
+                  <option value={250}>&lt; $250</option>
+                  <option value={100}>&lt; $100</option>
+                  <option value={50}>&lt; $50</option>
                 </select>
               </div>
             </div>

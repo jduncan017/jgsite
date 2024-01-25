@@ -8,6 +8,7 @@ export interface SelectedItem {
   description: string;
   quantity: number;
   category: string;
+  woodType: string[];
   displayImagePath: string;
 }
 
@@ -19,6 +20,7 @@ export function setNoSelectedItem(): SelectedItem {
     description: "",
     quantity: 0,
     category: "",
+    woodType: [],
     displayImagePath: "",
   };
 }
@@ -45,6 +47,7 @@ export const SelectedItemProvider: React.FC<SelectedItemProviderProps> = ({
     description: "",
     quantity: 0,
     category: "",
+    woodType: [],
     displayImagePath: "",
   });
 

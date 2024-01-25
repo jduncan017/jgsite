@@ -33,6 +33,38 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
   // close modal on 'esc'
   useEscape(onClose);
 
+  function capitalizeFirstLetter(string: string) {
+    return string
+      .split(" ")
+      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
+  function formatWoodTypes(woodTypes: string[]) {
+    if (!woodTypes || woodTypes.length === 0) {
+      return "";
+    }
+
+    switch (woodTypes.length) {
+      case 1:
+        return `${capitalizeFirstLetter(woodTypes[0])}.`;
+
+      case 2:
+        return `${woodTypes.map(capitalizeFirstLetter).join(" & ")}.`;
+
+      default:
+        const last = woodTypes.length - 1;
+        return `${woodTypes
+          .map((wood, index) => {
+            return (
+              capitalizeFirstLetter(wood) +
+              (index === last ? "." : index === last - 1 ? ", & " : ", ")
+            );
+          })
+          .join("")}`;
+    }
+  }
+
   const handleThumbnailInteraction = (index: number) => {
     const containerWidth = imageContainerRef.current?.offsetWidth || 0;
     const newOffset = containerWidth * index;
@@ -94,6 +126,12 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
             <p className="item-modal__description-text">
               {selectedItem.description}
             </p>
+            <div className="item-modal__wood-types">
+              <h3 className="wood-types__title">Woods Used:</h3>
+              <p className="item-modal__description-text wood-types__description">
+                {formatWoodTypes(selectedItem.woodType)}
+              </p>
+            </div>
             <div className="item-modal__purchase-section">
               <Link href={"/contact"} className="item-modal__button-wrapper">
                 <button

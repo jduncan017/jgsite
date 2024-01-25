@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  z-index: -101;
 }
 
 .banner__image {
@@ -25,7 +24,7 @@
   overflow: hidden;
   min-height: 500px;
   height: 41vw;
-  max-height: 700px;
+  max-height: 550px;
   justify-content: center;
   background-color: rgb(14, 9, 0);
 }

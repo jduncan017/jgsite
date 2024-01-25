@@ -1,8 +1,11 @@
+.shop {
+  padding-bottom: 10px;
+}
+
 .shop__gallery {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  gap: 5px 20px;
+  gap: 5px 2%;
   margin-top: 10px;
 }
 
@@ -20,27 +23,37 @@
 }
 
 .shop__button {
-  margin: 20px 0 27.5px;
+  margin: 10px 0;
   width: 100%;
   padding: 10px;
   font-size: 22px;
 }
 
-@media (min-width: 601px) and (max-width: 910px) {
+.shop__pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #171410;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1020px) {
   .shop__gallery {
-    gap: 5px 15px;
+    gap: 0 1.5%;
   }
 
   .shop__button {
-    margin: 20px 0 27.5px;
     font-size: 2.2vw;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 710px) {
   .shop__gallery {
-    gap: 0;
-    padding: 0;
+    gap: 0 1.5%;
+    padding: 0 1%;
+    margin-top: 0;
+    justify-content: space-around;
   }
 
   .shop__buttons {
@@ -49,7 +62,7 @@
   }
 
   .hidden__button-container {
-    width: 80%;
+    width: 90%;
   }
 
   .shop__button {
@@ -59,7 +72,7 @@
 }
 
 /* hide 7th and 8th child */
-@media (min-width: 711px) and (max-width: 1190px) {
+@media (min-width: 710px) and (max-width: 825px) {
   .shop__gallery-homepage > :nth-child(7),
   .shop__gallery-homepage > :nth-child(8) {
     display: none;

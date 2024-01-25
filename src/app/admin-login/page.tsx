@@ -7,7 +7,7 @@ import LoginForm from "./loginForm/LoginForm";
 
 const loginPage = () => {
   return (
-    <div className="login-page__main global__page-borders">
+    <div className="login-page__main">
       <div className="login-page__login">
         <div className="login-page__login-form">
           <h1 className={`login-page__title ${cardo.className}`}>

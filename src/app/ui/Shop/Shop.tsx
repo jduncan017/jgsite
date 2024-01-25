@@ -14,13 +14,15 @@ import {
 } from "@/src/contexts/selectedItemContext";
 import ItemModal from "./ItemModal/ItemModal";
 import SearchBar from "./SearchBar/SearchBar";
+import { searchFilterCriteria } from "@/src/app/ui/Shop/SearchFilterCriteria";
+import Pagination, { usePagination } from "./Pagination/Pagination";
 
 type ShopProps = {
   isHomePage: boolean;
   limit?: number;
 };
 
-const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 24 }) => {
   // --------------------------------------- //
   //             - Declarations              //
   // --------------------------------------- //
@@ -29,6 +31,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
   // const currentPage = Number(searchParams?.page) || 1;
   const [modalOpened, setModalOpened] = useState(false);
   const [searchQuery, setSearchQuery] = useState({});
+  const [paginationVisible, setPaginationVisible] = useState(false);
   const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
 
   // --------------------------------------- //
@@ -58,80 +61,33 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
     }
   }, [modalOpened]);
 
+  // update current search queries
   useEffect(() => {
     let newSearchQuery: { [key: string]: string } = {};
-
     const entriesArray = Array.from(searchParams.entries());
     for (const [key, value] of entriesArray) {
       newSearchQuery[key] = value;
     }
-
     setSearchQuery(newSearchQuery);
   }, [searchParams]);
 
-  const matchesSearchCriteria = (card: ImageCard) => {
-    if (!searchQuery || Object.keys(searchQuery).length === 0) {
-      return true; // If no search parameters, all cards match
-    }
-
-    return Object.entries(searchQuery).every(([key, value]) => {
-      const lowerValue = (value as string).toLowerCase();
-
-      switch (key) {
-        case "minPrice": {
-          const minPriceValue = Number(value);
-          return !isNaN(minPriceValue) && card.price >= minPriceValue;
-        }
-        case "maxPrice": {
-          const maxPriceValue = Number(value);
-          return !isNaN(maxPriceValue) && card.price <= maxPriceValue;
-        }
-        case "inStock": {
-          return (
-            (value as string).toLowerCase() === "true" && card.quantity > 0
-          );
-        }
-        case "query":
-          return Object.entries(card).some(([cardKey, cardValue]) => {
-            if (typeof cardValue === "string") {
-              return cardValue.toLowerCase().includes(lowerValue);
-            } else if (Array.isArray(cardValue)) {
-              return cardValue.some((arrayItem) =>
-                (arrayItem as string).toLowerCase().includes(lowerValue)
-              );
-            }
-            return false;
-          });
-        default: {
-          const cardValue = card[key as keyof ImageCard];
-
-          // Handle string values
-          if (typeof cardValue === "string") {
-            return cardValue.toLowerCase().includes(lowerValue);
-          }
-
-          // Handle array values (e.g., woodTypes)
-          if (Array.isArray(cardValue)) {
-            return cardValue.some(
-              (arrayItem) => (arrayItem as string).toLowerCase() === lowerValue
-            );
-          }
-
-          // Handle numeric values (e.g., price, quantity)
-          if (typeof cardValue === "number") {
-            const numValue = Number(lowerValue);
-            return !isNaN(numValue) && cardValue === numValue;
-          }
-
-          return false;
-        }
-      }
-    });
-  };
-
   // Filter the cards based on search parameters
-  const filteredCards = imageCards.filter(matchesSearchCriteria);
-  const cardsToDisplay = limit ? filteredCards.slice(0, limit) : filteredCards;
+  const filteredCards = imageCards.filter(searchFilterCriteria(searchQuery));
+  const { currentPageData, setPage } = usePagination<ImageCard>(
+    filteredCards,
+    limit
+  );
+
+  //update pagination visiibility
+  useEffect(() => {
+    if (filteredCards.length <= limit) {
+      setPaginationVisible(false);
+      return;
+    } else {
+      setPaginationVisible(true);
+      return;
+    }
+  }, [searchParams, limit, filteredCards.length]);
 
   return (
     <div className="shop">
@@ -143,7 +99,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
           isHomePage ? "shop__gallery shop__gallery-homepage" : "shop__gallery"
         }
       >
-        {cardsToDisplay.map((card, index) => (
+        {currentPageData.map((card, index) => (
           <GalleryCard
             key={index}
             title={card.title}
@@ -153,25 +109,36 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit }) => {
           />
         ))}
       </div>
-      <div className={isHomePage ? "shop__buttons" : "shop__buttons_hidden"}>
-        <Link
-          href="/woodshop?inStock=true"
-          className="hidden__button-container"
-        >
-          <button
-            className={`shop__button global__button global__box-shadow ${enriqueta.className}`}
+      {isHomePage && (
+        <div className="shop__buttons">
+          <Link
+            href="/woodshop?inStock=true"
+            className="hidden__button-container"
           >
-            VIEW CURRENT INVENTORY
-          </button>
-        </Link>
-        <Link href="/woodshop" className="hidden__button-container">
-          <button
-            className={`shop__button global__button global__box-shadow ${enriqueta.className}`}
-          >
-            VIEW ENTIRE GALLERY
-          </button>
-        </Link>
-      </div>
+            <button
+              className={`shop__button global__button global__box-shadow ${enriqueta.className}`}
+            >
+              VIEW CURRENT INVENTORY
+            </button>
+          </Link>
+          <Link href="/woodshop" className="hidden__button-container">
+            <button
+              className={`shop__button global__button global__box-shadow ${enriqueta.className}`}
+            >
+              VIEW ENTIRE GALLERY
+            </button>
+          </Link>
+        </div>
+      )}
+      {!isHomePage && paginationVisible && (
+        <div className="shop__pagination global__box-shadow">
+          <Pagination
+            totalItems={filteredCards.length}
+            itemsPerPage={limit}
+            onPageChange={setPage}
+          />
+        </div>
+      )}
       {modalOpened === true && (
         <ItemModal
           onClose={toggleModal}

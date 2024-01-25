@@ -11,7 +11,7 @@ import aboutImage from "@/public/our-story/aboutNick+Ryan.jpeg";
 
 const OurStory = () => {
   return (
-    <div className="about__main global__page-background global__page-borders">
+    <div className="about__main global__page-background">
       <Image
         src={aboutImage}
         alt="picture of the owners"

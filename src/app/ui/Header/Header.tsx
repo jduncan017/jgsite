@@ -73,7 +73,7 @@ const Header = ({}) => {
       </button>
 
       {/* Desktop Menu */}
-      <ul className="header__navigation global__page-borders">
+      <ul className="header__navigation">
         <li className="header__navigation-text">
           <Link href="/">Home</Link>
         </li>

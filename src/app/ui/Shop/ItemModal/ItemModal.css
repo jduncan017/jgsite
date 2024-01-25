@@ -129,8 +129,21 @@
   font-size: 20px;
   line-height: 1.8rem;
   padding-bottom: 10px;
-  border-bottom: 1px black solid;
   padding-right: 10px;
+}
+
+.item-modal__wood-types {
+  align-items: center;
+  border-bottom: 1px black solid;
+}
+
+.wood-types__title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.wood-types__description {
+  padding-bottom: 8px;
 }
 
 .item-modal__purchase-section {
@@ -240,7 +253,6 @@
   .item-modal__description-text {
     font-size: 18px;
     line-height: 1.5rem;
-    padding-bottom: 20px;
   }
 
   .item-modal__purchase-section {
@@ -297,7 +309,6 @@
   }
 
   .item-modal__description-text {
-    padding-bottom: 15px;
     padding-right: 10px;
     line-height: 1.4rem;
   }
@@ -359,15 +370,18 @@
   .item-modal__description-text {
     font-size: 16px;
     line-height: 1.2rem;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: none;
+  }
+
+  .wood-types__title {
+    font-size: 18px;
   }
 
   .item-modal__purchase-section {
     display: flex;
     gap: 15px;
-    padding: 8px 12px 5px 0;
-    border-top: 1px black solid;
+    padding: 8px 12px 10px 0;
     justify-content: space-between;
   }
 
@@ -525,7 +539,6 @@
     display: flex;
     gap: 15px;
     padding: 8px 12px 5px 0;
-    border-top: 1px black solid;
     justify-content: space-between;
   }
 

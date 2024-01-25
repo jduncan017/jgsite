@@ -11,7 +11,7 @@ import TitleBanner from "../ui/ShopBanner/TitleBanner";
 export default function Woodshop() {
   return (
     <>
-      <main className="woodshop__main global__page-borders global__page-background">
+      <main className="woodshop__main global__page-background">
         <TitleBanner />
         <GalleryHeader></GalleryHeader>
         <Shop isHomePage={false}></Shop>
