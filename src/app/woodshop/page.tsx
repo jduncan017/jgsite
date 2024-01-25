@@ -12,7 +12,7 @@ export default function Woodshop() {
   return (
     <>
       <main className="woodshop__main global__page-background">
-        <TitleBanner />
+        <TitleBanner title={"WOODSHOP GALLERY"} />
         <GalleryHeader></GalleryHeader>
         <Shop isHomePage={false}></Shop>
       </main>

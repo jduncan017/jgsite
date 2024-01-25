@@ -4,6 +4,7 @@ import fags from "@/public/our-story/fags.webp";
 import Image from "next/image";
 import woodAccent from "@/public/shared/woodAccent.webp";
 import aboutImage from "@/public/our-story/aboutNick+Ryan.jpeg";
+import TitleBanner from "@/src/app/ui/ShopBanner/TitleBanner";
 
 /* --------------------------------------- */
 /*             Our Story Route             */
@@ -61,6 +62,9 @@ const OurStory = () => {
           height={804}
           placeholder="blur"
         ></Image>
+        <div className="about__title-banner">
+          <TitleBanner title={"Our Story"} />
+        </div>
       </div>
     </div>
   );

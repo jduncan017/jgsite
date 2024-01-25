@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import "./HeroSection.css";
 import bannerImage from "@/public/homepage/hero-banner.webp";
-import fullLogoWhite from "@/public/shared/jg-logo-white.webp";
+import fullLogoWhite from "@/public/shared/logo-white.png";
 import woodAccent from "@/public/shared/woodAccent.webp";
 import { inter } from "@/src/app/ui/fonts";
 import Link from "next/link";

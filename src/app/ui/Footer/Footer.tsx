@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import Image from "next/image";
-import logo from "@/public/shared/jg-logo-white.webp";
+import logo from "@/public/shared/logo-white.png";
 import backgroundImage from "@/public/shared/footerBackground.webp";
 
 const Footer = () => {
@@ -23,7 +23,14 @@ const Footer = () => {
         <p className="footer__text global__z-index-adjust">
           Follow us:
           <br />
-          Instagram
+          <a
+            href="https://www.instagram.com/johngerardwoodwork/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__link_instagram"
+          >
+            Instagram
+          </a>
         </p>
       </div>
       <Image

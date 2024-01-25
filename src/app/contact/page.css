@@ -226,12 +226,8 @@
 }
 
 @media (max-width: 720px) {
-  /* .form__title {
-    font-size: 24px;
-  } */
-
   .contact-page__contact {
-    padding: 20px;
+    padding: 15px;
   }
 
   .form__wrapper {

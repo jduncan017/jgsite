@@ -4,13 +4,11 @@ import { cardo } from "@/src/app/ui/fonts";
 import Image from "next/image";
 import backgroundImage from "@/public/shared/shop-banner.webp";
 
-const ShopBanner = () => {
+const TitleBanner = ({ title }: { title: string }) => {
   return (
     <>
       <div className={`title-banner global__box-shadow ${cardo.className}`}>
-        <h2 className="title-banner__text global__z-index-adjust">
-          WOODSHOP GALLERY
-        </h2>
+        <h2 className="title-banner__text global__z-index-adjust">{title}</h2>
         <Image
           src={backgroundImage}
           alt="Background image for the page"
@@ -24,4 +22,4 @@ const ShopBanner = () => {
   );
 };
 
-export default ShopBanner;
+export default TitleBanner;

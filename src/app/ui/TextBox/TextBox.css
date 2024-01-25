@@ -90,12 +90,11 @@
   .text-box {
     flex-direction: column;
     margin-bottom: 20px;
-    margin: 0 0 10px;
     background-color: transparent;
     gap: 10px;
     box-shadow: none;
-    padding: 10px 0;
-    margin: 5px 10px 0;
+    padding: 0;
+    margin: 0 0 15px;
   }
 
   .text-box__section {

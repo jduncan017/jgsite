@@ -30,6 +30,11 @@
   font-weight: 400;
 }
 
+.footer__link_instagram:hover {
+  color: #4b6049;
+  cursor: pointer;
+}
+
 @media (max-width: 1290px) {
   .footer {
     padding: 15px 20px 38px;
@@ -63,15 +68,11 @@
 @media (max-width: 620px) {
   .footer {
     padding: 10px 20px 20px;
-    font-size: 11px;
+    font-size: 14px;
     gap: 10px;
   }
 
   .footer__logo {
     display: none;
-  }
-
-  .footer__text {
-    line-height: 1.1rem;
   }
 }

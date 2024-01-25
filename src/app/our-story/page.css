@@ -12,6 +12,10 @@
   box-shadow: inset black 5px 5px 10px;
 }
 
+.about__title-banner {
+  display: none;
+}
+
 .about__header-image {
   position: relative;
   width: 100%;
@@ -171,16 +175,33 @@
 }
 
 @media (max-width: 650px) {
+  .about {
+    flex-direction: column-reverse;
+    gap: 0;
+    padding: 15px;
+  }
+
   .about__header-image {
     display: none;
+  }
+
+  .about__title-banner {
+    width: 100%;
+    display: block;
+  }
+
+  .about__image {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .about__description {
+    width: 100%;
   }
 }
 
 @media (max-width: 560px) {
-  .about {
-    padding: 7px;
-  }
-
   .about__description {
     margin-top: 16px;
     padding: 20px 38px;

@@ -177,15 +177,12 @@
   }
 
   .gallery-header__title {
-    font-size: 5.8vw;
+    font-size: 6vw;
   }
 
   .gallery-header__description {
+    margin-top: 5px;
     font-size: 4vw;
-    line-height: 1.2rem;
-  }
-
-  .gallery-header__button {
-    font-size: 14px;
+    line-height: 1.4rem;
   }
 }

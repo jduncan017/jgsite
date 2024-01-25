@@ -16,7 +16,7 @@ export default function Home() {
           <div className="home__call-to-action-section">
             <CallToActionSection></CallToActionSection>
           </div>
-          <TitleBanner />
+          <TitleBanner title={"WOODSHOP GALLERY"} />
           <Shop isHomePage={true} limit={8}></Shop>
         </div>
       </main>
