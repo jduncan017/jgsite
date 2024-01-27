@@ -4,6 +4,7 @@ import "./globals.css";
 import Navigation from "@/src/app/components/Navigation/Navigation";
 import Footer from "@/src/app/components/Footer/Footer";
 import { SelectedItemProvider } from "../contexts/selectedItemContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "John Gerard Woodworking",
@@ -23,6 +24,7 @@ export default function RootLayout({
             <SelectedItemProvider>
               <Navigation></Navigation>
               {children}
+              <SpeedInsights />
             </SelectedItemProvider>
           </div>
           <Footer></Footer>

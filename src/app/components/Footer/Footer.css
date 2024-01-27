@@ -36,6 +36,10 @@
   font-weight: 400;
 }
 
+.footer__link:visited {
+  color: white;
+}
+
 .footer__link:hover {
   color: #4b6049;
   cursor: pointer;

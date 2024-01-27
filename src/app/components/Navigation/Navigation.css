@@ -21,10 +21,15 @@
 }
 
 .header__navigation-text {
+  color: white;
   transition: color 0.2s;
   border-radius: 5px;
   padding: 4px 10px;
   transition: background 0.4s;
+}
+
+.header__navigation:visited {
+  color: white;
 }
 
 .header__navigation-text:hover {
