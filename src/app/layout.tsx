@@ -18,13 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cardo.className} layout`}>
-        <div className="global__page-borders">
-          <SelectedItemProvider>
-            <Navigation></Navigation>
-            {children}
-          </SelectedItemProvider>
+        <div className="page-wrapper">
+          <div className="page global__page-borders">
+            <SelectedItemProvider>
+              <Navigation></Navigation>
+              {children}
+            </SelectedItemProvider>
+          </div>
+          <Footer></Footer>
         </div>
-        <Footer></Footer>
       </body>
     </html>
   );

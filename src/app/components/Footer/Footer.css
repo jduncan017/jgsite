@@ -9,6 +9,12 @@
   position: relative;
 }
 
+.footer__left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .footer__social {
   display: flex;
   flex-direction: column;
@@ -30,7 +36,7 @@
   font-weight: 400;
 }
 
-.footer__link_instagram:hover {
+.footer__link:hover {
   color: #4b6049;
   cursor: pointer;
 }

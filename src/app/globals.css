@@ -26,10 +26,6 @@ ul {
   margin: 0;
 }
 
-body {
-  min-height: 100dvh;
-}
-
 h1 {
   margin: 0;
 }
@@ -42,12 +38,23 @@ p {
   margin: 0;
 }
 
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  height: 100%;
+}
+
 .layout {
   background-color: black;
   max-width: 1400px;
   margin: auto;
   position: relative;
   z-index: -1000;
+  height: 100dvh;
 }
 
 .global__no-scroll {

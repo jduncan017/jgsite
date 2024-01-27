@@ -1,6 +1,5 @@
 .contact-page__main {
   display: flex;
-  min-height: 86vh;
   height: fit-content;
   position: relative;
 }
@@ -55,7 +54,6 @@
   border-bottom: black solid 2px;
   align-self: center;
   border-radius: 0 0 8px 8px;
-  margin-bottom: 50px;
 }
 
 .form__title {

@@ -3,15 +3,21 @@ import "./Footer.css";
 import Image from "next/image";
 import logo from "@/public/shared/logo-white.png";
 import backgroundImage from "@/public/shared/footerBackground.webp";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="footer">
-      <p className="footer__text global__z-index-adjust">
-        © 2021 John Gerrard WoodWork.
-        <br />
-        Rochester, NY
-      </p>
+      <div className="footer__left-container global__z-index-adjust">
+        <p className="footer__text">
+          © 2021 John Gerrard WoodWork.
+          <br />
+          Rochester, NY
+        </p>
+        <Link href="/admin-login" className="footer__link">
+          Admin Login
+        </Link>
+      </div>
       <Image
         src={logo}
         alt="John Gerard Logo"
@@ -27,7 +33,7 @@ const Footer = () => {
             href="https://www.instagram.com/johngerardwoodwork/"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer__link_instagram"
+            className="footer__link"
           >
             Instagram
           </a>

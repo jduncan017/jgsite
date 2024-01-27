@@ -7,43 +7,43 @@ import LoginForm from "./loginForm/LoginForm";
 
 const loginPage = () => {
   return (
-    <div className="login-page__main">
-      <div className="login-page__login">
-        <div className="login-page__login-form">
-          <h1 className={`login-page__title ${cardo.className}`}>
-            ADMIN LOGIN
-          </h1>
-          <div className="form__wrapper">
-            <LoginForm />
-            <Image
-              src={formAccent}
-              alt="accent for login form"
-              height={60}
-              width={60}
-              className="form__accent accent__top-left"
-            ></Image>
-            <Image
-              src={formAccent}
-              alt="accent for login form"
-              height={60}
-              width={60}
-              className="form__accent accent__top-right"
-            ></Image>
-            <Image
-              src={formAccent}
-              alt="accent for login form"
-              height={60}
-              width={60}
-              className="form__accent accent__bottom-left"
-            ></Image>
-            <Image
-              src={formAccent}
-              alt="accent for login form"
-              height={60}
-              width={60}
-              className="form__accent accent__bottom-right"
-            ></Image>
-          </div>
+    <div className="login-page__main global__page-background">
+      <div className="login-page__login-form">
+        <h1
+          className={`login-page__title global__box-shadow ${cardo.className}`}
+        >
+          ADMIN LOGIN
+        </h1>
+        <div className="form__wrapper global__box-shadow">
+          <LoginForm />
+          <Image
+            src={formAccent}
+            alt="accent for login form"
+            height={60}
+            width={60}
+            className="form__accent accent__top-left"
+          ></Image>
+          <Image
+            src={formAccent}
+            alt="accent for login form"
+            height={60}
+            width={60}
+            className="form__accent accent__top-right"
+          ></Image>
+          <Image
+            src={formAccent}
+            alt="accent for login form"
+            height={60}
+            width={60}
+            className="form__accent accent__bottom-left"
+          ></Image>
+          <Image
+            src={formAccent}
+            alt="accent for login form"
+            height={60}
+            width={60}
+            className="form__accent accent__bottom-right"
+          ></Image>
         </div>
       </div>
     </div>
