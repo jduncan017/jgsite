@@ -23,7 +23,7 @@
   align-items: center;
   overflow: hidden;
   min-height: 500px;
-  height: 41vw;
+  height: 39vw;
   max-height: 550px;
   justify-content: center;
   background-color: rgb(14, 9, 0);
@@ -77,8 +77,8 @@
   }
 
   .banner__textbox_text {
-    font-size: 1.6vw;
-    line-height: 1.6rem;
+    font-size: 1.5vw;
+    line-height: 1.5rem;
     margin: 8px 8%;
   }
 
@@ -96,25 +96,25 @@
     top: 0;
     left: 0;
     width: 32%;
-    height: 41vw;
+    height: 39vw;
     box-shadow: black 5px 2px 5px;
     justify-content: flex-start;
   }
 
   .banner__textbox_text {
-    line-height: 1.3rem;
-    margin: 10px 9%;
+    line-height: 1.2rem;
+    margin: 10px 9% 2vw;
   }
 
   .banner__logo {
     width: 70%;
-    padding-top: 35px;
+    padding-top: 30px;
   }
 
   .banner__button {
-    font-size: 14px;
-    height: 30px;
-    width: 170px;
+    font-size: 15px;
+    height: 32px;
+    width: 150px;
     margin: 0;
   }
 }
@@ -128,25 +128,31 @@
   }
 
   .banner__textbox_text {
-    font-size: 16px;
-    line-height: 1.8rem;
-    max-width: 500px;
+    font-size: 18px;
+    line-height: 2.2rem;
+    max-width: 450px;
   }
 
   .banner__logo {
-    padding: 0 0 10px;
-    width: 290px;
+    padding: 30px 0 20px;
+    width: 350px;
   }
 
   .banner__button {
-    margin: 20px 0 10px;
-    width: 175px;
-    height: 35px;
+    margin: 30px 0 20px;
+    width: 180px;
+    height: 40px;
   }
 
   @media (max-width: 650px) {
     .banner__image {
       display: none;
+    }
+
+    .banner__logo {
+      padding: 20px 0;
+      width: 70%;
+      min-width: 230px;
     }
 
     .banner__textbox {

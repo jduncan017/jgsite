@@ -11,6 +11,7 @@
   justify-content: center;
   width: 100%;
   padding: 40px;
+  box-shadow: inset black 5px 5px 10px;
 }
 
 .contact__border-image {
@@ -112,14 +113,6 @@
   transform: rotate(180deg);
 }
 
-.form__accent-pen {
-  position: absolute;
-  bottom: -100px;
-  right: -100px;
-  width: 400px;
-  height: auto;
-}
-
 @media (max-width: 1290px) {
   .contact-page__contact {
     justify-content: flex-start;
@@ -142,48 +135,34 @@
   .form__description {
     line-height: 1.2rem;
     max-width: 400px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .form__description::after {
     width: 400px;
   }
-
-  .form__accent-pen {
-    position: absolute;
-    bottom: -5vw;
-    right: -5vw;
-    max-width: 333px;
-    width: 25vw;
-    height: auto;
-  }
 }
 
 @media (max-width: 1070px) {
   .contact-page__title {
-    font-size: 4vw;
+    font-size: 38px;
     padding: 10px;
   }
 
   .form__title {
-    font-size: 2.4vw;
+    font-size: 26px;
   }
 
   .form__description {
-    font-size: 1.4vw;
+    font-size: 18px;
   }
 
   .contact__border-image {
     width: 80px;
   }
-
-  .form__accent-pen {
-    bottom: -4vw;
-    right: -4vw;
-  }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 850px) {
   .contact-page__contact {
     border: none;
   }
@@ -192,42 +171,19 @@
     display: none;
   }
 
-  .form__accent-pen {
-    bottom: -3vw;
-    right: -40px;
-  }
-}
-
-@media (max-width: 980px) {
-  .contact-page__contact {
-    padding-top: 60px;
-  }
-
   .form__wrapper {
     padding: 10px 60px;
   }
 
   .contact-page__title {
-    font-size: 4.5vw;
+    font-size: 36px;
     padding: 10px;
-  }
-
-  .form__title {
-    font-size: 3vw;
-  }
-
-  .form__description {
-    font-size: 1.8vw;
-  }
-
-  .form__accent-pen {
-    display: none;
   }
 }
 
 @media (max-width: 720px) {
   .contact-page__contact {
-    padding: 15px;
+    padding: 40px 15px;
   }
 
   .form__wrapper {
@@ -238,17 +194,16 @@
   .contact-page__title {
     max-width: 600px;
     font-size: 5vw;
-    padding: 6px;
-    font-size: 30px;
+    padding: 12px;
+    font-size: 32px;
   }
 
   .form__title {
-    font-size: 3.5vw;
-    margin: 0;
+    margin: 4px;
   }
 
   .form__description {
-    font-size: 15px;
+    font-size: 16px;
     margin-bottom: 5px;
   }
 
@@ -256,19 +211,15 @@
     margin: 10px 0;
     width: 100%;
   }
-
-  .form__accent {
-    display: none;
-  }
-
-  .form__accent-pen {
-    display: none;
-  }
 }
 
 @media (max-width: 600px) {
-  .form__title {
-    font-size: 4vw;
+  .contact-page__contact {
+    padding: 15px;
+  }
+
+  .form__accent {
+    display: none;
   }
 }
 
@@ -279,10 +230,13 @@
 
   .form__title {
     font-size: 5.5vw;
+    margin: 2px;
   }
 
   .form__description {
-    font-size: 12px;
+    font-size: 15px;
+    line-height: 1.1rem;
+    margin-bottom: 5px;
   }
 
   .contact-form__input {

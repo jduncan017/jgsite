@@ -7,7 +7,7 @@ select:invalid {
   flex-direction: column;
   width: 100%;
   text-align: left;
-  padding-top: 10px;
+  padding-top: 20px;
   align-items: center;
 }
 
@@ -28,7 +28,7 @@ select:invalid {
   gap: 0 29px;
   height: fit-content;
   max-height: 192px;
-  margin-bottom: 10px;
+  width: calc(50% - 11.5px);
 }
 
 .inputs__column {
@@ -52,7 +52,7 @@ select:invalid {
   line-height: 1.2rem;
   display: block;
   height: fit-content;
-  min-height: 10px;
+  min-height: 20px;
   padding: 2px 0;
 }
 
@@ -76,7 +76,6 @@ select:invalid {
   padding: 4px;
   margin-top: 5px;
   object-fit: cover;
-  /* filter: sepia(0.5) grayscale(0.8); */
   height: 23vw;
   width: 23vw;
   max-width: 280px;
@@ -196,6 +195,10 @@ select:invalid {
   .contact-form__input {
     margin: 2px 0;
     font-size: 16px;
+  }
+
+  .contact-form__error {
+    min-height: 10px;
   }
 
   .contact-form__message-container {

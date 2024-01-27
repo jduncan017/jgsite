@@ -126,7 +126,7 @@ const SearchBar = () => {
         <div className="search-bar__filters">
           {/* CATEGORY FILTER */}
           {moreFiltersChecked && (
-            <div className="search-bar__field">
+            <div className="search-bar__field item1">
               <label htmlFor="category" className="search-bar__label">
                 Category:
               </label>
@@ -148,7 +148,7 @@ const SearchBar = () => {
 
           {/* WOOD TYPE FILTER */}
           {moreFiltersChecked && (
-            <div className="search-bar__field">
+            <div className="search-bar__field item2">
               <label htmlFor="wood-type" className="search-bar__label">
                 Type of Wood:
               </label>
@@ -173,7 +173,7 @@ const SearchBar = () => {
 
           {/* PRICE FILTERS */}
           {moreFiltersChecked && (
-            <div className="search-bar__price-filters">
+            <div className="search-bar__price-filters item3">
               <div className="search-bar__field">
                 <label htmlFor="price-min" className="search-bar__label">
                   Min Price:

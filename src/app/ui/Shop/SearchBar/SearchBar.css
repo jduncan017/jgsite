@@ -16,9 +16,11 @@ input[type="checkbox" i] {
 .search-bar__inner-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   gap: 2px;
   width: 100%;
+  min-height: 35px;
 }
 
 .search-bar__main-options {
@@ -193,18 +195,28 @@ input[type="checkbox" i] {
     flex-wrap: wrap;
   }
 
-  .search-bar__field {
-    width: 46%;
-  }
-
   .search-bar__search-input {
     width: 100%;
   }
 
   .search-bar__filters {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px 15px;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "item1 item2"
+      "item3 item3";
+    gap: 10px;
+  }
+
+  .item1 {
+    grid-area: item1;
+  }
+  .item2 {
+    grid-area: item2;
+  }
+  .item3 {
+    grid-area: item3;
   }
 
   .search-bar__select {

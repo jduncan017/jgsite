@@ -57,9 +57,9 @@
 .about__description-text {
   margin: 16px 0 0;
   max-width: 450px;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 1.8rem;
 }
 
 .about__image {
@@ -76,7 +76,7 @@
 
   .about__description-text {
     max-width: 400px;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.5rem;
   }
 }
@@ -91,11 +91,11 @@
   }
 
   .about__description {
-    width: 50%;
+    width: 48%;
   }
 
   .about__description-title {
-    font-size: 2.8vw;
+    font-size: 32px;
   }
 
   .about__description-title::after {
@@ -104,13 +104,17 @@
   }
 
   .about__description-text {
-    font-size: 1.4vw;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 945px) {
   .about {
     padding: 22px;
+  }
+
+  .about__description-title {
+    font-size: 28px;
   }
 
   .about__description-title::after {
@@ -123,7 +127,8 @@
   }
 
   .about__description-text {
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.4rem;
   }
 
   .about__image {
@@ -140,15 +145,15 @@
   .about {
     flex-direction: column;
     align-items: center;
-    padding: 12px;
-    gap: 12px;
+    padding: 15px;
+    gap: 15px;
     height: fit-content;
   }
 
   .about__description {
-    margin-top: 16px;
+    margin-top: 0;
     padding: 28px 38px;
-    width: 90%;
+    width: 100%;
     box-sizing: border-box;
   }
 
@@ -168,8 +173,8 @@
   }
 
   .about__image {
-    width: 90%;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
 }
@@ -177,8 +182,6 @@
 @media (max-width: 650px) {
   .about {
     flex-direction: column-reverse;
-    gap: 0;
-    padding: 15px;
   }
 
   .about__header-image {
@@ -191,13 +194,7 @@
   }
 
   .about__image {
-    width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
-  }
-
-  .about__description {
-    width: 100%;
   }
 }
 

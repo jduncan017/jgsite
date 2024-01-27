@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./page.css";
 import Image from "next/image";
 import contactBorder from "@/public/contact/contact-border.png";
 import formAccent from "@/public/shared/form-accent.png";
-import accentPen from "@/public/contact/contact-accent-pen.png";
 import { cardo } from "../ui/fonts";
 import ContactForm from "./ContactForm/ContactForm";
 
@@ -57,13 +56,6 @@ const contactPage = () => {
             width={90}
             className="form__accent accent__bottom-right"
           ></Image>
-          <Image
-            src={accentPen}
-            alt="decorative pen"
-            width={333}
-            height={205}
-            className="form__accent-pen"
-          />
         </div>
       </div>
       <Image
