@@ -1,0 +1,19 @@
+.woodshop__main {
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset black 5px 5px 10px;
+  padding: 15px 20px;
+  position: relative;
+}
+
+@media (max-width: 910px) {
+  .woodshop__main {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .woodshop__main {
+    padding: 15px 0 5px;
+  }
+}
