@@ -1,0 +1,133 @@
+.text-box {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f2eee2;
+  margin: 5px 0 20px;
+  color: black;
+  height: fit-content;
+  padding: 8px 4px;
+}
+
+.text-box__section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 22%;
+  align-items: center;
+}
+
+.text-box__divider {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 100px;
+  background-color: #000;
+  align-self: center;
+}
+
+.text-box__section_title {
+  font-size: 28px;
+  margin: 10px 0 0;
+  font-weight: 400;
+}
+
+.title__divider {
+  content: "";
+  display: block;
+  width: 85%;
+  height: 1px;
+  background-color: #000;
+  align-self: center;
+  margin: 8px 0;
+}
+
+.text-box__section_description {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 5px 10px;
+}
+
+@media (max-width: 1290px) {
+  .text-box {
+    margin-top: 10px;
+  }
+
+  .text-box__section {
+    width: 20%;
+  }
+
+  .text-box__section_title {
+    font-size: 23px;
+  }
+
+  .title__divider {
+    margin-top: 5px;
+  }
+
+  .text-box__section_description {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 999px) {
+  .text-box__section {
+    width: 22%;
+  }
+
+  .text-box__section_title {
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 5px;
+  }
+
+  .text-box__section_description {
+    font-size: 12px;
+    margin: 0 0 10px;
+  }
+}
+
+@media (max-width: 780px) {
+  .text-box {
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: transparent;
+    gap: 10px;
+    box-shadow: none;
+    padding: 0;
+    margin: 0 0 15px;
+  }
+
+  .text-box__section {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 15px 12px;
+    align-items: flex-start;
+    background-color: #262626;
+    border: black solid 2px;
+    border-radius: 4px;
+    box-shadow: inset black 1px 1px 5px;
+    color: #efe4d3;
+  }
+
+  .text-box__divider {
+    display: none;
+  }
+
+  .text-box__section_title {
+    text-align: left;
+    width: 120px;
+    margin: 0 0 5px;
+    width: 100%;
+  }
+
+  .title__divider {
+    display: none;
+  }
+
+  .text-box__section_description {
+    margin: 0;
+    text-align: left;
+    width: 100%;
+    font-size: 15px;
+  }
+}
