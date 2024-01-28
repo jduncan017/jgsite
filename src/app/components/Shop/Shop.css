@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 15px;
-  padding: 15px 0 5px;
+  padding: 15px 0 15px;
 }
 
 .shop__buttons {

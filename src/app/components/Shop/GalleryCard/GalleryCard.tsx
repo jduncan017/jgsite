@@ -19,7 +19,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   onClick,
 }) => {
   return (
-    <div className="gallery-card global__box_shadow">
+    <div className="gallery-card global__box-shadow">
       <div className="gallery-card__image-container">
         <ImageLoadingWrapper onClick={onClick}>
           <Image
