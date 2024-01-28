@@ -1,16 +1,25 @@
-const sendEmail = require("../../mailer");
+// import type { NextApiRequest, NextApiResponse } from "next";
+// import sendEmail from "./Mailer";
 
-export default async (req, res) => {
-  const { to, subject, text } = req.body;
+// // Define the structure for the expected request body
+// interface EmailRequestBody {
+//   to: string;
+//   subject: string;
+//   text: string;
+// }
 
-  const emailOptions = {
-    from: "your-email@gmail.com",
-    to: to,
-    subject: subject,
-    text: text,
-  };
+// export default async (req: NextApiRequest, res: NextApiResponse) => {
+//   // Destructure and type the request body
+//   const { to, subject, text } = req.body as EmailRequestBody;
 
-  await sendEmail(emailOptions);
+//   const emailOptions = {
+//     from: "your-email@gmail.com",
+//     to: to,
+//     subject: subject,
+//     text: text,
+//   };
 
-  res.status(200).json({ status: "Email sent!" });
-};
+//   await sendEmail(emailOptions);
+
+//   res.status(200).json({ status: "Email sent!" });
+// };
