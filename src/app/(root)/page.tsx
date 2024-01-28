@@ -5,6 +5,7 @@ import Shop from "@/src/app/components/Shop/Shop";
 import "./page.css";
 import CallToActionSection from "@/src/app/(root)/CallToActionSection/CallToActionSection";
 import TitleBanner from "../components/ShopBanner/TitleBanner";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
             <CallToActionSection></CallToActionSection>
           </div>
           <TitleBanner title={"WOODSHOP GALLERY"} />
-          <Shop isHomePage={true} limit={8}></Shop>
+          <Suspense>
+            <Shop isHomePage={true} limit={8}></Shop>
+          </Suspense>
         </div>
       </main>
     </>

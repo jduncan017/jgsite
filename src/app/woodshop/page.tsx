@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./page.css";
 import GalleryHeader from "@/src/app/woodshop/GalleryHeader/GalleryHeader";
 import Shop from "@/src/app/components/Shop/Shop";
@@ -14,7 +14,9 @@ export default function Woodshop() {
       <main className="woodshop__main global__page-background">
         <TitleBanner title={"WOODSHOP GALLERY"} />
         <GalleryHeader></GalleryHeader>
-        <Shop isHomePage={false}></Shop>
+        <Suspense>
+          <Shop isHomePage={false}></Shop>
+        </Suspense>
       </main>
     </>
   );
