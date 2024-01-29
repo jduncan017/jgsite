@@ -27,7 +27,6 @@ input[type="checkbox" i] {
   gap: 2px 20px;
   align-items: center;
   width: 100%;
-  min-width: 80vw;
 }
 
 .main-options__extra-padding {

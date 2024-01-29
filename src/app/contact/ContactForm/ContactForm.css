@@ -25,7 +25,7 @@ select:invalid {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  gap: 0 29px;
+  gap: 0 23px;
   height: fit-content;
   max-height: 192px;
   width: calc(50% - 11.5px);
@@ -130,10 +130,6 @@ select:invalid {
 }
 
 @media (max-width: 1290px) {
-  .contact-form__inputs-wrapper_full-width {
-    gap: 0 23px;
-  }
-
   .contact-form__label {
     font-size: 18px;
   }

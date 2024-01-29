@@ -73,7 +73,7 @@ const SearchBar = () => {
     const sortedWoodTypes = Array.from(woodTypesSet).sort();
 
     setWoodTypes(sortedWoodTypes);
-  }, [imageCards]);
+  }, []);
 
   return (
     <form
