@@ -2,13 +2,15 @@
   display: flex;
   justify-content: center;
   flex: 1;
+  box-shadow: inset black 5px 5px 10px;
+  padding: 40px;
 }
 
 .login-page__login-form {
-  width: 60vw;
+  width: 70vw;
   max-width: 750px;
-  padding-top: 100px;
   box-sizing: border-box;
+  margin: auto;
 }
 
 .login-page__title {
@@ -38,28 +40,28 @@
   align-items: center;
 }
 
-.form__accent {
+.login-form__accent {
   position: absolute;
 }
 
-.accent__top-left {
+.login-accent__top-left {
   top: 18px;
   left: 18px;
 }
 
-.accent__top-right {
+.login-accent__top-right {
   top: 18px;
   right: 18px;
   transform: rotate(90deg);
 }
 
-.accent__bottom-left {
+.login-accent__bottom-left {
   bottom: 18px;
   left: 18px;
   transform: rotate(270deg);
 }
 
-.accent__bottom-right {
+.login-accent__bottom-right {
   bottom: 18px;
   right: 18px;
   transform: rotate(180deg);
@@ -76,20 +78,8 @@
 }
 
 @media (max-width: 800px) {
-  .login-page__login {
-    justify-content: flex-start;
-  }
-
   .login-page__login-form {
-    width: 70vw;
-  }
-
-  .form__wrapper {
-    padding: 42px 10px 0;
-  }
-
-  .login-page__title {
-    font-size: 28px;
+    width: 100%;
   }
 
   .form__accent {
@@ -97,24 +87,24 @@
     width: 45px;
   }
 
-  .accent__top-left {
+  .login-accent__top-left {
     top: 15px;
     left: 15px;
   }
 
-  .accent__top-right {
+  .login-accent__top-right {
     top: 15px;
     right: 15px;
     transform: rotate(90deg);
   }
 
-  .accent__bottom-left {
+  .login-accent__bottom-left {
     bottom: 15px;
     left: 15px;
     transform: rotate(270deg);
   }
 
-  .accent__bottom-right {
+  .login-accent__bottom-right {
     bottom: 15px;
     right: 15px;
     transform: rotate(180deg);
@@ -123,23 +113,24 @@
 
 @media (max-width: 520px) {
   .login-page__main {
-    padding: 15px;
+    padding: 10px;
   }
 
   .login-page__login-form {
     width: 100%;
     padding: 0;
+    margin: 15px;
   }
 
   .form__wrapper {
-    padding: 28px 10px 0;
+    padding: 30px 10px 0;
   }
 
   .login-page__title {
-    font-size: 20px;
+    font-size: 24px;
   }
 
-  .form__accent {
+  .login-form__accent {
     display: none;
   }
 }

@@ -126,6 +126,15 @@ p {
   transform: scaleX(-1);
 }
 
+.global__text-shadow {
+  text-shadow: 2px 2px 2px black;
+  mask: 1px 1px;
+}
+
+.global__border-radius {
+  border-radius: 4px;
+}
+
 @media (min-width: 320px) and (max-width: 650px) {
   .global__wood-accent_reversed {
     display: none;

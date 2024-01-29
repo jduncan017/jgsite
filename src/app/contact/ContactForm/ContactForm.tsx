@@ -20,9 +20,24 @@ const initialFields = {
 const ContactForm = () => {
   const basePath = "/database-images/ImageGallery";
 
-  const submitCallback = (formData: FormValues) => {
-    console.log("Form data:", formData);
-    //! Replace with API logic
+  const submitCallback = async (formData: FormValues) => {
+    try {
+      const response = await fetch("/api/send-contact-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log(response);
+      } else {
+        console.error(response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const { selectedItem } = useContext(SelectedItemContext);

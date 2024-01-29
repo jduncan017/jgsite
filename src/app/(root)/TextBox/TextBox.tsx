@@ -4,7 +4,7 @@ import { inter } from "@/src/app/components/fonts";
 
 const TextBox = () => {
   return (
-    <div className="text-box global__box-shadow">
+    <div className="text-box global__box-shadow global__border-radius">
       <div className="text-box__section">
         <h2 className="text-box__section_title">Quality Materials</h2>
         <div className="title__divider"></div>

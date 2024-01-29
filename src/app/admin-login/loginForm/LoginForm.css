@@ -34,29 +34,10 @@
 }
 
 @media (max-width: 800px) {
-  .login-form__label {
-    font-size: 18px;
-  }
-
-  .login-form__input {
-    margin: 5px 0 14px;
-    font-size: 16px;
-  }
-
   .login-form__submit {
-    width: 170px;
-    height: 35px;
-    margin: 25px;
-    font-size: 16px;
-    line-height: 1.2rem;
-  }
-}
-
-@media (max-width: 800px) {
-  .login-form__submit {
-    width: 140px;
+    width: 160px;
     margin: 15px 0 25px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 

@@ -35,7 +35,9 @@ const HeroSection = () => {
           width={380}
           height={121}
         />
-        <h2 className={`banner__textbox_text ${inter.className}`}>
+        <h2
+          className={`banner__textbox_text global__text-shadow ${inter.className}`}
+        >
           Quality custom woodworking designs that blend precision and quality,
           crafted from a variety of hand-selected woods to suit your needs. From
           live edge and luxurious resin furniture, we aim to create standout

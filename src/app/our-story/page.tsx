@@ -30,7 +30,7 @@ const OurStory = () => {
         height={20}
       />
       <div className="about">
-        <div className="about__description global__box-shadow">
+        <div className="about__description global__box-shadow global__border-radius">
           <h1 className="about__description-title">Our Story</h1>
           <h2 className="about__description-text">
             Founded by two best friends and passionate woodworkers, Nick
@@ -57,7 +57,7 @@ const OurStory = () => {
         <Image
           src={fags}
           alt="picture of the owners"
-          className="about__image global__box-shadow"
+          className="about__image global__box-shadow global__border-radius"
           width={603}
           height={804}
           placeholder="blur"

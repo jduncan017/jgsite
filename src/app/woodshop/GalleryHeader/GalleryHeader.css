@@ -90,8 +90,8 @@
   }
 
   .gallery-header__description {
-    font-size: 1.5vw;
-    line-height: 1.4rem;
+    font-size: 1.8vw;
+    line-height: 1.6rem;
   }
 
   .gallery-header__image {
@@ -114,7 +114,7 @@
 
   .gallery-header__title {
     margin: 15px 0 0;
-    font-size: 2.6vw;
+    font-size: 3vw;
   }
 
   .gallery-header__description {

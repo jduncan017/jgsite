@@ -21,28 +21,28 @@ const loginPage = () => {
             alt="accent for login form"
             height={60}
             width={60}
-            className="form__accent accent__top-left"
+            className="login-form__accent login-accent__top-left"
           ></Image>
           <Image
             src={formAccent}
             alt="accent for login form"
             height={60}
             width={60}
-            className="form__accent accent__top-right"
+            className="login-form__accent login-accent__top-right"
           ></Image>
           <Image
             src={formAccent}
             alt="accent for login form"
             height={60}
             width={60}
-            className="form__accent accent__bottom-left"
+            className="login-form__accent login-accent__bottom-left"
           ></Image>
           <Image
             src={formAccent}
             alt="accent for login form"
             height={60}
             width={60}
-            className="form__accent accent__bottom-right"
+            className="login-form__accent login-accent__bottom-right"
           ></Image>
         </div>
       </div>

@@ -3,25 +3,25 @@ import Image from "next/image";
 import headerImage from "@/public/woodshop/wood-tools-accent.webp";
 import { inter, enriqueta } from "@/src/app/components/fonts";
 import Link from "next/link";
-import galleryAboutBackground from "@/public/woodshop/gallery-header-about-background.webp";
+import galleryAboutBackground from "@/public/woodshop/gallery-header-alternate.png";
 
 const GalleryHeader = () => {
   return (
     <div className="gallery-header">
       <Image
         src={headerImage}
-        className="gallery-header__image global__box-shadow"
+        className="gallery-header__image global__box-shadow global__border-radius"
         alt="wood tools decoration"
         placeholder="blur"
         width={236}
         height={550}
       />
-      <div className="gallery-header__about global__box-shadow">
-        <h2 className="gallery-header__title global__z-index-adjust">
+      <div className="gallery-header__about global__box-shadow global__border-radius">
+        <h2 className="gallery-header__title global__z-index-adjust global__text-shadow">
           ABOUT OUR GALLERY
         </h2>
         <p
-          className={`gallery-header__description global__z-index-adjust ${inter.className}`}
+          className={`gallery-header__description global__z-index-adjust global__text-shadow ${inter.className}`}
         >
           Everything we make is a unique piece that was carefully crafted in our
           shop. Listed items may or may not be readily available, but we can
@@ -47,7 +47,7 @@ const GalleryHeader = () => {
         <Image
           src={galleryAboutBackground}
           alt="Background image for gallery about section"
-          className="global__component-background"
+          className="global__component-background global__border-radius"
           width={1050}
           height={687}
           placeholder="blur"
@@ -55,7 +55,7 @@ const GalleryHeader = () => {
       </div>
       <Image
         src={headerImage}
-        className="gallery-header__image global__box-shadow"
+        className="gallery-header__image global__box-shadow global__border-radius"
         alt="wood tools decoration"
         placeholder="blur"
         width={236}

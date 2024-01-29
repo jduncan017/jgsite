@@ -19,11 +19,11 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   onClick,
 }) => {
   return (
-    <div className="gallery-card global__box-shadow">
+    <div className="gallery-card global__box-shadow global__border-radius">
       <div className="gallery-card__image-container">
         <ImageLoadingWrapper onClick={onClick}>
           <Image
-            className="gallery-card__image"
+            className="gallery-card__image global__border-radius"
             src={imagePath}
             alt={title}
             width={500}

@@ -12,10 +12,13 @@ type ImageCardProps = {
 
 const ImageCard: React.FC<ImageCardProps> = ({ title, imagePath, link }) => {
   return (
-    <Link href={link} className="image-card global__box-shadow">
+    <Link
+      href={link}
+      className="image-card global__box-shadow global__border-radius"
+    >
       <ImageLoadingWrapper>
         <Image
-          className="image-card__image"
+          className="image-card__image global__border-radius"
           src={imagePath}
           alt={title}
           width={488}

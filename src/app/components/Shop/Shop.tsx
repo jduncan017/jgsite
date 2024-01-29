@@ -163,7 +163,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
         </div>
       )}
       {!isHomePage && paginationVisible && (
-        <div className="shop__pagination global__box-shadow">
+        <div className="shop__pagination global__box-shadow global__border-radius">
           <Pagination
             totalItems={filteredCards.length}
             itemsPerPage={itemLimit}

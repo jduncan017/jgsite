@@ -1,9 +1,11 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { imageCards, ImageCard } from "@/src/lib/constants";
 import "./SearchBar.css";
 
 const SearchBar = () => {
   const [moreFiltersChecked, setMoreFiltersChecked] = useState(false);
+  const [woodTypes, setWoodTypes] = useState<string[]>([]);
   const filterParams = ["category", "woodType", "minPrice", "maxPrice"];
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -59,10 +61,24 @@ const SearchBar = () => {
     updateUrlParams(newSearchParams);
   };
 
+  useEffect(() => {
+    const woodTypesSet: Set<string> = new Set();
+
+    imageCards.forEach((card: ImageCard) => {
+      card.woodType?.forEach((type) => {
+        woodTypesSet.add(type);
+      });
+    });
+
+    const sortedWoodTypes = Array.from(woodTypesSet).sort();
+
+    setWoodTypes(sortedWoodTypes);
+  }, [imageCards]);
+
   return (
     <form
       id="woodworking-filters"
-      className="search-bar global__box-shadow"
+      className="search-bar global__box-shadow global__border-radius"
       onSubmit={(e) => e.preventDefault()}
     >
       <div className="search-bar__inner-container">
@@ -160,13 +176,11 @@ const SearchBar = () => {
                 defaultValue={searchParams.get("woodType")?.toString()}
               >
                 <option value="">None</option>
-                <option value="oak">Oak</option>
-                <option value="maple">Maple</option>
-                <option value="walnut">Walnut</option>
-                <option value="mahogany">Mahogany</option>
-                <option value="padauk">Padauk</option>
-                <option value="pine">Pine</option>
-                <option value="zebra wood">Zebra Wood</option>
+                {woodTypes.map((type: string) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
               </select>
             </div>
           )}

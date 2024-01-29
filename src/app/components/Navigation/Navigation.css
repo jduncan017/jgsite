@@ -47,6 +47,7 @@
 
 .header__navigation_active-link:hover {
   cursor: default;
+  background: transparent;
 }
 
 .header__logo {

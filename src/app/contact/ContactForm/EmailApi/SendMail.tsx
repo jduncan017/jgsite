@@ -1,25 +1,32 @@
-// import type { NextApiRequest, NextApiResponse } from "next";
-// import sendEmail from "./Mailer";
+import type { NextApiRequest, NextApiResponse } from "next";
+import sendEmail from "./Mailer";
 
-// // Define the structure for the expected request body
-// interface EmailRequestBody {
-//   to: string;
-//   subject: string;
-//   text: string;
-// }
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method === "POST") {
+    const { name, phone, email, subject, message } = req.body;
 
-// export default async (req: NextApiRequest, res: NextApiResponse) => {
-//   // Destructure and type the request body
-//   const { to, subject, text } = req.body as EmailRequestBody;
+    try {
+      await sendEmail({
+        to: email,
+        subject: subject,
+        text: message,
+        html: message,
+        // attachments: [{ filename: 'image.png', path: '/path/to/image.png' }],
+      });
 
-//   const emailOptions = {
-//     from: "your-email@gmail.com",
-//     to: to,
-//     subject: subject,
-//     text: text,
-//   };
-
-//   await sendEmail(emailOptions);
-
-//   res.status(200).json({ status: "Email sent!" });
-// };
+      res.status(200).json({
+        message:
+          "Thank you! We have received your email and should reply in the next few days!",
+      });
+    } catch (error) {
+      res.status(500).json({
+        message: "Sorry we're experiencing an error. Please try again later",
+      });
+    }
+  } else {
+    res.status(405).json({ message: "Method Not Allowed" });
+  }
+}

@@ -27,6 +27,7 @@
   max-height: 550px;
   justify-content: center;
   background-color: rgb(14, 9, 0);
+  filter: contrast(0.94);
 }
 
 .banner__textbox_text {
