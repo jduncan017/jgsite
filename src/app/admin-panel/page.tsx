@@ -1,6 +1,6 @@
 "use client";
 import React, { Suspense } from "react";
-import "./Page.css";
+import "./page.css";
 import AdminSearch from "./Components/SearchBar/AdminSearch";
 import { useContext, useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
