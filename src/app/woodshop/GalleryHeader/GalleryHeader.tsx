@@ -22,6 +22,7 @@ const GalleryHeader = () => {
           ABOUT OUR GALLERY
         </h2>
         <p
+          style={{ whiteSpace: "pre-line" }}
           className={`gallery-header__description global__z-index-adjust global__text-shadow ${inter.className}`}
         >
           {pageTexts.galleryAbout}
