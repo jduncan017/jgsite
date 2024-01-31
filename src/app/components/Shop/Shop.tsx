@@ -11,7 +11,6 @@ import GalleryCard from "./GalleryCard/GalleryCard";
 import {
   SelectedItem,
   SelectedItemContext,
-  setNoSelectedItem,
 } from "@/src/contexts/selectedItemContext";
 import ItemModal from "./ItemModal/ItemModal";
 import SearchBar from "./SearchBar/SearchBar";
@@ -51,7 +50,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
   function toggleModal(card?: ImageCard) {
     if (modalOpened) {
       setModalOpened(false);
-      setSelectedItem(setNoSelectedItem());
+      setSelectedItem(null);
     } else if (card) {
       const updatedItem: SelectedItem = {
         ...card,

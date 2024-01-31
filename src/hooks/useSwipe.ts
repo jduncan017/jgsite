@@ -1,8 +1,8 @@
-import { useState, useCallback, useEffect, RefObject } from "react";
+import { useState, useCallback, RefObject } from "react";
 
 const useSwipe = (
-  imagePaths: string[],
-  containerRef: RefObject<HTMLDivElement>
+  containerRef: RefObject<HTMLDivElement>,
+  imagePaths?: string[]
 ) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [touchStartPosition, setTouchStartPosition] = useState(0);
@@ -41,10 +41,12 @@ const useSwipe = (
     }
 
     // Looping logic for continuous carousel
-    if (newIndex >= imagePaths.length) {
-      newIndex = 0;
-    } else if (newIndex < 0) {
-      newIndex = imagePaths.length - 1;
+    if (imagePaths) {
+      if (newIndex >= imagePaths.length) {
+        newIndex = 0;
+      } else if (newIndex < 0) {
+        newIndex = imagePaths.length - 1;
+      }
     }
 
     setCurrentImageIndex(newIndex);
@@ -74,7 +76,7 @@ const useSwipe = (
     currentImageIndex,
     containerWidth,
     currentOffset,
-    imagePaths.length,
+    imagePaths,
     containerRef,
   ]);
 

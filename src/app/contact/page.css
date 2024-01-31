@@ -2,6 +2,7 @@
   display: flex;
   height: fit-content;
   position: relative;
+  flex: 1;
 }
 
 .contact-page__contact {
@@ -124,6 +125,7 @@
 
   .form__wrapper {
     max-width: 710px;
+    padding: 20px 50px;
   }
 
   .form__title {

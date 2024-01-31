@@ -12,24 +12,11 @@ export interface SelectedItem {
   displayImagePath: string;
 }
 
-export function setNoSelectedItem(): SelectedItem {
-  return {
-    title: "Project",
-    price: 0,
-    imagePaths: [],
-    description: "",
-    quantity: 0,
-    category: "",
-    woodType: [],
-    displayImagePath: "",
-  };
-}
-
 export const SelectedItemContext = createContext<{
-  selectedItem: SelectedItem;
-  setSelectedItem: React.Dispatch<React.SetStateAction<SelectedItem>>;
+  selectedItem: SelectedItem | null;
+  setSelectedItem: React.Dispatch<React.SetStateAction<SelectedItem | null>>;
 }>({
-  selectedItem: setNoSelectedItem(),
+  selectedItem: null,
   setSelectedItem: () => {},
 });
 
@@ -40,16 +27,7 @@ type SelectedItemProviderProps = {
 export const SelectedItemProvider: React.FC<SelectedItemProviderProps> = ({
   children,
 }) => {
-  const [selectedItem, setSelectedItem] = useState<SelectedItem>({
-    title: "",
-    price: 0,
-    imagePaths: [],
-    description: "",
-    quantity: 0,
-    category: "",
-    woodType: [],
-    displayImagePath: "",
-  });
+  const [selectedItem, setSelectedItem] = useState<SelectedItem | null>(null);
 
   return (
     <SelectedItemContext.Provider value={{ selectedItem, setSelectedItem }}>

@@ -10,7 +10,6 @@ import GalleryCard from "@/src/app/components/Shop/GalleryCard/GalleryCard";
 import {
   SelectedItem,
   SelectedItemContext,
-  setNoSelectedItem,
 } from "@/src/contexts/selectedItemContext";
 import ItemModal from "@/src/app/components/Shop/ItemModal/ItemModal";
 import { searchFilterCriteria } from "@/src/app/components/Shop/SearchFilterCriteria";
@@ -45,7 +44,7 @@ const AdminPanelItems = () => {
   function toggleModal(card?: ImageCard) {
     if (modalOpened) {
       setModalOpened(false);
-      setSelectedItem(setNoSelectedItem());
+      setSelectedItem(null);
     } else if (card) {
       const updatedItem: SelectedItem = {
         ...card,

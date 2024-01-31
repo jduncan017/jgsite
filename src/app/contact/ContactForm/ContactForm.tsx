@@ -1,5 +1,6 @@
 "use client";
 import "./ContactForm.css";
+import { useEffect, useState } from "react";
 import { cardo } from "@/src/app/components/fonts";
 import { useContext } from "react";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import {
   FormValues,
 } from "@/src/hooks/useFormAndValidation";
 
+//these are used to build the initial structure for FormValues
 const initialFields = {
   subject: "",
   name: "",
@@ -19,44 +21,60 @@ const initialFields = {
 
 const ContactForm = () => {
   const basePath = "/database-images/ImageGallery";
+  const [submitConfirm, setSubmitConfirm] = useState("");
+  const [buttonDisplay, setButtonDisplay] = useState("Send");
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const { selectedItem, setSelectedItem } = useContext(SelectedItemContext);
+
+  function resetItem() {
+    setSelectedItem(null);
+  }
 
   const submitCallback = async (formData: FormValues) => {
+    const emailData = { ...formData, selectedItem: selectedItem };
     try {
-      const response = await fetch("/api/send-contact-email", {
+      setButtonDisabled(true);
+      setButtonDisplay("Sending...");
+      const response = await fetch("/api/emailApi", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(emailData),
       });
 
       if (response.ok) {
-        console.log(response);
+        const data = await response.json();
+        setSubmitConfirm(data.message);
+        setButtonDisplay("Sent!");
+        resetItem();
       } else {
-        console.error(response);
+        console.error("Error:", response.status, response.statusText);
+        setSubmitConfirm("Failed to send email. Please try again later.");
+        setButtonDisabled(false);
+        setButtonDisplay("Send");
+        throw new Error(`Server responded with status: ${response.status}`);
       }
     } catch (error) {
-      console.error(error);
+      console.error("Request failed:", error);
+      setButtonDisabled(false);
+      setButtonDisplay("Send");
+      setSubmitConfirm(
+        "We're sorry, there was an error sending the email. Please try again later or send us one manually at info@johngerardwoodwork.com"
+      );
+      throw error;
     }
   };
 
-  const { selectedItem } = useContext(SelectedItemContext);
-  const {
-    values,
-    handleChange,
-    errors,
-    isValid,
-    handleSubmit,
-    submitted,
-    showError,
-  } = useFormAndValidation(initialFields, submitCallback);
+  const { values, handleChange, errors, isValid, handleSubmit, showError } =
+    useFormAndValidation(initialFields, submitCallback);
 
   return (
     <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__top-section-wrapper">
         <div
           className={
-            selectedItem.imagePaths[0]
+            selectedItem
               ? "contact-form__inputs-wrapper"
               : "contact-form__inputs-wrapper contact-form__inputs-wrapper_full-width"
           }
@@ -113,11 +131,7 @@ const ContactForm = () => {
             </span>
           </div>
 
-          <div
-            className={
-              selectedItem.imagePaths[0] ? "" : "inputs__column second__column"
-            }
-          >
+          <div className={selectedItem ? "" : "inputs__column second__column"}>
             {/* Phone Input */}
             <label
               className={`contact-form__label ${cardo.className}`}
@@ -165,11 +179,18 @@ const ContactForm = () => {
             </span>
           </div>
         </div>
-        {selectedItem.imagePaths[0] && (
+        {selectedItem && (
           <div className="contact-form__image-container">
-            <h3
-              className={`contact-form__label ${cardo.className}`}
-            >{`Item: ${selectedItem.title}`}</h3>
+            <div className="contact-form__image-title-container">
+              <button
+                className="contact-form__reference-image-delete"
+                type="button"
+                onClick={resetItem}
+              />
+              <h3
+                className={`contact-form__label ${cardo.className}`}
+              >{`Item: ${selectedItem.title}`}</h3>
+            </div>
             <Image
               className="contact-form__reference-image"
               src={`${basePath}${selectedItem.imagePaths[0]}`}
@@ -201,28 +222,25 @@ const ContactForm = () => {
           className={`contact-form__message ${cardo.className}`}
           aria-describedby="message-error"
         ></textarea>
-        <span className="contact-form__error" id="message-error">
-          {showError ? errors.message || "" : ""}
-        </span>
-        {submitted && (
-          <span className="contact-form__submit-message">
-            Thank you! We have received your email and should reply in the next
-            few days!
+        {showError && (
+          <span className="contact-form__error" id="message-error">
+            {errors.message}
           </span>
         )}
+        <span className="contact-form__submit-message">{submitConfirm}</span>
       </div>
 
       {/* Submit Button */}
       <button
         type="submit"
         className={
-          isValid && !submitted
+          isValid && !buttonDisabled
             ? "contact-form__submit global__button"
             : "contact-form__submit contact-form__submit_disabled global__button"
         }
-        disabled={submitted}
+        disabled={buttonDisabled}
       >
-        Send
+        {buttonDisplay}
       </button>
     </form>
   );

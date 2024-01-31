@@ -21,6 +21,7 @@ const SearchBar = () => {
   useEffect(() => {
     const hasFilters = filterParams.some((param) => searchParams.has(param));
     setMoreFiltersChecked(hasFilters);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // manages moreFilters checkbox and ties it to extra filter states

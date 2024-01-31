@@ -15,6 +15,7 @@ select:invalid {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 10px;
 }
 
 .contact-form__inputs-wrapper {
@@ -102,6 +103,7 @@ select:invalid {
 .contact-form__submit-message {
   text-align: center;
   font-size: 18px;
+  margin-top: 10px;
 }
 
 .contact-form__submit {
@@ -129,6 +131,30 @@ select:invalid {
   cursor: default;
 }
 
+.contact-form__image-title-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.contact-form__reference-image-delete {
+  width: 12px;
+  height: 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/shared/delete-button.svg");
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 100%;
+  background-color: transparent;
+  background-size: contain;
+}
+
+.contact-form__reference-image-delete:hover {
+  filter: grayscale(1);
+}
+
 @media (max-width: 1290px) {
   .contact-form__label {
     font-size: 18px;
@@ -139,8 +165,8 @@ select:invalid {
   }
 
   .contact-form__reference-image {
-    max-width: 240px;
-    max-height: 240px;
+    max-width: 220px;
+    max-height: 220px;
   }
 
   .contact-form__message {

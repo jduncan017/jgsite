@@ -11,7 +11,7 @@ import useSwipe from "@/src/hooks/useSwipe";
 
 type ItemModal = {
   onClose: () => void;
-  selectedItem: SelectedItem;
+  selectedItem?: SelectedItem | null;
   onClick: () => void;
 };
 
@@ -27,7 +27,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
     setCurrentImageIndex,
     currentOffset,
     setCurrentOffset,
-  } = useSwipe(selectedItem.imagePaths, imageContainerRef);
+  } = useSwipe(imageContainerRef, selectedItem?.imagePaths);
 
   // close modal on 'esc'
   useEscape(onClose);
@@ -39,7 +39,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
       .join(" ");
   }
 
-  function formatWoodTypes(woodTypes: string[]) {
+  function formatWoodTypes(woodTypes?: string[]) {
     if (!woodTypes || woodTypes.length === 0) {
       return "";
     }
@@ -79,20 +79,24 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
     const handleArrowKey = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         setCurrentImageIndex((prevIndex) => {
-          if (event.key === "ArrowLeft") {
-            return Math.max(prevIndex - 1, 0);
-          } else if (event.key === "ArrowRight") {
-            return Math.min(prevIndex + 1, selectedItem.imagePaths.length - 1);
-          } else {
-            return prevIndex;
+          if (selectedItem) {
+            if (event.key === "ArrowLeft") {
+              return Math.max(prevIndex - 1, 0);
+            } else if (event.key === "ArrowRight") {
+              return Math.min(
+                prevIndex + 1,
+                selectedItem.imagePaths.length - 1
+              );
+            }
           }
+          return prevIndex;
         });
       }
     };
 
     window.addEventListener("keydown", handleArrowKey);
     return () => window.removeEventListener("keydown", handleArrowKey);
-  }, [setCurrentImageIndex, selectedItem.imagePaths.length]);
+  }, [setCurrentImageIndex, selectedItem]);
 
   // Effect to handle thumbnail interaction when index changes
   useEffect(() => {
@@ -108,11 +112,13 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
   // sets state to reflect item stock
   useEffect(() => {
-    function updateInStock(itemQuantity: number) {
-      setInStock(itemQuantity > 0);
+    if (selectedItem) {
+      function updateInStock(itemQuantity: number) {
+        setInStock(itemQuantity > 0);
+      }
+      updateInStock(selectedItem.quantity);
     }
-    updateInStock(selectedItem.quantity);
-  }, [selectedItem.quantity]);
+  }, [selectedItem]);
 
   return (
     <div className="modal item-modal" id="item-modal">
@@ -128,9 +134,10 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
             onTouchEnd={handleTouchEnd}
             style={{ transform: `translateX(${-currentOffset}px)` }}
           >
-            {selectedItem.imagePaths.map((imagePath, index) => (
+            {selectedItem?.imagePaths.map((imagePath, index) => (
               <div className="image-container" key={index}>
                 <ImageLoadingWrapper>
+                  {/*eslint-disable-next-line @next/next/no-img-element*/}
                   <img
                     className="item-modal__image"
                     alt={selectedItem.title}
@@ -145,18 +152,18 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
         {/* info section */}
         <div className="item-modal__info-container">
           <div className="item-modal__info-container-info">
-            <h2 className="item-modal__title">{selectedItem.title}</h2>
+            <h2 className="item-modal__title">{selectedItem?.title}</h2>
             <p className="item-modal__price">
-              {formatCurrency(selectedItem.price)}
+              {formatCurrency(selectedItem?.price)}
             </p>
             <h2 className="item-modal__description">Description:</h2>
             <p className="item-modal__description-text">
-              {selectedItem.description}
+              {selectedItem?.description}
             </p>
             <div className="item-modal__wood-types">
               <h3 className="wood-types__title">Woods Used:</h3>
               <p className="item-modal__description-text wood-types__description">
-                {formatWoodTypes(selectedItem.woodType)}
+                {formatWoodTypes(selectedItem?.woodType)}
               </p>
             </div>
             <div className="item-modal__purchase-section">
@@ -170,7 +177,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
               </Link>
               {inStock ? (
                 <p className="item-modal__stock">
-                  In Stock: {selectedItem.quantity}
+                  In Stock: {selectedItem?.quantity}
                 </p>
               ) : (
                 <p className="item-modal__stock item-modal__out-of-stock">
@@ -187,7 +194,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
           {/* image thumbnails */}
           <div className="item-modal__thumbnail-images">
-            {selectedItem.imagePaths.map((imagePath, index) => (
+            {selectedItem?.imagePaths.map((imagePath, index) => (
               <div key={index} className="item-modal__thumbnail-container">
                 <ImageLoadingWrapper
                   onMouseEnter={() => handleThumbnailInteraction(index)}

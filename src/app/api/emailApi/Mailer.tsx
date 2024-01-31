@@ -1,7 +1,9 @@
 import nodemailer from "nodemailer";
 
 interface EmailOptions {
-  to: string;
+  name: string;
+  fromEmail: string;
+  toEmail: string;
   subject: string;
   text: string;
   html: string;
@@ -23,17 +25,21 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async (options: EmailOptions): Promise<void> => {
+async function sendEmail(options: EmailOptions): Promise<void> {
+  console.log(`email options: ${options}`);
   try {
     const info = await transporter.sendMail({
-      from: `"Your Name" <${process.env.ZOHO_EMAIL}>`,
-      ...options,
+      from: `${options.name} <${options.fromEmail}>`,
+      to: options.toEmail,
+      subject: options.subject,
+      text: options.text,
+      html: options.html,
     });
 
     console.log("Message sent: %s", info.messageId);
   } catch (error) {
     console.error("Error sending email:", error);
   }
-};
+}
 
 export default sendEmail;

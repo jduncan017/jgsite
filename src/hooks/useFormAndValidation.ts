@@ -8,13 +8,13 @@ import { useState, useCallback, FormEvent } from "react";
 // - add onChange={handleChange} for all inputs
 // - submitted can be used to display confirmation message and optionally disable submit button
 // - isValid can be used to set button state
-// - be sure to add "aria-describedby={errorId}" for each field for screen readers
 // - set error spans as:
 {
   /* <span className="contact-form__error" id="name-error">
-{showError ? errors.name || "" : ""}
-</span> */
+  {showError ? errors.name || "" : ""}
+  </span> */
 }
+// - be sure to add "aria-describedby={errorId}" for each field for screen readers
 
 export interface FormValues {
   [key: string]: any;
@@ -38,7 +38,6 @@ export const useFormAndValidation = (
   );
   const [errors, setErrors] = useState<FormErrors>(initialErrors);
   const [isValid, setIsValid] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [showError, setShowError] = useState(false);
 
   const handleChange = (
@@ -70,8 +69,7 @@ export const useFormAndValidation = (
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (isValid) {
-      await submitCallback(values);
-      setSubmitted(true);
+      submitCallback(values);
       setShowError(false);
       resetForm();
     } else {
@@ -92,7 +90,6 @@ export const useFormAndValidation = (
     handleSubmit,
     errors,
     isValid,
-    submitted,
     showError,
     resetForm,
   };
