@@ -2,7 +2,6 @@ import { EmailContents } from "./route";
 
 export function generateHtmlContent(formData: EmailContents) {
   const imageUrl = `https://www.johngerardwoodwork.com/database-images/ImageGallery/${formData.selectedItem?.imagePaths[0]}`;
-  console.log(imageUrl);
   // Construct the mailto link with pre-filled subject and body
   const replyLink = `mailto:${formData.email}?subject=Reply to ${
     formData.name
@@ -48,7 +47,6 @@ export function generateHtmlContent(formData: EmailContents) {
 }
 
 export function generateTextContent(formData: EmailContents) {
-  console.log(`text: ${formData.selectedItem}`);
   return `
       New Inquiry from ${formData.name}
   

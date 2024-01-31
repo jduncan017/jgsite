@@ -26,7 +26,6 @@ const transporter = nodemailer.createTransport({
 });
 
 async function sendEmail(options: EmailOptions): Promise<void> {
-  console.log(`email options: ${options}`);
   try {
     const info = await transporter.sendMail({
       from: `${options.name} <${options.fromEmail}>`,
@@ -35,8 +34,6 @@ async function sendEmail(options: EmailOptions): Promise<void> {
       text: options.text,
       html: options.html,
     });
-
-    console.log("Message sent: %s", info.messageId);
   } catch (error) {
     console.error("Error sending email:", error);
   }
