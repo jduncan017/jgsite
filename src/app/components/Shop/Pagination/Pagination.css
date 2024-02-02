@@ -1,7 +1,7 @@
 .pagination__button {
   background-color: transparent;
   border: none;
-  color: white;
+  color: gainsboro;
   font-size: 20px;
   transition: color 0.5s;
   margin: 0 1px;

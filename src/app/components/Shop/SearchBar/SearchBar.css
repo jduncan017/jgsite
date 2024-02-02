@@ -7,7 +7,7 @@ input[type="checkbox" i] {
   width: 100%;
   padding: 15px 20px;
   background-color: #171410;
-  color: white;
+  color: gainsboro;
   font-size: 20px;
   box-sizing: border-box;
 }

@@ -21,7 +21,7 @@
 }
 
 .header__navigation-text {
-  color: white;
+  color: gainsboro;
   transition: color 0.2s;
   border-radius: 5px;
   padding: 4px 10px;
@@ -29,7 +29,7 @@
 }
 
 .header__navigation:visited {
-  color: white;
+  color: gainsboro;
 }
 
 .header__navigation-text:hover {

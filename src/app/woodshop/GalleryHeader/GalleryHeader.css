@@ -13,7 +13,7 @@
   width: 100%;
   height: fit-content;
   min-height: 550px;
-  color: #efe4d3;
+  color: gainsboro;
   padding: 0 30px;
   text-align: center;
   position: relative;
@@ -43,7 +43,7 @@
 
 .gallery-header__button {
   margin: 20px 0 25px;
-  color: white;
+  color: gainsboro;
   font-size: 20px;
   padding: 10px 45px;
   position: relative;

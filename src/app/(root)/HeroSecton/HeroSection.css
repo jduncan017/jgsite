@@ -36,7 +36,7 @@
   line-height: 2.2rem;
   margin: 25px 8%;
   text-align: center;
-  max-width: 322px;
+  max-width: 300px;
   font-style: italic;
 }
 
@@ -79,8 +79,8 @@
   }
 
   .banner__textbox_text {
-    font-size: 1.6vw;
-    line-height: 1.5rem;
+    font-size: 1.8vw;
+    line-height: 1.6rem;
     margin: 8px 8%;
   }
 
