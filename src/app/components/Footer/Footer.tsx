@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import Image from "next/image";
-import logo from "@/public/shared/logo-white.png";
+import logo from "@/public/shared/JG-logo-white.png";
 import backgroundImage from "@/public/shared/footerBackground.webp";
 import Link from "next/link";
 
