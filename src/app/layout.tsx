@@ -7,8 +7,13 @@ import { SelectedItemProvider } from "../contexts/selectedItemContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "John Gerard Woodworking",
-  description: "Landing Page for John Gerard woodworking company",
+  title: "John Gerard Woodwork Co.",
+  description: "Professional custom woodwork company in Rochester, NY.",
+  openGraph: {
+    images: "/shared/open-graph.png",
+    title: "John Gerard Woodworking Company",
+    description: "Professional custom woodwork company in Rochester, NY.",
+  },
 };
 
 export default function RootLayout({
