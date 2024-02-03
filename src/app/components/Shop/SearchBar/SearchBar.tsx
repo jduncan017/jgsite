@@ -133,7 +133,7 @@ const SearchBar = () => {
                   onChange={(e) => handleSearchFilters(e)}
                   checked={searchParams.get("inStock") === "true"}
                 />
-                Ready to Ship
+                Items for Sale
               </label>
             </div>
           </div>

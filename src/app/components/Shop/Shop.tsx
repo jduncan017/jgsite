@@ -125,6 +125,11 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
       >
         <SearchBar />
       </div>
+      {currentPageData.length === 0 && (
+        <p className="shop__cards-empty">
+          Sorry, but it seems there are no items that fit this search criteria.
+        </p>
+      )}
       <div
         className={
           isHomePage ? "shop__gallery shop__gallery-homepage" : "shop__gallery"
@@ -135,6 +140,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
             key={index}
             title={card.title}
             price={card.price}
+            qty={card.quantity}
             imagePath={`${basePath}${card.imagePaths[0]}`}
             onClick={() => toggleModal(card)}
           />

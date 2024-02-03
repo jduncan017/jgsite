@@ -15,7 +15,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/coasters.webp"],
     description:
       "Elegant wooden coasters, perfect for protecting surfaces from beverage stains.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["zebra wood", "padauk", "maple"],
   },
@@ -25,7 +25,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/coat-rack.webp", "/coat-rack-2.webp"],
     description:
       "Stylish and sturdy coat rack, ideal for organizing your outerwear with ease.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["pine"],
   },
@@ -35,7 +35,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/cutting-board-1.webp"],
     description:
       "Durable and finely crafted cutting board, perfect for all your kitchen prep needs.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["walnut", "cherry", "maple", "padauk"],
   },
@@ -45,7 +45,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/light-cutting-board.webp"],
     description:
       "Lightweight and easy-to-handle cutting board, combining functionality with aesthetic appeal.",
-    quantity: 2,
+    quantity: 0,
     category: "housewares",
     woodType: ["chechen", "cherry", "padauk", "maple"],
   },
@@ -74,7 +74,7 @@ const imageCards: ImageCard[] = [
     ],
     description:
       "Contemporary resin TV board, featuring a unique design to enhance your living space.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["walnut"],
   },
@@ -84,7 +84,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/ring-box.webp"],
     description:
       "Elegantly crafted ring box, perfect for safely storing and showcasing your precious jewelry.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["padauk", "canary wood"],
   },
@@ -99,7 +99,7 @@ const imageCards: ImageCard[] = [
     ],
     description:
       "Innovative cutting board shaped like a guitar, merging culinary art with musical passion.",
-    quantity: 1,
+    quantity: 0,
     category: "guitars",
     woodType: ["padauk", "canary wood", "walnut", "maple"],
   },
@@ -109,7 +109,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/side-table.webp", "/side-table-3.webp"],
     description:
       "Chic and functional side table, perfect for adding a touch of elegance to any room.",
-    quantity: 1,
+    quantity: 0,
     category: "furniture",
     woodType: ["oak", "maple", "padauk"],
   },
@@ -119,7 +119,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/spoon.webp"],
     description:
       "Handcrafted wooden spoon, an essential tool for any kitchen aficionado.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["walnut", "maple", "cherry"],
   },
@@ -135,7 +135,7 @@ const imageCards: ImageCard[] = [
     ],
     description:
       "Luxurious dining table, designed to be the centerpiece of memorable family gatherings.",
-    quantity: 1,
+    quantity: 0,
     category: "furniture",
     woodType: ["walnut"],
   },
@@ -145,7 +145,7 @@ const imageCards: ImageCard[] = [
     imagePaths: ["/tv-tray.webp", "/tv-tray-2.webp"],
     description:
       "Versatile TV tray, ideal for enjoying meals or working comfortably from your couch.",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["spalted maple", "walnut"],
   },
@@ -154,7 +154,7 @@ const imageCards: ImageCard[] = [
     price: 69.0,
     imagePaths: ["/cheeseboard.webp"],
     description: "",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["unknown"],
   },
@@ -167,7 +167,7 @@ const imageCards: ImageCard[] = [
       "/exotic-cuttingboard-3.webp",
     ],
     description: "",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["unknown"],
   },
@@ -176,7 +176,7 @@ const imageCards: ImageCard[] = [
     price: 29.0,
     imagePaths: ["/tan-coasters.webp", "/tan-coasters-2.webp"],
     description: "",
-    quantity: 1,
+    quantity: 0,
     category: "housewares",
     woodType: ["unknown"],
   },

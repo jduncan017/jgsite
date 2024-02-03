@@ -2,6 +2,13 @@
   position: relative;
 }
 
+.shop__cards-empty {
+  color: gainsboro;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
 .shop__gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

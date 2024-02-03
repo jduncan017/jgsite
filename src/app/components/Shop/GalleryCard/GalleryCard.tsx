@@ -9,6 +9,7 @@ interface GalleryCardProps {
   title: string;
   price: number;
   imagePath: string;
+  qty: number;
   onClick: () => void;
 }
 
@@ -16,6 +17,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
   title,
   price,
   imagePath,
+  qty,
   onClick,
 }) => {
   return (
@@ -35,7 +37,9 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
         </h3>
       </div>
       <div className="gallery-card__info-container">
-        <h3 className="gallery-card__price">{formatCurrency(price)}</h3>
+        <h3 className="gallery-card__price">
+          {qty > 0 && formatCurrency(price)}
+        </h3>
         <button
           className={`gallery-card__button global__button ${cardo.className}`}
           type="button"

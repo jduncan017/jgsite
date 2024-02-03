@@ -153,9 +153,12 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
         <div className="item-modal__info-container">
           <div className="item-modal__info-container-info">
             <h2 className="item-modal__title">{selectedItem?.title}</h2>
-            <p className="item-modal__price">
-              {formatCurrency(selectedItem?.price)}
-            </p>
+            {
+              <p className="item-modal__price">
+                {(selectedItem?.quantity ?? 0) > 0 &&
+                  formatCurrency(selectedItem?.price)}
+              </p>
+            }
             <h2 className="item-modal__description">Description:</h2>
             <p className="item-modal__description-text">
               {selectedItem?.description}
