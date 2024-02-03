@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     images: "/shared/open-graph.png",
     title: "John Gerard Woodworking Company",
     description: "Professional custom woodwork company in Rochester, NY.",
+    url: "www.johngerardwoodwork.com",
   },
 };
 
