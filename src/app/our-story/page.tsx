@@ -39,11 +39,10 @@ const OurStory = () => {
             friendship, and a shared passion for craftsmanship.
             <br />
             <br />
-            As a proud gay-owned business, we bring our unique perspectives to
-            every project, crafting pieces that are not only beautiful but also
-            tell a story. Our journey in woodworking is driven by a commitment
-            to quality and sustainability, ensuring each creation respects the
-            environment as much as our customers.
+            We aim to bring craft pieces that are not only beautiful but that
+            also tell a story. Our journey in woodworking is driven by a
+            commitment to quality and sustainability, ensuring each creation
+            respects the environment as much as our customers.
             <br />
             <br />
             Specializing in handcrafted, bespoke wooden items, we believe in
