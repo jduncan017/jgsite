@@ -107,6 +107,7 @@ const AdminPanelItems = () => {
             key={index}
             title={card.title}
             price={card.price}
+            qty={card.quantity}
             imagePath={`${basePath}${card.imagePaths[0]}`}
             onClick={() => toggleModal(card)}
           />
