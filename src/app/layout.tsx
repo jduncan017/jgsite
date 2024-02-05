@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cardo } from "@/src/app/components/fonts";
+import { cardo } from "@/src/app/fonts";
 import "./globals.css";
 import Navigation from "@/src/app/components/Navigation/Navigation";
 import Footer from "@/src/app/components/Footer/Footer";

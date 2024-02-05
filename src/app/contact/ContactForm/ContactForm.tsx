@@ -1,7 +1,7 @@
 "use client";
 import "./ContactForm.css";
 import { useState } from "react";
-import { cardo } from "@/src/app/components/fonts";
+import { cardo } from "@/src/app/fonts";
 import { useContext } from "react";
 import Image from "next/image";
 import { SelectedItemContext } from "@/src/contexts/selectedItemContext";
@@ -20,7 +20,7 @@ const initialFields = {
 };
 
 const ContactForm = () => {
-  const basePath = "/database-images/ImageGallery";
+  const BASE_PATH = "/database-images/ImageGallery";
   const [submitConfirm, setSubmitConfirm] = useState("");
   const [buttonDisplay, setButtonDisplay] = useState("Send");
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -193,7 +193,7 @@ const ContactForm = () => {
             </div>
             <Image
               className="contact-form__reference-image"
-              src={`${basePath}${selectedItem.imagePaths[0]}`}
+              src={`${BASE_PATH}${selectedItem.imagePaths[0]}`}
               alt="image of the item you're inquiring about"
               width={500}
               height={500}

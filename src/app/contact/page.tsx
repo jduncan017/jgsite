@@ -3,12 +3,12 @@ import "./page.css";
 import Image from "next/image";
 import contactBorder from "@/public/contact/contact-border.png";
 import formAccent from "@/public/shared/form-accent.png";
-import { cardo } from "../components/fonts";
+import { cardo } from "../fonts";
 import ContactForm from "./ContactForm/ContactForm";
 
 const contactPage = () => {
   return (
-    <div className="contact-page__main global__page-background">
+    <main className="contact-page__main global__page-background">
       <Image
         src={contactBorder}
         alt="border for contact page"
@@ -70,7 +70,7 @@ const contactPage = () => {
         className="contact__border-image"
         priority
       />
-    </div>
+    </main>
   );
 };
 

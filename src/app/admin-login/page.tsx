@@ -2,13 +2,13 @@ import React from "react";
 import "./page.css";
 import Image from "next/image";
 import formAccent from "@/public/shared/form-accent.png";
-import { cardo } from "../components/fonts";
+import { cardo } from "../fonts";
 import LoginForm from "./loginForm/LoginForm";
 
 const loginPage = () => {
   return (
-    <div className="login-page__main global__page-background">
-      <div className="login-page__login-form">
+    <main className="login-page__main global__page-background">
+      <section className="login-page__login-form">
         <h1
           className={`login-page__title global__box-shadow ${cardo.className}`}
         >
@@ -45,8 +45,8 @@ const loginPage = () => {
             className="login-form__accent login-accent__bottom-right"
           ></Image>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

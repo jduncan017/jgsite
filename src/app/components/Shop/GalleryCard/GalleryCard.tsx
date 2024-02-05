@@ -1,6 +1,6 @@
 import React from "react";
 import "./GalleryCard.css";
-import { cardo } from "@/src/app/components/fonts";
+import { cardo } from "@/src/app/fonts";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
@@ -37,9 +37,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
         </h3>
       </div>
       <div className="gallery-card__info-container">
-        <h3 className="gallery-card__price">
-          {qty > 0 && formatCurrency(price)}
-        </h3>
+        <p className="gallery-card__price">{formatCurrency(price)}</p>
         <button
           className={`gallery-card__button global__button ${cardo.className}`}
           type="button"

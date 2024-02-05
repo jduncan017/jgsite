@@ -1,14 +1,14 @@
 import "./GalleryHeader.css";
 import Image from "next/image";
 import headerImage from "@/public/woodshop/wood-tools-accent.webp";
-import { inter, enriqueta } from "@/src/app/components/fonts";
+import { inter, enriqueta } from "@/src/app/fonts";
 import Link from "next/link";
 import galleryAboutBackground from "@/public/woodshop/gallery-header-alternate.png";
 import pageTexts from "@/src/lib/textContent";
 
 const GalleryHeader = () => {
   return (
-    <div className="gallery-header">
+    <section className="gallery-header">
       <Image
         src={headerImage}
         className="gallery-header__image global__box-shadow global__border-radius"
@@ -52,7 +52,7 @@ const GalleryHeader = () => {
         width={236}
         height={550}
       />
-    </div>
+    </section>
   );
 };
 

@@ -1,11 +1,11 @@
 "use client";
 //Imports
 import "./Shop.css";
-import { enriqueta } from "@/src/app/components/fonts";
+import { enriqueta } from "@/src/app/fonts";
 import Link from "next/link";
 import { useContext, useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { imageCards } from "@/src/lib/constants";
+import { IMAGE_CARDS } from "@/src/lib/constants";
 import { ImageCard } from "@/src/lib/constants";
 import GalleryCard from "./GalleryCard/GalleryCard";
 import {
@@ -29,7 +29,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
   //         - VARIABLES & STATES -          //
   // --------------------------------------- //
   const searchParams = useSearchParams();
-  const basePath = "/database-images/ImageGallery";
+  const BASE_PATH = "/database-images/ImageGallery";
   const [modalOpened, setModalOpened] = useState(false);
   const [searchQuery, setSearchQuery] = useState({});
   const [paginationVisible, setPaginationVisible] = useState(false);
@@ -41,7 +41,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
   //               - FUNCTIONS -             //
   // --------------------------------------- //
   // Filter the cards based on search parameters
-  const filteredCards = imageCards.filter(searchFilterCriteria(searchQuery));
+  const filteredCards = IMAGE_CARDS.filter(searchFilterCriteria(searchQuery));
   const { currentPageData, setPage } = usePagination<ImageCard>(
     filteredCards,
     itemLimit
@@ -118,19 +118,14 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
   //                 - HTML -                //
   // --------------------------------------- //
   return (
-    <div className="shop">
+    <section className="shop">
       <div
         ref={searchBarRef}
         className={!isHomePage ? "" : "shop__buttons_hidden"}
       >
         <SearchBar />
       </div>
-      {currentPageData.length === 0 && (
-        <p className="shop__cards-empty">
-          Sorry, but it seems there are no items that fit this search criteria.
-        </p>
-      )}
-      <div
+      <section
         className={
           isHomePage ? "shop__gallery shop__gallery-homepage" : "shop__gallery"
         }
@@ -140,12 +135,12 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
             key={index}
             title={card.title}
             price={card.price}
+            imagePath={`${BASE_PATH}${card.imagePaths[0]}`}
             qty={card.quantity}
-            imagePath={`${basePath}${card.imagePaths[0]}`}
             onClick={() => toggleModal(card)}
           />
         ))}
-      </div>
+      </section>
       {isHomePage && (
         <div className="shop__buttons">
           <Link
@@ -185,7 +180,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
           onClick={() => setModalOpened(false)}
         />
       )}
-    </div>
+    </section>
   );
 };
 

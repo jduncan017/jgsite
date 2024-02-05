@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { imageCards, ImageCard } from "@/src/lib/constants";
+import { IMAGE_CARDS, ImageCard } from "@/src/lib/constants";
 import "./SearchBar.css";
 
 const SearchBar = () => {
@@ -65,7 +65,7 @@ const SearchBar = () => {
   useEffect(() => {
     const woodTypesSet: Set<string> = new Set();
 
-    imageCards.forEach((card: ImageCard) => {
+    IMAGE_CARDS.forEach((card: ImageCard) => {
       card.woodType?.forEach((type) => {
         woodTypesSet.add(type);
       });

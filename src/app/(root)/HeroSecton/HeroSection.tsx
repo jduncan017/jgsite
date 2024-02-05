@@ -2,14 +2,14 @@ import React from "react";
 import Image from "next/image";
 import "./HeroSection.css";
 import bannerImage from "@/public/homepage/hero-banner.webp";
-import fullLogoWhite from "@/public/shared/JG-logo-white.png";
+import fullLogoWhite from "@/public/shared/logo-white.svg";
 import woodAccent from "@/public/shared/woodAccent.webp";
-import { inter, cardo } from "@/src/app/components/fonts";
+import { inter } from "@/src/app/fonts";
 import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="banner">
+    <header className="banner">
       <Image
         className="banner__image"
         src={bannerImage}
@@ -36,7 +36,7 @@ const HeroSection = () => {
           height={121}
         />
         <h2
-          className={`banner__textbox_text global__text-shadow ${cardo.className}`}
+          className={`banner__textbox-text global__text-shadow ${inter.className}`}
         >
           Quality custom woodworking designs that blend precision and quality,
           crafted from a variety of hand-selected woods to suit your needs. From
@@ -47,7 +47,7 @@ const HeroSection = () => {
           <button className="banner__button global__button">Learn More</button>
         </Link>
       </div>
-    </div>
+    </header>
   );
 };
 

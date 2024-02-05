@@ -1,6 +1,6 @@
 import React, { useState, ReactElement } from "react";
 import Loader from "./PreLoader";
-import errorImage from "@/public/pre-loader/image-error.png";
+import errorImage from "@/public/pre-loader/image-error.svg";
 import Image from "next/image";
 
 type LoadingImageProps = {
