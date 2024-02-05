@@ -1,4 +1,4 @@
-.header {
+.nav-bar {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.header__navigation {
+.nav-bar__navigation {
   display: flex;
   background-color: #171717;
   justify-content: flex-end;
@@ -20,7 +20,7 @@
   border-image-repeat: repeat;
 }
 
-.header__navigation-text {
+.nav-bar__navigation-text {
   color: white;
   transition: color 0.2s;
   border-radius: 5px;
@@ -28,29 +28,29 @@
   transition: background 0.4s;
 }
 
-.header__navigation:visited {
+.nav-bar__navigation:visited {
   color: white;
 }
 
-.header__navigation-text:hover {
+.nav-bar__navigation-text:hover {
   cursor: pointer;
   color: darkgray;
   background: #4e4d44ba;
   transition: background 0.4s;
 }
 
-.header__navigation_active-link {
+.nav-bar__navigation_active-link {
   text-decoration: underline;
   text-underline-offset: 3px;
   color: darkgray;
 }
 
-.header__navigation_active-link:hover {
+.nav-bar__navigation_active-link:hover {
   cursor: default;
   background: transparent;
 }
 
-.header__logo {
+.nav-bar__logo {
   width: 9%;
   height: auto;
   cursor: pointer;
@@ -61,7 +61,7 @@
   z-index: 2;
 }
 
-.header__mobile-menu {
+.nav-bar__mobile-menu {
   display: none;
   border: none;
 }
@@ -75,7 +75,7 @@
 }
 
 @media (max-width: 1290px) {
-  .header__navigation {
+  .nav-bar__navigation {
     padding-right: 20px;
     height: 50px;
     font-size: 22px;
@@ -84,12 +84,12 @@
 }
 
 @media (max-width: 780px) {
-  .header__navigation {
+  .nav-bar__navigation {
     height: 45px;
     font-size: 20px;
   }
 
-  .header__logo {
+  .nav-bar__logo {
     width: 75px;
     height: 75px;
     top: 12px;
@@ -98,11 +98,11 @@
 }
 
 @media (max-width: 600px) {
-  .header {
+  .nav-bar {
     height: 65px;
   }
 
-  .header__navigation {
+  .nav-bar__navigation {
     display: none;
   }
 
@@ -133,7 +133,7 @@
     border: #0f0f0f 2px solid;
   }
 
-  .header__mobile-menu {
+  .nav-bar__mobile-menu {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,11 +149,11 @@
     box-sizing: content-box;
   }
 
-  .header__mobile-menu_opened {
+  .nav-bar__mobile-menu_opened {
     background-color: transparent;
   }
 
-  .header__mobile-menu-image {
+  .nav-bar__mobile-menu-image {
     position: relative;
     top: 0;
     left: 0;
@@ -167,7 +167,7 @@
     transform: translateX(4%);
   }
 
-  .header__mobile-menu-image:hover {
+  .nav-bar__mobile-menu-image:hover {
     cursor: pointer;
   }
 }

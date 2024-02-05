@@ -4,12 +4,12 @@ import "./HeroSection.css";
 import bannerImage from "@/public/homepage/hero-banner.webp";
 import fullLogoWhite from "@/public/shared/logo-white.png";
 import woodAccent from "@/public/shared/woodAccent.webp";
-import { inter } from "@/src/app/components/fonts";
+import { inter } from "@/src/app/fonts";
 import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="banner">
+    <header className="banner">
       <Image
         className="banner__image"
         src={bannerImage}
@@ -47,7 +47,7 @@ const HeroSection = () => {
           <button className="banner__button global__button">Learn More</button>
         </Link>
       </div>
-    </div>
+    </header>
   );
 };
 

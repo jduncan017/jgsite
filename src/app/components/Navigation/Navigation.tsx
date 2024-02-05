@@ -4,7 +4,7 @@ import "./Navigation.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import logoPath from "@/public/header/logo.png";
-import headerAccentImage from "@/public/shared/woodAccent.webp";
+import navBarAccentImage from "@/public/shared/woodAccent.webp";
 import openMenuIcon from "@/public/header/Hamburger_icon.svg";
 import closeMenuIcon from "@/public/shared/close-button.svg";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Navigation = ({}) => {
   }, [pathname]);
 
   const getLinkContainerClassname = (urlPath: string) => {
-    return pathname === urlPath ? "header__navigation_active-link" : "";
+    return pathname === urlPath ? "nav-bar__navigation_active-link" : "";
   };
 
   const getLinkTextClassName = (path: string) => {
@@ -31,18 +31,18 @@ const Navigation = ({}) => {
   };
 
   return (
-    <div className="header">
+    <nav className="nav-bar">
       <Link href="/">
         <Image
           src={logoPath}
           alt="JohnGerard Logo"
-          className="header__logo"
+          className="nav-bar__logo"
           width={130}
           height={130}
         />
       </Link>
       {/* Mobile Menu */}
-      <div className=".header__mobile-menu">
+      <div className=".nav-bar__mobile-menu">
         <ul
           className={`mobile-menu__navigation ${
             isMobileMenuOpened ? "mobile-menu__navigation_opened" : ""
@@ -98,8 +98,8 @@ const Navigation = ({}) => {
         onClick={toggleMobileMenu}
         className={
           isMobileMenuOpened
-            ? "header__mobile-menu header__mobile-menu_opened"
-            : "header__mobile-menu"
+            ? "nav-bar__mobile-menu nav-bar__mobile-menu_opened"
+            : "nav-bar__mobile-menu"
         }
         aria-label={isMobileMenuOpened ? "Close menu" : "Open menu"}
       >
@@ -108,8 +108,8 @@ const Navigation = ({}) => {
           alt={isMobileMenuOpened ? "Close menu" : "Open menu"}
           className={
             isMobileMenuOpened
-              ? "header__mobile-menu-image mobile-menu__close-icon"
-              : "header__mobile-menu-image mobile-menu__open-icon"
+              ? "nav-bar__mobile-menu-image mobile-menu__close-icon"
+              : "nav-bar__mobile-menu-image mobile-menu__open-icon"
           }
           height={45}
           width={45}
@@ -117,9 +117,9 @@ const Navigation = ({}) => {
       </button>
 
       {/* Desktop Menu */}
-      <ul className="header__navigation">
+      <ul className="nav-bar__navigation">
         <li
-          className={`header__navigation-text ${getLinkContainerClassname(
+          className={`nav-bar__navigation-text ${getLinkContainerClassname(
             "/"
           )}`}
         >
@@ -128,7 +128,7 @@ const Navigation = ({}) => {
           </Link>
         </li>
         <li
-          className={`header__navigation-text ${getLinkContainerClassname(
+          className={`nav-bar__navigation-text ${getLinkContainerClassname(
             "/woodshop"
           )}`}
         >
@@ -137,7 +137,7 @@ const Navigation = ({}) => {
           </Link>
         </li>
         <li
-          className={`header__navigation-text ${getLinkContainerClassname(
+          className={`nav-bar__navigation-text ${getLinkContainerClassname(
             "/contact"
           )}`}
         >
@@ -146,7 +146,7 @@ const Navigation = ({}) => {
           </Link>
         </li>
         <li
-          className={`header__navigation-text ${getLinkContainerClassname(
+          className={`nav-bar__navigation-text ${getLinkContainerClassname(
             "/our-story"
           )}`}
         >
@@ -159,13 +159,13 @@ const Navigation = ({}) => {
         </li>
       </ul>
       <Image
-        src={headerAccentImage}
-        alt="header accent"
+        src={navBarAccentImage}
+        alt="nav-bar accent"
         className="global__wood-accent"
         width={960}
         height={20}
       />
-    </div>
+    </nav>
   );
 };
 

@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__left-container global__z-index-adjust">
         <p className="footer__text">
           © 2021 John Gerrard WoodWork.
@@ -47,7 +47,7 @@ const Footer = () => {
         height={131}
         placeholder="blur"
       />
-    </div>
+    </footer>
   );
 };
 

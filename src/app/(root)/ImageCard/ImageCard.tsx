@@ -25,7 +25,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ title, imagePath, link }) => {
           height={323}
         />
       </ImageLoadingWrapper>
-      <h2 className="image-card__title">{title}</h2>
+      <h3 className="image-card__title">{title}</h3>
     </Link>
   );
 };

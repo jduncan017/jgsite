@@ -1,7 +1,7 @@
 "use client";
 import { useState, ChangeEvent, FormEvent } from "react";
 import "./LoginForm.css";
-import { cardo } from "../../components/fonts";
+import { cardo } from "../../fonts";
 
 interface FormDataInterface {
   username: string;

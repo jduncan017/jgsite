@@ -4,7 +4,7 @@ import "./page.css";
 import AdminSearch from "./Components/SearchBar/AdminSearch";
 import { useContext, useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { imageCards } from "@/src/lib/constants";
+import { IMAGE_CARDS } from "@/src/lib/constants";
 import { ImageCard } from "@/src/lib/constants";
 import GalleryCard from "@/src/app/components/Shop/GalleryCard/GalleryCard";
 import {
@@ -21,7 +21,7 @@ const AdminPanelItems = () => {
   //         - VARIABLES & STATES -          //
   // --------------------------------------- //
   const searchParams = useSearchParams();
-  const basePath = "/database-images/ImageGallery";
+  const BASE_PATH = "/database-images/ImageGallery";
   const [modalOpened, setModalOpened] = useState(false);
   const [searchQuery, setSearchQuery] = useState({});
   const [paginationVisible, setPaginationVisible] = useState(false);
@@ -33,9 +33,9 @@ const AdminPanelItems = () => {
   //               - FUNCTIONS -             //
   // --------------------------------------- //
   // Filter the cards based on search parameters
-  const filteredCards = imageCards
-    .filter(searchFilterCriteria(searchQuery))
-    .sort((a, b) => a.title.localeCompare(b.title));
+  const filteredCards = IMAGE_CARDS.filter(
+    searchFilterCriteria(searchQuery)
+  ).sort((a, b) => a.title.localeCompare(b.title));
   const { currentPageData, setPage } = usePagination<ImageCard>(
     filteredCards,
     itemLimit
@@ -107,7 +107,7 @@ const AdminPanelItems = () => {
             key={index}
             title={card.title}
             price={card.price}
-            imagePath={`${basePath}${card.imagePaths[0]}`}
+            imagePath={`${BASE_PATH}${card.imagePaths[0]}`}
             onClick={() => toggleModal(card)}
           />
         ))}

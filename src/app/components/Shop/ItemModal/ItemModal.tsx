@@ -16,7 +16,7 @@ type ItemModal = {
 };
 
 const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
-  const basePath = "/database-images/ImageGallery";
+  const BASE_PATH = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [inStock, setInStock] = useState(false);
   const {
@@ -125,7 +125,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
       <div className="modal__overlay" onClick={onClose}></div>
       <div className="item-modal__container">
         {/* images section */}
-        <div className="item-modal__image-container">
+        <section className="item-modal__image-container">
           <div
             className="item-modal__image-wrapper"
             ref={imageContainerRef}
@@ -141,16 +141,16 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
                   <img
                     className="item-modal__image"
                     alt={selectedItem.title}
-                    src={`${basePath}${imagePath}`}
+                    src={`${BASE_PATH}${imagePath}`}
                   />
                 </ImageLoadingWrapper>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* info section */}
-        <div className="item-modal__info-container">
+        <section className="item-modal__info-container">
           <div className="item-modal__info-container-info">
             <h2 className="item-modal__title">{selectedItem?.title}</h2>
             <p className="item-modal__price">
@@ -166,7 +166,9 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
                 {formatWoodTypes(selectedItem?.woodType)}
               </p>
             </div>
-            <div className="item-modal__purchase-section">
+
+            {/* purchase section */}
+            <section className="item-modal__purchase-section">
               <Link href={"/contact"} className="item-modal__button-wrapper">
                 <button
                   className="item-modal__button global__button"
@@ -184,7 +186,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
                   Out of Stock
                 </p>
               )}
-            </div>
+            </section>
             {!inStock && (
               <p className="out-of-stock__description">
                 Inquire to request a similar or duplicate item.
@@ -193,7 +195,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
           </div>
 
           {/* image thumbnails */}
-          <div className="item-modal__thumbnail-images">
+          <section className="item-modal__thumbnail-images">
             {selectedItem?.imagePaths.map((imagePath, index) => (
               <div key={index} className="item-modal__thumbnail-container">
                 <ImageLoadingWrapper
@@ -206,7 +208,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
                         ? "item-modal__thumbnail selected-thumbnail"
                         : "item-modal__thumbnail"
                     }
-                    src={`${basePath}${imagePath}`}
+                    src={`${BASE_PATH}${imagePath}`}
                     width={171.5}
                     height={171.5}
                     quality={80}
@@ -215,8 +217,8 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
                 </ImageLoadingWrapper>
               </div>
             ))}
-          </div>
-        </div>
+          </section>
+        </section>
 
         {/* close button */}
         <button

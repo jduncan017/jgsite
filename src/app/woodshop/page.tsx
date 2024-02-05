@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import "./page.css";
 import GalleryHeader from "@/src/app/woodshop/GalleryHeader/GalleryHeader";
 import Shop from "@/src/app/components/Shop/Shop";
-import TitleBanner from "../components/ShopBanner/TitleBanner";
+import TitleBanner from "../components/TitleBanner/TitleBanner";
 
 /* --------------------------------------- */
 /*              Woodshop Page              */

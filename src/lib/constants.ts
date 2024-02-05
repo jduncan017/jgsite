@@ -8,7 +8,7 @@ export interface ImageCard {
   woodType: string[];
 }
 
-const imageCards: ImageCard[] = [
+const IMAGE_CARDS: ImageCard[] = [
   {
     title: "Coasters",
     price: 19.0,
@@ -188,7 +188,7 @@ interface CallToActionCards {
   link: string;
 }
 
-const callToActionCards: CallToActionCards[] = [
+const CALL_TO_ACTION_CARDS: CallToActionCards[] = [
   {
     title: "Furniture",
     imagePath: "/furniture.webp",
@@ -206,4 +206,4 @@ const callToActionCards: CallToActionCards[] = [
   },
 ];
 
-export { imageCards, callToActionCards };
+export { IMAGE_CARDS, CALL_TO_ACTION_CARDS };
