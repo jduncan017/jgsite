@@ -7,6 +7,7 @@ import { SelectedItemProvider } from "../contexts/selectedItemContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
   title: "John Gerard Woodwork Co.",
   keywords: "woodworking, custom, local business, furniture",
   authors: { name: "Joshua Duncan" },
@@ -14,17 +15,17 @@ export const metadata: Metadata = {
   publisher: "Joshua Duncan",
   description: "Professional custom woodwork company in Rochester, NY.",
   alternates: {
-    canonical: "https://www.johngerardwoodwork.com",
+    canonical: "/",
   },
   openGraph: {
     images: {
-      url: "https://www.johngerardwoodwork.com/shared/open-graph.png",
+      url: "/open-graph.png",
       width: 1402,
       height: 878,
     },
     title: "John Gerard Woodworking Company",
     description: "Professional custom woodwork company in Rochester, NY.",
-    url: "https://www.johngerardwoodwork.com",
+    url: "/",
     locale: "en_US",
     type: "website",
   },
