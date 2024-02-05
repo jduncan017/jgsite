@@ -4,9 +4,16 @@
   flex-direction: column;
 }
 
+.banner__image-container {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+
 .banner__image {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .banner__textbox {
@@ -22,18 +29,16 @@
   background-size: cover;
   align-items: center;
   overflow: hidden;
-  min-height: 500px;
-  height: 39vw;
-  max-height: 550px;
+  height: 100%;
   justify-content: center;
   background-color: rgb(14, 9, 0);
   filter: contrast(0.94);
 }
 
-.banner__textbox_text {
+.banner__textbox-text {
   font-size: 22px;
   font-weight: 400;
-  line-height: 2.2rem;
+  line-height: 2rem;
   margin: 25px 8%;
   text-align: center;
   max-width: 300px;
@@ -56,11 +61,7 @@
 }
 
 @media (max-width: 1290px) {
-  .banner__textbox {
-    min-height: 475px;
-  }
-
-  .banner__textbox_text {
+  .banner__textbox-text {
     font-size: 20px;
     line-height: 1.8rem;
     margin: 10px 8%;
@@ -75,13 +76,9 @@
 }
 
 @media (max-width: 1160px) {
-  .banner__textbox {
-    min-height: 0;
-  }
-
-  .banner__textbox_text {
-    font-size: 1.8vw;
-    line-height: 1.6rem;
+  .banner__textbox-text {
+    font-size: 1.6vw;
+    line-height: 1.5rem;
     margin: 8px 8%;
   }
 
@@ -101,14 +98,12 @@
     top: 0;
     left: 0;
     width: 32%;
-    height: 39vw;
     box-shadow: black 5px 2px 5px;
     justify-content: flex-start;
   }
 
-  .banner__textbox_text {
-    line-height: 1.2rem;
-    margin: 10px 9% 2vw;
+  .banner__textbox-text {
+    margin: 10px 6%;
   }
 
   .banner__logo {
@@ -128,11 +123,10 @@
   .banner__textbox {
     position: static;
     width: 100%;
-    height: 100%;
     padding: 30px 0 15px;
   }
 
-  .banner__textbox_text {
+  .banner__textbox-text {
     font-size: 20px;
     line-height: 2.2rem;
     max-width: 450px;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import closeButton from "@/public/shared/close-button-white.png";
-import arrowPath from "@/public/pagination/arrow.png";
+import arrowPath from "@/public/pagination/arrow-white.svg";
 import "./TipModal.css";
 import { isDesktop } from "react-device-detect";
 
@@ -12,7 +12,7 @@ const TipModal: React.FunctionComponent = () => {
     setFadeOut(true);
   };
 
-  // Only render if it's a desktop (which likely has arrow keys)
+  // Only render if it's a desktop
   if (!isDesktop) {
     return null;
   }
@@ -21,7 +21,7 @@ const TipModal: React.FunctionComponent = () => {
     <div className={`tip-modal ${fadeOut ? "tip-modal_fade-out" : ""}`}>
       <p className="tip-modal__text">
         Tip: <br />
-        Use the arrow keys to navigate pages & images in popups.
+        Use the arrow keys to navigate pages & in item popups.
       </p>
       <Image
         src={closeButton}

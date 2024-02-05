@@ -1,22 +1,22 @@
 import React from "react";
 import "./CallToActionSection.css";
 import ImageCard from "../ImageCard/ImageCard";
-import { callToActionCards } from "@/src/lib/constants";
+import { CALL_TO_ACTION_CARDS } from "@/src/lib/constants";
 
 const CallToActionSection = () => {
-  const basePath = "/database-images/CallToActionCards";
+  const BASE_PATH = "/database-images/CallToActionCards";
 
   return (
-    <div className="section">
-      {callToActionCards.map((card, index) => (
+    <section className="section">
+      {CALL_TO_ACTION_CARDS.map((card, index) => (
         <ImageCard
           key={index}
           title={card.title}
-          imagePath={`${basePath}${card.imagePath}`}
+          imagePath={`${BASE_PATH}${card.imagePath}`}
           link={card.link}
         />
       ))}
-    </div>
+    </section>
   );
 };
 

@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import TitleBanner from "../components/ShopBanner/TitleBanner";
+import TitleBanner from "../components/TitleBanner/TitleBanner";
 import SideNav from "./Components/SideNav/SideNav";
 import "./layout.css";
 

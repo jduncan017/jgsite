@@ -1,13 +1,13 @@
 import React from "react";
 import "./Footer.css";
 import Image from "next/image";
-import logo from "@/public/shared/JG-logo-white.png";
+import logo from "@/public/shared/logo-white.svg";
 import backgroundImage from "@/public/shared/footerBackground.webp";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__left-container global__z-index-adjust">
         <p className="footer__text">
           © 2021 John Gerrard WoodWork.
@@ -47,7 +47,7 @@ const Footer = () => {
         height={131}
         placeholder="blur"
       />
-    </div>
+    </footer>
   );
 };
 

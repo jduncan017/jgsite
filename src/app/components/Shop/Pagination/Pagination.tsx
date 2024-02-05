@@ -96,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="pagination__container">
+    <section className="pagination__container">
       {showModal && <TipModal />}
       <button
         className="pagination__button pagination__button_alternate"
@@ -131,7 +131,7 @@ const Pagination: React.FC<PaginationProps> = ({
       >
         &gt;&gt;
       </button>
-    </div>
+    </section>
   );
 };
 

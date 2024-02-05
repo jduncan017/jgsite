@@ -4,7 +4,7 @@ import fags from "@/public/our-story/fags.webp";
 import Image from "next/image";
 import woodAccent from "@/public/shared/woodAccent.webp";
 import aboutImage from "@/public/our-story/aboutNick+Ryan.jpeg";
-import TitleBanner from "@/src/app/components/ShopBanner/TitleBanner";
+import TitleBanner from "@/src/app/components/TitleBanner/TitleBanner";
 
 /* --------------------------------------- */
 /*             Our Story Route             */
@@ -12,7 +12,7 @@ import TitleBanner from "@/src/app/components/ShopBanner/TitleBanner";
 
 const OurStory = () => {
   return (
-    <div className="about__main global__page-background">
+    <main className="about__main global__page-background">
       <Image
         src={aboutImage}
         alt="picture of the owners"
@@ -29,8 +29,8 @@ const OurStory = () => {
         width={960}
         height={20}
       />
-      <div className="about">
-        <div className="about__description global__box-shadow global__border-radius">
+      <section className="about">
+        <section className="about__description global__box-shadow global__border-radius">
           <h1 className="about__description-title">Our Story</h1>
           <h2 className="about__description-text">
             Founded by two best friends and passionate woodworkers, Nick
@@ -52,7 +52,7 @@ const OurStory = () => {
             creating sustainable, unique wooden masterpieces that celebrate the
             beauty of natural materials and the bond of friendship.
           </h2>
-        </div>
+        </section>
         <Image
           src={fags}
           alt="picture of the owners"
@@ -64,8 +64,8 @@ const OurStory = () => {
         <div className="about__title-banner">
           <TitleBanner title={"Our Story"} />
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

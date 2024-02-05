@@ -4,7 +4,7 @@ import TextBox from "@/src/app/(root)/TextBox/TextBox";
 import Shop from "@/src/app/components/Shop/Shop";
 import "./page.css";
 import CallToActionSection from "@/src/app/(root)/CallToActionSection/CallToActionSection";
-import TitleBanner from "../components/ShopBanner/TitleBanner";
+import TitleBanner from "../components/TitleBanner/TitleBanner";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -12,16 +12,14 @@ export default function Home() {
     <>
       <main className="main global__page-background">
         <HeroSection></HeroSection>
-        <div className="main__container">
+        <section className="main__container">
           <TextBox></TextBox>
-          <div className="home__call-to-action-section">
-            <CallToActionSection></CallToActionSection>
-          </div>
+          <CallToActionSection></CallToActionSection>
           <TitleBanner title={"WOODSHOP GALLERY"} />
           <Suspense>
             <Shop isHomePage={true} limit={8}></Shop>
           </Suspense>
-        </div>
+        </section>
       </main>
     </>
   );
