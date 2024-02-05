@@ -1,6 +1,6 @@
 "use client";
 import "./ContactForm.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cardo } from "@/src/app/components/fonts";
 import { useContext } from "react";
 import Image from "next/image";
