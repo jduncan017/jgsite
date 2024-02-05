@@ -36,7 +36,7 @@ const HeroSection = () => {
           height={121}
         />
         <h2
-          className={`banner__textbox_text global__text-shadow ${inter.className}`}
+          className={`banner__textbox-text global__text-shadow ${inter.className}`}
         >
           Quality custom woodworking designs that blend precision and quality,
           crafted from a variety of hand-selected woods to suit your needs. From
