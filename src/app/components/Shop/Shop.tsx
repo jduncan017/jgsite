@@ -29,7 +29,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
   //         - VARIABLES & STATES -          //
   // --------------------------------------- //
   const searchParams = useSearchParams();
-  const BASE_PATH = "/database-images/ImageGallery";
+  const BASE_PATH = "https://bydd5swqcqdt97au.public.blob.vercel-storage.com";
   const [modalOpened, setModalOpened] = useState(false);
   const [searchQuery, setSearchQuery] = useState({});
   const [paginationVisible, setPaginationVisible] = useState(false);

@@ -5,6 +5,7 @@ import Navigation from "@/src/app/components/Navigation/Navigation";
 import Footer from "@/src/app/components/Footer/Footer";
 import { SelectedItemProvider } from "../contexts/selectedItemContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
@@ -45,6 +46,7 @@ export default function RootLayout({
               <Navigation></Navigation>
               {children}
               <SpeedInsights />
+              <Analytics />
             </SelectedItemProvider>
           </div>
           <Footer></Footer>
