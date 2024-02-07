@@ -1,0 +1,23 @@
+.admin-panel-layout {
+  display: flex;
+  height: 100%;
+  flex: 1;
+}
+
+.admin-panel__sidenav {
+  flex: none;
+  width: fit-content;
+}
+
+.admin-panel__display-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  box-shadow: inset black 5px 5px 10px;
+}
+
+.admin-panel__children {
+  flex-grow: 1;
+}
