@@ -134,18 +134,19 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
             onTouchEnd={handleTouchEnd}
             style={{ transform: `translateX(${-currentOffset}px)` }}
           >
-            {selectedItem?.imagePaths.map((imagePath, index) => (
-              <div className="image-container" key={index}>
-                <ImageLoadingWrapper>
-                  {/*eslint-disable-next-line @next/next/no-img-element*/}
-                  <img
-                    className="item-modal__image"
-                    alt={selectedItem.title}
-                    src={`${BASE_PATH}${imagePath}`}
-                  />
-                </ImageLoadingWrapper>
-              </div>
-            ))}
+            {selectedItem &&
+              selectedItem.imagePaths.map((imagePath, index) => (
+                <div className="image-container" key={index}>
+                  <ImageLoadingWrapper>
+                    {/*eslint-disable-next-line @next/next/no-img-element*/}
+                    <img
+                      className="item-modal__image"
+                      alt={selectedItem.title}
+                      src={`${BASE_PATH}${imagePath}`}
+                    />
+                  </ImageLoadingWrapper>
+                </div>
+              ))}
           </div>
         </section>
 
@@ -199,27 +200,28 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
           {/* image thumbnails */}
           <section className="item-modal__thumbnail-images">
-            {selectedItem?.imagePaths.map((imagePath, index) => (
-              <div key={index} className="item-modal__thumbnail-container">
-                <ImageLoadingWrapper
-                  onMouseEnter={() => handleThumbnailInteraction(index)}
-                  onClick={() => handleThumbnailInteraction(index)}
-                >
-                  <Image
-                    className={
-                      selectedItem.displayImagePath === imagePath
-                        ? "item-modal__thumbnail selected-thumbnail"
-                        : "item-modal__thumbnail"
-                    }
-                    src={`${BASE_PATH}${imagePath}`}
-                    width={171.5}
-                    height={171.5}
-                    quality={80}
-                    alt={`Image #${index}`}
-                  />
-                </ImageLoadingWrapper>
-              </div>
-            ))}
+            {selectedItem &&
+              selectedItem.imagePaths.map((imagePath, index) => (
+                <div key={index} className="item-modal__thumbnail-container">
+                  <ImageLoadingWrapper
+                    onMouseEnter={() => handleThumbnailInteraction(index)}
+                    onClick={() => handleThumbnailInteraction(index)}
+                  >
+                    <Image
+                      className={
+                        selectedItem.displayImagePath === imagePath
+                          ? "item-modal__thumbnail selected-thumbnail"
+                          : "item-modal__thumbnail"
+                      }
+                      src={`${BASE_PATH}${imagePath}`}
+                      width={171.5}
+                      height={171.5}
+                      quality={80}
+                      alt={`Image #${index}`}
+                    />
+                  </ImageLoadingWrapper>
+                </div>
+              ))}
           </section>
         </section>
 
