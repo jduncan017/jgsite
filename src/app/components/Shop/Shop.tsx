@@ -11,7 +11,7 @@ import GalleryCard from "./GalleryCard/GalleryCard";
 import {
   SelectedItem,
   SelectedItemContext,
-} from "@/src/contexts/selectedItemContext";
+} from "@/src/contexts/SelectedItemContext";
 import ItemModal from "./ItemModal/ItemModal";
 import SearchBar from "./SearchBar/SearchBar";
 import { searchFilterCriteria } from "@/src/app/components/Shop/SearchFilterCriteria";

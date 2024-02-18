@@ -16,7 +16,7 @@ export default function Home() {
           <TextBox></TextBox>
           <CallToActionSection></CallToActionSection>
           <TitleBanner title={"WOODSHOP GALLERY"} />
-          <Suspense>
+          <Suspense fallback={<div>Loading...</div>}>
             <Shop isHomePage={true} limit={8}></Shop>
           </Suspense>
         </section>

@@ -3,9 +3,10 @@ import { cardo } from "@/src/app/fonts";
 import "./globals.css";
 import Navigation from "@/src/app/components/Navigation/Navigation";
 import Footer from "@/src/app/components/Footer/Footer";
-import { SelectedItemProvider } from "../contexts/selectedItemContext";
+import { SelectedItemProvider } from "../contexts/SelectedItemContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { ModalProvider } from "../contexts/ModalContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
@@ -41,15 +42,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${cardo.className} layout`}>
         <div className="page-wrapper">
-          <div className="page global__page-borders">
-            <SelectedItemProvider>
-              <Navigation></Navigation>
-              {children}
-              <SpeedInsights />
-              <Analytics />
-            </SelectedItemProvider>
-          </div>
-          <Footer></Footer>
+          <ModalProvider>
+            <div className="page global__page-borders">
+              <SelectedItemProvider>
+                <Navigation></Navigation>
+                {children}
+                <SpeedInsights />
+                <Analytics />
+              </SelectedItemProvider>
+            </div>
+            <Footer />
+          </ModalProvider>
         </div>
       </body>
     </html>

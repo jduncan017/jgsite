@@ -37,11 +37,15 @@
   font-weight: 400;
 }
 
-.footer__link:visited {
+.footer__button {
   color: gainsboro;
+  background-color: transparent;
+  border: none;
+  width: fit-content;
+  padding: 0;
 }
 
-.footer__link:hover {
+.footer__button:hover {
   color: #4b6049;
   cursor: pointer;
 }

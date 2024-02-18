@@ -6,7 +6,7 @@ import {
   generateHtmlContent,
   generateTextContent,
 } from "./emailTemplates";
-import { SelectedItem } from "@/src/contexts/selectedItemContext";
+import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 
 export type EmailContents = {
   subject: string;

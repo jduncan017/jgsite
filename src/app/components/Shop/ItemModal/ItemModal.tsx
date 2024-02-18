@@ -6,7 +6,7 @@ import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
 import Link from "next/link";
-import { SelectedItem } from "@/src/contexts/selectedItemContext";
+import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
 
 type ItemModal = {

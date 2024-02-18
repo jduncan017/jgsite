@@ -1,11 +1,19 @@
-import React from "react";
+"use client";
+import React, { ReactNode } from "react";
 import "./Footer.css";
 import Image from "next/image";
 import logo from "@/public/shared/logo-white.svg";
 import backgroundImage from "@/public/shared/footerBackground.webp";
-import Link from "next/link";
+import { useModal } from "../../../contexts/ModalContext";
+import LoginForm from "@/src/app/admin-login/loginForm/LoginForm";
 
 const Footer = () => {
+  const { showModal } = useModal();
+
+  function showAdminLogin(content: ReactNode) {
+    showModal(content);
+  }
+
   return (
     <footer className="footer">
       <div className="footer__left-container global__z-index-adjust">
@@ -14,9 +22,13 @@ const Footer = () => {
           <br />
           Rochester, NY
         </p>
-        <Link href="/admin-login" className="footer__link">
+        <button
+          type="button"
+          onClick={() => showAdminLogin(<LoginForm />)}
+          className="footer__button"
+        >
           Admin Login
-        </Link>
+        </button>
       </div>
       <Image
         src={logo}
