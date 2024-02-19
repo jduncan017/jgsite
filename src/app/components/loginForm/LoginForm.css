@@ -33,25 +33,6 @@
   color: white;
 }
 
-@media (max-width: 800px) {
-  .login-form__submit {
-    width: 160px;
-    margin: 15px 0 25px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 520px) {
-  .login-form__input {
-    margin-bottom: 25px;
-    padding: 2px;
-  }
-
-  .login-form__submit {
-    margin-top: 5px;
-  }
-}
-
 .login-page__login-form {
   width: 70vw;
   max-width: 750px;
@@ -125,6 +106,12 @@
 }
 
 @media (max-width: 800px) {
+  .login-form__submit {
+    width: 160px;
+    margin: 15px 0 25px;
+    font-size: 16px;
+  }
+
   .login-page__login-form {
     width: 100%;
   }
@@ -159,6 +146,15 @@
 }
 
 @media (max-width: 520px) {
+  .login-form__input {
+    margin-bottom: 25px;
+    padding: 2px;
+  }
+
+  .login-form__submit {
+    margin-top: 5px;
+  }
+
   .login-page__main {
     padding: 10px;
   }

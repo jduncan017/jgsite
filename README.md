@@ -11,8 +11,6 @@ This is a fully functional site for the John-Gerard Woodworking company. It focu
 
 **Future Enhancements**
 
-- Cleanup modalWrapper and loginForm => loginModal & delete route
-- Change contactForm to contactModal & delete route
 - Create Admin Route
 - Database integration
 - Backend Accesspoint with content upload management
