@@ -11,7 +11,7 @@ import GalleryCard from "./GalleryCard/GalleryCard";
 import {
   SelectedItem,
   SelectedItemContext,
-} from "@/src/contexts/selectedItemContext";
+} from "@/src/contexts/SelectedItemContext";
 import ItemModal from "./ItemModal/ItemModal";
 import SearchBar from "./SearchBar/SearchBar";
 import { searchFilterCriteria } from "@/src/app/components/Shop/SearchFilterCriteria";
@@ -59,6 +59,10 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
       setSelectedItem(updatedItem);
       setModalOpened(true);
     }
+  }
+
+  function transferToContactModal() {
+    setModalOpened(false);
   }
 
   const scrollToSearchBar = () => {
@@ -177,7 +181,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
         <ItemModal
           onClose={toggleModal}
           selectedItem={selectedItem}
-          onClick={() => setModalOpened(false)}
+          transferToContactModal={transferToContactModal}
         />
       )}
     </section>

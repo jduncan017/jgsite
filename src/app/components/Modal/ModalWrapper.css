@@ -1,0 +1,36 @@
+.modal__backdrop {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal__content {
+  width: fit-content;
+  position: relative;
+  background-color: white;
+  margin: auto;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background-color: transparent;
+  height: fit-content;
+  width: fit-content;
+  border: none;
+  z-index: 1;
+}
+
+.modal__close-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

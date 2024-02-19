@@ -1,24 +1,31 @@
 "use client";
 import useEscape from "@/src/hooks/useEscape";
 import "./ItemModal.css";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, ReactNode } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
-import Link from "next/link";
-import { SelectedItem } from "@/src/contexts/selectedItemContext";
+import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
+import { useModal } from "@/src/contexts/ModalContext";
+import ContactForm from "@/src/app/components/ContactForm/ContactForm";
+import closeButton from "@/public/shared/close-button.svg";
 
 type ItemModal = {
   onClose: () => void;
   selectedItem?: SelectedItem | null;
-  onClick: () => void;
+  transferToContactModal: () => void;
 };
 
-const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
+const ItemModal: React.FC<ItemModal> = ({
+  onClose,
+  selectedItem,
+  transferToContactModal,
+}) => {
   const BASE_PATH = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [inStock, setInStock] = useState(false);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(0);
   const {
     handleTouchStart,
     handleTouchMove,
@@ -28,6 +35,12 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
     currentOffset,
     setCurrentOffset,
   } = useSwipe(imageContainerRef, selectedItem?.imagePaths);
+  const { showModal } = useModal();
+
+  function showContactModal(content: ReactNode) {
+    transferToContactModal();
+    showModal(content);
+  }
 
   // close modal on 'esc'
   useEscape(onClose);
@@ -69,6 +82,7 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
     (index: number) => {
       const containerWidth = imageContainerRef.current?.offsetWidth || 0;
       const newOffset = containerWidth * index;
+      setSelectedThumbnail(index);
       setCurrentOffset(newOffset);
     },
     [setCurrentOffset]
@@ -134,18 +148,19 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
             onTouchEnd={handleTouchEnd}
             style={{ transform: `translateX(${-currentOffset}px)` }}
           >
-            {selectedItem?.imagePaths.map((imagePath, index) => (
-              <div className="image-container" key={index}>
-                <ImageLoadingWrapper>
-                  {/*eslint-disable-next-line @next/next/no-img-element*/}
-                  <img
-                    className="item-modal__image"
-                    alt={selectedItem.title}
-                    src={`${BASE_PATH}${imagePath}`}
-                  />
-                </ImageLoadingWrapper>
-              </div>
-            ))}
+            {selectedItem &&
+              selectedItem.imagePaths.map((imagePath, index) => (
+                <div className="image-container" key={index}>
+                  <ImageLoadingWrapper>
+                    {/*eslint-disable-next-line @next/next/no-img-element*/}
+                    <img
+                      className="item-modal__image"
+                      alt={selectedItem.title}
+                      src={`${BASE_PATH}${imagePath}`}
+                    />
+                  </ImageLoadingWrapper>
+                </div>
+              ))}
           </div>
         </section>
 
@@ -172,14 +187,13 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
             {/* purchase section */}
             <section className="item-modal__purchase-section">
-              <Link href={"/contact"} className="item-modal__button-wrapper">
-                <button
-                  className="item-modal__button global__button"
-                  onClick={onClick}
-                >
-                  {inStock ? `Purchase` : `Inquire`}
-                </button>
-              </Link>
+              <button
+                className="item-modal__button global__button"
+                onClick={() => showContactModal(<ContactForm />)}
+                type="button"
+              >
+                {inStock ? `Purchase` : `Inquire`}
+              </button>
               {inStock ? (
                 <p className="item-modal__stock">
                   In Stock: {selectedItem?.quantity}
@@ -199,36 +213,35 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
           {/* image thumbnails */}
           <section className="item-modal__thumbnail-images">
-            {selectedItem?.imagePaths.map((imagePath, index) => (
-              <div key={index} className="item-modal__thumbnail-container">
-                <ImageLoadingWrapper
-                  onMouseEnter={() => handleThumbnailInteraction(index)}
-                  onClick={() => handleThumbnailInteraction(index)}
-                >
-                  <Image
-                    className={
-                      selectedItem.displayImagePath === imagePath
-                        ? "item-modal__thumbnail selected-thumbnail"
-                        : "item-modal__thumbnail"
-                    }
-                    src={`${BASE_PATH}${imagePath}`}
-                    width={171.5}
-                    height={171.5}
-                    quality={80}
-                    alt={`Image #${index}`}
-                  />
-                </ImageLoadingWrapper>
-              </div>
-            ))}
+            {selectedItem &&
+              selectedItem.imagePaths.map((imagePath, index) => (
+                <div key={index} className="item-modal__thumbnail-container">
+                  <ImageLoadingWrapper
+                    onMouseEnter={() => handleThumbnailInteraction(index)}
+                    onClick={() => handleThumbnailInteraction(index)}
+                  >
+                    <Image
+                      className={
+                        selectedThumbnail === index
+                          ? "item-modal__thumbnail selected-thumbnail"
+                          : "item-modal__thumbnail"
+                      }
+                      src={`${BASE_PATH}${imagePath}`}
+                      width={171.5}
+                      height={171.5}
+                      quality={80}
+                      alt={`Image #${index}`}
+                    />
+                  </ImageLoadingWrapper>
+                </div>
+              ))}
           </section>
         </section>
 
         {/* close button */}
-        <button
-          className="modal__close-button"
-          type="button"
-          onClick={onClose}
-        ></button>
+        <button className="modal__close-button" type="button" onClick={onClose}>
+          <Image src={closeButton} alt="close button" height={20} width={20} />
+        </button>
       </div>
     </div>
   );
