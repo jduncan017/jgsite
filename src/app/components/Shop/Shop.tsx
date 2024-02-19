@@ -61,6 +61,10 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
     }
   }
 
+  function transferToContactModal() {
+    setModalOpened(false);
+  }
+
   const scrollToSearchBar = () => {
     searchBarRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -177,7 +181,7 @@ const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
         <ItemModal
           onClose={toggleModal}
           selectedItem={selectedItem}
-          onClick={() => setModalOpened(false)}
+          transferToContactModal={transferToContactModal}
         />
       )}
     </section>

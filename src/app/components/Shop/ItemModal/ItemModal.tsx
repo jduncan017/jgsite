@@ -1,21 +1,27 @@
 "use client";
 import useEscape from "@/src/hooks/useEscape";
 import "./ItemModal.css";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, ReactNode } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
 import Link from "next/link";
 import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
+import { useModal } from "@/src/contexts/ModalContext";
+import ContactForm from "@/src/app/components/ContactForm/ContactForm";
 
 type ItemModal = {
   onClose: () => void;
   selectedItem?: SelectedItem | null;
-  onClick: () => void;
+  transferToContactModal: () => void;
 };
 
-const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
+const ItemModal: React.FC<ItemModal> = ({
+  onClose,
+  selectedItem,
+  transferToContactModal,
+}) => {
   const BASE_PATH = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [inStock, setInStock] = useState(false);
@@ -28,6 +34,12 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
     currentOffset,
     setCurrentOffset,
   } = useSwipe(imageContainerRef, selectedItem?.imagePaths);
+  const { showModal } = useModal();
+
+  function showContactModal(content: ReactNode) {
+    transferToContactModal();
+    showModal(content);
+  }
 
   // close modal on 'esc'
   useEscape(onClose);
@@ -173,14 +185,13 @@ const ItemModal: React.FC<ItemModal> = ({ onClose, selectedItem, onClick }) => {
 
             {/* purchase section */}
             <section className="item-modal__purchase-section">
-              <Link href={"/contact"} className="item-modal__button-wrapper">
-                <button
-                  className="item-modal__button global__button"
-                  onClick={onClick}
-                >
-                  {inStock ? `Purchase` : `Inquire`}
-                </button>
-              </Link>
+              <button
+                className="item-modal__button global__button"
+                onClick={() => showContactModal(<ContactForm />)}
+                type="button"
+              >
+                {inStock ? `Purchase` : `Inquire`}
+              </button>
               {inStock ? (
                 <p className="item-modal__stock">
                   In Stock: {selectedItem?.quantity}

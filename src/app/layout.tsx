@@ -42,17 +42,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${cardo.className} layout`}>
         <div className="page-wrapper">
-          <ModalProvider>
-            <div className="page global__page-borders">
-              <SelectedItemProvider>
+          <SelectedItemProvider>
+            <ModalProvider>
+              <div className="page global__page-borders">
                 <Navigation></Navigation>
                 {children}
                 <SpeedInsights />
                 <Analytics />
-              </SelectedItemProvider>
-            </div>
-            <Footer />
-          </ModalProvider>
+              </div>
+              <Footer />
+            </ModalProvider>
+          </SelectedItemProvider>
         </div>
       </body>
     </html>

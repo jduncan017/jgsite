@@ -20,16 +20,19 @@
   border-image-repeat: repeat;
 }
 
-.header__navigation-text {
-  color: gainsboro;
+.nav-bar__navigation-text {
+  color: white;
   transition: color 0.2s;
   border-radius: 5px;
   padding: 4px 10px;
   transition: background 0.4s;
+  background-color: transparent;
+  border: none;
+  font-size: 26px;
 }
 
-.header__navigation:visited {
-  color: gainsboro;
+.nav-bar__navigation:visited {
+  color: white;
 }
 
 .nav-bar__navigation-text:hover {
@@ -95,6 +98,11 @@
     top: 12px;
     left: 4%;
   }
+
+  .nav-bar__navigation-text {
+    padding: 4px 4px;
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -118,6 +126,11 @@
     position: absolute;
     font-size: 26px;
     z-index: 2;
+  }
+
+  .nav-bar__navigation-text {
+    font-size: 26px;
+    padding: 0;
   }
 
   .mobile-menu__navigation_opened {

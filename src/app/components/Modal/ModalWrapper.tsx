@@ -14,6 +14,10 @@ const ModalWrapper: FC<ModalWrapperProps> = ({ children }) => {
   const { hideModal } = useModal();
   useEscape(hideModal);
 
+  const handleModalContentClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
     <div className="modal__backdrop" onClick={hideModal}>
       <motion.div
@@ -21,11 +25,12 @@ const ModalWrapper: FC<ModalWrapperProps> = ({ children }) => {
         initial={{ scale: 0 }}
         transition={{ duration: 0.2 }}
         className="modal__content"
+        onClick={handleModalContentClick}
       >
         <button
           className="modal__close-button"
           type="button"
-          onClick={() => hideModal()}
+          onClick={hideModal}
         >
           <Image
             src={closeButton}

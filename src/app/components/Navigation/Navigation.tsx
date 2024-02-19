@@ -1,7 +1,7 @@
 "use client";
 
 import "./Navigation.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import Image from "next/image";
 import logoPath from "@/public/header/logo.png";
 import navBarAccentImage from "@/public/shared/woodAccent.webp";
@@ -9,10 +9,20 @@ import openMenuIcon from "@/public/header/Hamburger_icon.svg";
 import closeMenuIcon from "@/public/shared/close-button.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useModal } from "@/src/contexts/ModalContext";
+import ContactForm from "../ContactForm/ContactForm";
+import { cardo } from "../../fonts";
 
 const Navigation = ({}) => {
   const pathname = usePathname();
   const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
+  const { showModal } = useModal();
+
+  function showContactModal(content: ReactNode) {
+    setMobileMenuOpened(false);
+    showModal(content);
+  }
+
   const toggleMobileMenu = () => {
     setMobileMenuOpened(!isMobileMenuOpened);
   };
@@ -22,6 +32,7 @@ const Navigation = ({}) => {
     setMobileMenuOpened(false);
   }, [pathname]);
 
+  //These 2 funcitions show the current page in the nav bar
   const getLinkContainerClassname = (urlPath: string) => {
     return pathname === urlPath ? "nav-bar__navigation_active-link" : "";
   };
@@ -73,15 +84,6 @@ const Navigation = ({}) => {
           </li>
           <li
             className={`mobile-menu__navigation-text ${getLinkContainerClassname(
-              "/contact"
-            )}`}
-          >
-            <Link href="/contact" className={getLinkTextClassName("/contact")}>
-              Contact
-            </Link>
-          </li>
-          <li
-            className={`mobile-menu__navigation-text ${getLinkContainerClassname(
               "/our-story"
             )}`}
           >
@@ -91,6 +93,15 @@ const Navigation = ({}) => {
             >
               Our Story
             </Link>
+          </li>
+          <li className="mobile-menu__navigation-text">
+            <button
+              type="button"
+              onClick={() => showContactModal(<ContactForm />)}
+              className={`nav-bar__navigation-text ${cardo.className}`}
+            >
+              Contact
+            </button>
           </li>
         </ul>
       </div>
@@ -138,15 +149,6 @@ const Navigation = ({}) => {
         </li>
         <li
           className={`nav-bar__navigation-text ${getLinkContainerClassname(
-            "/contact"
-          )}`}
-        >
-          <Link href="/contact" className={getLinkTextClassName("/contact")}>
-            Contact
-          </Link>
-        </li>
-        <li
-          className={`nav-bar__navigation-text ${getLinkContainerClassname(
             "/our-story"
           )}`}
         >
@@ -156,6 +158,15 @@ const Navigation = ({}) => {
           >
             Our Story
           </Link>
+        </li>
+        <li>
+          <button
+            type="button"
+            onClick={() => showContactModal(<ContactForm />)}
+            className={`nav-bar__navigation-text ${cardo.className}`}
+          >
+            Contact
+          </button>
         </li>
       </ul>
       <Image
