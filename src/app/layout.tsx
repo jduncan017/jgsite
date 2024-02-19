@@ -3,7 +3,7 @@ import { cardo } from "@/src/app/fonts";
 import "./globals.css";
 import Navigation from "@/src/app/components/Navigation/Navigation";
 import Footer from "@/src/app/components/Footer/Footer";
-import { SelectedItemProvider } from "../contexts/SelectedItemContext";
+import { SelectedItemProvider } from "../contexts/selectedItemContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { ModalProvider } from "../contexts/ModalContext";

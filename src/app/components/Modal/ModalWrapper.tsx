@@ -1,4 +1,3 @@
-"use client";
 import React, { FC, ReactElement } from "react";
 import { motion } from "framer-motion";
 import closeButton from "@/public/shared/close-button-white.png";

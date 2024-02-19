@@ -4,7 +4,7 @@ import { useState } from "react";
 import { cardo } from "@/src/app/fonts";
 import { useContext } from "react";
 import Image from "next/image";
-import { SelectedItemContext } from "@/src/contexts/SelectedItemContext";
+import { SelectedItemContext } from "@/src/contexts/selectedItemContext";
 import {
   useFormAndValidation,
   FormValues,
