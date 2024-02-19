@@ -2,7 +2,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import "./LoginForm.css";
 import { cardo } from "../../fonts";
-import ModalWrapper from "../../components/Modal/ModalWrapper";
+import ModalWrapper from "../Modal/ModalWrapper";
 import Image from "next/image";
 import formAccent from "@/public/shared/form-accent.png";
 

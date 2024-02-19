@@ -5,11 +5,11 @@ import { useState, useEffect, useRef, useCallback, ReactNode } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
-import Link from "next/link";
 import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
 import { useModal } from "@/src/contexts/ModalContext";
 import ContactForm from "@/src/app/components/ContactForm/ContactForm";
+import closeButton from "@/public/shared/close-button.svg";
 
 type ItemModal = {
   onClose: () => void;
@@ -25,6 +25,7 @@ const ItemModal: React.FC<ItemModal> = ({
   const BASE_PATH = "/database-images/ImageGallery";
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const [inStock, setInStock] = useState(false);
+  const [selectedThumbnail, setSelectedThumbnail] = useState(0);
   const {
     handleTouchStart,
     handleTouchMove,
@@ -81,6 +82,7 @@ const ItemModal: React.FC<ItemModal> = ({
     (index: number) => {
       const containerWidth = imageContainerRef.current?.offsetWidth || 0;
       const newOffset = containerWidth * index;
+      setSelectedThumbnail(index);
       setCurrentOffset(newOffset);
     },
     [setCurrentOffset]
@@ -220,7 +222,7 @@ const ItemModal: React.FC<ItemModal> = ({
                   >
                     <Image
                       className={
-                        selectedItem.displayImagePath === imagePath
+                        selectedThumbnail === index
                           ? "item-modal__thumbnail selected-thumbnail"
                           : "item-modal__thumbnail"
                       }
@@ -237,11 +239,9 @@ const ItemModal: React.FC<ItemModal> = ({
         </section>
 
         {/* close button */}
-        <button
-          className="modal__close-button"
-          type="button"
-          onClick={onClose}
-        ></button>
+        <button className="modal__close-button" type="button" onClick={onClose}>
+          <Image src={closeButton} alt="close button" height={20} width={20} />
+        </button>
       </div>
     </div>
   );

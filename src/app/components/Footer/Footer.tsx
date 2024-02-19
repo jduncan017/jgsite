@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo from "@/public/shared/logo-white.svg";
 import backgroundImage from "@/public/shared/footerBackground.webp";
 import { useModal } from "../../../contexts/ModalContext";
-import LoginForm from "@/src/app/admin-login/loginForm/LoginForm";
+import LoginForm from "@/src/app/components/loginForm/LoginForm";
 
 const Footer = () => {
   const { showModal } = useModal();
