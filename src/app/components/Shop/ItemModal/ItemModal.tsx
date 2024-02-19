@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback, ReactNode } from "react";
 import formatCurrency from "@/src/utils/numberFormat";
 import ImageLoadingWrapper from "../../PreLoader/ImageLoadingWrapper";
 import Image from "next/image";
-import { SelectedItem } from "@/src/contexts/selectedItemContext";
+import { SelectedItem } from "@/src/contexts/SelectedItemContext";
 import useSwipe from "@/src/hooks/useSwipe";
 import { useModal } from "@/src/contexts/ModalContext";
 import ContactForm from "@/src/app/components/ContactForm/ContactForm";
