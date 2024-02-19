@@ -11,6 +11,9 @@ This is a fully functional site for the John-Gerard Woodworking company. It focu
 
 **Future Enhancements**
 
+- Cleanup modalWrapper and loginForm => loginModal & delete route
+- Change contactForm to contactModal & delete route
+- Create Admin Route
 - Database integration
 - Backend Accesspoint with content upload management
   - Database Modeling & Server building
@@ -19,6 +22,7 @@ This is a fully functional site for the John-Gerard Woodworking company. It focu
   - Api integration
   - Doublecheck for site security weaknesses
 - Research and impliment SEO techniques
+- Check for Refactors
 
 **View the Site Here:**
 www.johngerardwoodwork.com
