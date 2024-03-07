@@ -24,7 +24,7 @@ type ShopProps = {
 };
 
 // SHOP COMPONENT
-const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 8 }) => {
+const Shop: React.FC<ShopProps> = ({ isHomePage, limit = 12 }) => {
   // --------------------------------------- //
   //         - VARIABLES & STATES -          //
   // --------------------------------------- //

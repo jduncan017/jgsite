@@ -3,11 +3,9 @@ interface TextContent {
 }
 
 const pageTexts: TextContent = {
-  galleryAbout: `Everything we make is a unique piece that was carefully crafted in our shop. Listed items may or may not be readily available, but we can always recreate projects or customize them to your needs.
+  galleryAbout: `Everything we make is a unique piece that was carefully crafted in our shop. Please make sure to view our gallery, we mostly focus on custom pieces but we usually do have some inventory available.
   
-  Please contact us if you’re interested in any of our pieces. If you’d like a bulk order or want something custom, please contact us via our custom orders page.
-  
-  Build times on custom or out of stock items vary based on our current workload.`,
+  If you're looking for something in particular, please reach out via the contact form at the top of the page.`,
 };
 
 export default pageTexts;

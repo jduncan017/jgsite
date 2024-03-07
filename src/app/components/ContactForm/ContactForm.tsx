@@ -84,8 +84,8 @@ const ContactForm = () => {
             SEND US A MESSAGE:
           </h2>
           <p className="form__description">
-            Have a question or looking to buy one of our pieces? Reach out
-            below!
+            Have a question? Looking for a custom piece?
+            <br /> Reach out below!
           </p>
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <div className="contact-form__top-section-wrapper">
@@ -116,8 +116,7 @@ const ContactForm = () => {
                       Please Select
                     </option>
                     <option value="inquiry">General Inquiry</option>
-                    <option value="purchase">Purchase</option>
-                    <option value="custom_order">Custom / Bulk Order</option>
+                    <option value="custom_order">Customer Service</option>
                     <option value="other">Other</option>
                   </select>
                   <span className="contact-form__error" id="subject-error">
@@ -140,7 +139,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className={`contact-form__input ${cardo.className}`}
-                    placeholder="Paul Bunyan"
+                    placeholder="Ron Swanson"
                     aria-describedby="name-error"
                   />
                   <span className="contact-form__error" id="name-error">
@@ -168,7 +167,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className={`contact-form__input ${cardo.className}`}
-                    placeholder="(123) 456-7890"
+                    placeholder="(719) 266-2837"
                     aria-describedby="phone-error"
                   />
                   <span className="contact-form__error" id="phone-error">
@@ -192,7 +191,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     required
                     className={`contact-form__input contact-form__input_email ${cardo.className}`}
-                    placeholder="paulbunyan@lumberco.com"
+                    placeholder="duke_silver@gmail.com"
                     aria-describedby="email-error"
                   />
                   <span className="contact-form__error" id="email-error">
